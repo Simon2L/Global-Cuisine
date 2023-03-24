@@ -1,2 +1,2 @@
-# Grupp-2
+# Global Cuisine
 Local recepie webbapp
