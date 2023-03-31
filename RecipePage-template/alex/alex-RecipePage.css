@@ -1,0 +1,19 @@
+.header {
+
+    background-color: #AB4545;
+    color: white;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+ 
+  }
+
+.header img {
+    width: 42;
+    height: 40;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
