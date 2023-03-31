@@ -9,11 +9,12 @@
   }
 
 .header img {
-    width: 42;
-    height: 40;
+  max-width: 285px;
+  max-height: 35px;
 }
 
-body {
+.default{
+    background-color:#F1D0C5;   
     margin: 0;
     padding: 0;
 }
