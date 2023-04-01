@@ -1,11 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+.default{
+  background-color:#F1D0C5;   
+  margin: 0;
+  padding: 0;
+}
+
 .navbar_header{
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   background-color: #AB4545;
   color: white;
-  width: 100%;
-  overflow: hidden;
 
 }
 
@@ -15,20 +24,11 @@
   max-height: 3rem;
 }
 
-.default{
-    background-color:#F1D0C5;   
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.navbar_links {
-  display: flex;
-  align-self: flex-end;
-}
 
 .navbar_links ul {
   display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar_links li {
@@ -36,6 +36,7 @@
 }
 
 .navbar_links li a {
+  display: block;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -59,7 +60,7 @@
 }
 
 .toggle_button .bar {
-  height: 4px;
+  height: 3px;
   width: 100%;
   background-color: white;
   border-radius: 10px;
@@ -71,12 +72,25 @@
   }
 
   .navbar_links {
-    display: none;
+    /* display: none; */
+    width: 100%;
   }
 
   .navbar_header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .navbar_links ul {
+    width: 100%;
+    flex-direction: column;
+  }
+  .navbar_links li {
+    text-align: center;
+  }
+
+  .navbar_links li a {
+    padding: 1rem;
   }
 }
 
