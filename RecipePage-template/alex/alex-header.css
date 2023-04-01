@@ -5,7 +5,6 @@
   background-color: #AB4545;
   color: white;
   width: 100%;
-  height: 100px;
   overflow: hidden;
 
 }
@@ -47,3 +46,37 @@
 .navbar_links li:hover {
   background-color: #ad3535;
 }
+
+.toggle_button {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: 30px;
+}
+
+.toggle_button .bar {
+  height: 4px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+  .toggle_button {
+    display: flex;
+  }
+
+  .navbar_links {
+    display: none;
+  }
+
+  .navbar_header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
