@@ -55,12 +55,12 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 40px;
+  width: 45px;
   height: 30px;
 }
 
 .toggle_button .bar {
-  height: 3px;
+  height: 4px;
   width: 100%;
   background-color: white;
   border-radius: 10px;
@@ -72,7 +72,7 @@
   }
 
   .navbar_links {
-    /* display: none; */
+    display: none;
     width: 100%;
   }
 
@@ -91,6 +91,10 @@
 
   .navbar_links li a {
     padding: 1rem;
+  }
+
+  .navbar_links.active {
+    display: flex;
   }
 }
 
