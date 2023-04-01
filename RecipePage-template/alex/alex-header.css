@@ -40,4 +40,6 @@
   padding: 2rem;
 }
 
-.n
+.navbar_links li:hover {
+  background-color: #972e2e;
+}
