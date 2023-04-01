@@ -28,6 +28,10 @@
   align-self: flex-end;
 }
 
+.navbar_links ul {
+  display: flex;
+}
+
 .navbar_links li {
   list-style: none;
 }
@@ -41,5 +45,5 @@
 }
 
 .navbar_links li:hover {
-  background-color: #972e2e;
+  background-color: #ad3535;
 }
