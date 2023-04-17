@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Cuisine</title>
+    <link rel="stylesheet" href="./css-home/simon-homePage.css">
+</head>
+<body>
+    <div class="main">
+        <header class="header">
+            <img class="header__logo" src="../../Sketches and images\logo\global-cuisine-low-resolution-logo-color-on-transparent-background.png" alt="Global Cuisine logo">
+            <ul class="header__list">
+                <li class="header__item">
+                    <a href="" class="header__link">
+                        Home
+                    </a>
+                </li>
+                <li class="header__item">
+                    <a href="" class="header__link">
+                        About Us
+                    </a>
+                </li>
+                <li class="header__item">    
+                    <a href="" class="header__link">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <section class="search-form">
+            <h1 class="search-form__title">Global Cuisine</h1>
+            <p class="search-form__subtitle">connects you to 2.3 millions recipes spread over 500+ websites</p>
+            <form class="search-form__container">
+                <input class="search-form__input" data-="text" placeholder="Search...">
+                <button class="search-form__submit" onclick="searchSubmit">Search
+                    <!-- <img src="../../Sketches and images/logo/Search_alt.png" alt="search image"> -->
+                </button>
+                <button class="search-form__filter" onclick=""> Filter
+                    <!-- <img src="../../Sketches and images/logo/filter-image.png" alt="filter image"> -->
+                </button>
+            </form>
+        </section>
+        <section class="recipe-cards">
+            <h2 class="recipe-cards__subtitle">20 recipes available</h2>
+        <a href="">
+            <ul id="postlist" class="recipe-cards__list">
+
+            </ul>
+        </a>
+        </section>
+    </div>
+    <script src="./scriptS/fetchEdamam.js"></script>
+</body>
+</html>
