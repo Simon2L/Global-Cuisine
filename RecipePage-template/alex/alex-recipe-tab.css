@@ -1,0 +1,22 @@
+.left {
+    float: left;
+    width: 60%;
+    padding: 0 20px;
+    margin: 2rem;
+  }
+  
+.right {
+    background-color: #e5e5e5;
+    float: left;
+    width: 20%;
+    padding: 15px;
+    margin: 2rem;
+    text-align: center;
+}
+  
+  @media (max-width: 800px) {
+
+    .left, .right {
+      width: 100%;
+    }
+  }
