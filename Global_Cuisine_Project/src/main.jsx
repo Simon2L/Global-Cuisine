@@ -7,12 +7,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Pages/Home' 
+import ErrorPage from "./Pages/error-page";
+
 
 //#region sätter upp Routing
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true, element: <Home />
