@@ -15,21 +15,21 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />, // en error sida om något går fel
     children: [
       {
-        index: true, element: <Home />
+        index: true, element: <Home /> 
       },
       {
         path: "searched/:search",
-        element: 
+        element: // här visas sök resulatet
         <>
-          <h1>searchResult</h1>
+          <h1>searchResult</h1> 
           <hr></hr>
         </>
       },
       {
-        path: "recipes/:recipeId",
+        path: "recipes/:recipeId", // här visas receptet
         element: 
         <>
           <h1>Recipe</h1>
