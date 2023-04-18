@@ -12,7 +12,12 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />
+    element: <Root />,
+    children: [
+      {
+        index: true, element: <Home />
+      }
+    ]
   },
 ]);
 //#endregion
