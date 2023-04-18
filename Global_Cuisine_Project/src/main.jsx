@@ -16,11 +16,46 @@ const router = createBrowserRouter([
     children: [
       {
         index: true, element: <Home />
-      }
-    ]
-  },
+      },
+      {
+        path: "searched/:search",
+        element: 
+        <>
+          <h1>searchResult</h1>
+          <hr></hr>
+        </>
+      },
+      {
+        path: "recipes/:recipeId",
+        element: 
+        <>
+          <h1>Recipe</h1>
+          <hr></hr>
+        </>
+      },
+      {
+       path: "about",
+       element:  
+       <>
+       <h1>About us</h1>
+       <hr></hr>
+     </>
+      },
+      {
+        path: "contact",
+        element:  
+        <>
+        <h1>Contact us here</h1>
+        <hr></hr>
+      </>
+       }
+]
+},
 ]);
 //#endregion
+  
+        
+         
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
