@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-
+import Home from './Pages/Home' 
 
 //#region sätter upp Routing
 const router = createBrowserRouter([
