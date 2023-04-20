@@ -1,0 +1,123 @@
+
+.navbar {
+    top: 0;
+    right: 0;
+    left: 0;
+    position:fixed;
+    box-sizing: border-box;
+    margin: 0;
+    background-color: #AB4545;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 75px;
+}
+
+.logo {
+    display: flex;
+}
+
+.logo img {
+    width: 200px;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    transition: width, 0.5s;
+    height: 100%;
+    align-items: center;
+    gap: 2vw;
+}
+
+.menu a {
+    padding: 28px 13px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    text-decoration: none;
+}
+.menu a:hover {
+    background-color: #c46666;
+}
+.menu a:active {
+    background-color: #db7171;
+    
+}
+
+.hamburger {
+    display: none;
+}
+
+@media screen and (max-width: 485px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: -100%;
+        width: fit-content;
+        top: 0px;
+        background-color: #AB4545;
+        height: 100vh;
+        justify-content: start;
+        gap: 0;
+        padding-top: 75px;
+        box-shadow: -5px 10px 30px 5px #421c1c;
+    }
+
+    .menu.is-active {
+        right: 0;
+    }
+
+    .menu a {
+        padding: 15px;
+        text-align: left;
+        width: 175px;
+        box-shadow: 5px 10px 50px #bd4d4d inset;
+    }
+    .navbar {
+        justify-content: center;
+    }
+    .hamburger {
+        width: 35px;
+        cursor: pointer;
+        display: block;
+        position: fixed;
+        right: 1rem;
+
+        appearance: none;
+        background: none;
+        outline: none;
+        border: none;
+        transition: 0.2s ease-out;
+    }
+    .hamburger .bar, .hamburger:after, .hamburger:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0px;
+    }
+    .hamburger.is-active:before {
+        transform: rotate(-45deg) translate(-5px, 5px);
+        transition: 0.2s;
+    }
+
+    .hamburger.is-active .bar {
+        opacity: 0;
+    }
+    .hamburger.is-active:after {
+        transform: rotate(45deg) translate(-5px, -5px);
+        transition: 0.2s;
+    }
+    .hamburger.is-active {
+        right: 9.5rem;
+        transition: 0.5s ease-in-out;
+    }
+}
