@@ -19,7 +19,7 @@ const Navbar = () => {
     })
     
     return(<>
-        <div>
+        <div className="container">
             <nav className="navbar">
                 <div className="logo">
                     <img src={logotype}></img>
