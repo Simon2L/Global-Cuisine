@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from './Pages/Home' 
 import ErrorPage from "./Pages/error-page";
+import RecipeView from './components/RecipeView'
 
 
 //#region sätter upp Routing
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
         path: "recipes/:recipeId", // här visas receptet
         element: 
         <>
-          <h1>Recipe</h1>
+          <RecipeView />
           <hr></hr>
         </>
       },
