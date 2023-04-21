@@ -1,4 +1,4 @@
-import "./Navbar.css"
+import "./navbar.css"
 import logotype from './white_noslogan_globalcuisinelogo.png'
 import { useState, useEffect, useRef } from "react";
 
