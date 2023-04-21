@@ -1,6 +1,8 @@
 import "./navbar.css"
 import logotype from './white_noslogan_globalcuisinelogo.png'
 import { useState, useEffect, useRef } from "react";
+import { Link
+  } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -25,10 +27,10 @@ const Navbar = () => {
                     <img src={logotype}></img>
                 </div>
                 <ul className={"menu" + (show ? " is-active" : "")}>
-                    <a href="/">HOME</a>
-                    <a href="#recipes">RECIPES</a>
-                    <a href="/about">ABOUT US</a>
-                    <a href="/contact">CONTACT US</a>
+                    <Link to="/">HOME</Link>
+                    <Link to="#recipes">RECIPES</Link>
+                    <Link to="/about">ABOUT US</Link>
+                    <Link to="/contact">CONTACT US</Link>
                 </ul>
                 <button ref={menuRef} className={"hamburger" + (show ? " is-active" : "")} onClick={ () => changeHandle()}>
                     <div className="bar"></div>
