@@ -1,0 +1,56 @@
+.about-container {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+  margin: 0.3rem;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prepfood {
+  width: 60%;
+  height: 10rem;
+  object-fit: contain;
+  margin-top: 2rem;
+}
+.title {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: 0;
+}
+h1 {
+  color: #ab4545;
+}
+.divider {
+  background-color: #ab4545;
+  border-color: black;
+  height: 3px;
+  border-radius: 10px;
+  width: 100%;
+}
+.about-info {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+}
+.signature {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

@@ -9,6 +9,8 @@ import {
 import Home from './Pages/Home' 
 import ErrorPage from "./Pages/error-page";
 import RecipeView from './components/RecipeView'
+import About from './Pages/About';
+import Contact from './Pages/Contact';
 
 
 //#region sätter upp Routing
@@ -41,16 +43,14 @@ const router = createBrowserRouter([
        path: "about",
        element:  
        <>
-       <h1>About us</h1>
-       <hr></hr>
+       <About />       
      </>
       },
       {
         path: "contact",
         element:  
         <>
-        <h1>Contact us here</h1>
-        <hr></hr>
+       <Contact />
       </>
        }
 ]

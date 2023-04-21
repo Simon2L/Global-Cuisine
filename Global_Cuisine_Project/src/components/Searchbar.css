@@ -1,64 +1,98 @@
 .search-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 10px;
 }
-
+.search-form::before {
+  content: "";
+  background-image: url("../assets/global-flags.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+.logoimage {
+  position: relative;
+  width: 60%;
+  height: 15rem;
+}
 .search-form__title {
-    font-size: 10vw;
-    margin: 50px auto 0px;
-    font-weight: 700;
+  font-size: 6vw;
+  margin: 50px auto 0px;
+  font-weight: 700;
+  position: relative;
 }
 
 .search-form__subtitle {
-    margin: 0px;
-    line-height: 20px;
-    font-weight: 400;
-    font-size: 3vw;
+  margin: 0px;
+  line-height: 20px;
+  font-weight: 400;
+  font-size: 2vw;
+  position: relative;
 }
 
-
 .search-form__container {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
-    .search-form__container{
-        height: 10vw;
-    }
+  .search-form__container {
+    height: 2vw;
+  }
 }
 .search-form__input {
-    width: 60vw;
-    max-height: 65px;
-    border-radius: 10px;
-    font-size: 25px;
-    border-color: black;
-    padding-left: 15px;
-    padding-right: 50px;
+  width: 50vw;
+  height: 2vw;
+  max-height: 65px;
+  border-radius: 10px;
+  font-size: 2vw;
+  border-color: black;
+  padding-left: 15px;
+  padding-right: 50px;
 }
 
 .search-form__submit {
-    font-size: 4vw;
-    padding: 0px;
-    margin-left: -50px;
-    margin-top: 1px;
-    border: none;
-    background-color: transparent;
-} 
-
-.search-form__filter {
-    margin-left: 3vw;
-    padding: 0px;
-    cursor: pointer;
-    max-width: 65px;
-    max-height: 65px;
+  font-size: 1.5vw;
+  padding: 0px;
+  margin-left: -30px;
+  margin-top: 1px;
+  border: none;
+  background-color: transparent;
 }
 
-.search-form__filter img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.search-form__filter {
+  margin-left: 2vw;
+  padding: 0px;
+  cursor: pointer;
+  max-width: 65px;
+  max-height: 65px;
+}
+@media screen and (max-width: 768px) {
+  .search-form__filter {
+    margin-left: 10vw;
+  }
+  .search-form__input {
+    height: 6vw;
+  }
+}
+.search-form__filter img {
+  height: 2vw;
+  width: 2vw;
+  object-fit: cover;
 }
