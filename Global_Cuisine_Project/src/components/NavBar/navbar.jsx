@@ -25,9 +25,10 @@ const Navbar = () => {
                     <img src={logotype}></img>
                 </div>
                 <ul className={"menu" + (show ? " is-active" : "")}>
-                    <a href="#home">HOME</a>
+                    <a href="/">HOME</a>
                     <a href="#recipes">RECIPES</a>
-                    <a href="#about">ABOUT</a>
+                    <a href="/about">ABOUT US</a>
+                    <a href="/contact">CONTACT US</a>
                 </ul>
                 <button ref={menuRef} className={"hamburger" + (show ? " is-active" : "")} onClick={ () => changeHandle()}>
                     <div className="bar"></div>
