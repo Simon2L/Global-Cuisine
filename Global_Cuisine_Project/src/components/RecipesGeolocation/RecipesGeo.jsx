@@ -89,9 +89,8 @@ switch (continentTemp) {
     }
         
 
-    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=464af0a5c0304561ad1a51dbe015d0c4&cuisine=${region}`);
+    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=062fea2f5f254739b82b8c88a89e57a1&cuisine=${region}`);
     const recipes = await dataRec.json();
-    console.log(recipes)
     setRecipes(recipes)
     setLoading(false)
         
@@ -107,37 +106,39 @@ switch (continentTemp) {
   return (
     <>
     <hr></hr>
-    <h1>based on your location. here is some {currentRegion} recipes for you</h1>
+    <h1>based on your location. here is some {currentRegion} recipes just for you:</h1>
     <div className='RecipeCards'>
     <Splide options={{
       perPage: 5,
       arrows: false,
       drag: 'free',
       pagination: false,
+      type: 'loop'
     }}>
 
     {loading ? <h1>Loading...</h1> : recipesRegion.results.map(item => {
       return(
+        <SplideSlide key={item.id}>
+        <div className='Card'>
+        <img src={item.image}></img>
+        <h1 >{item.title}</h1>
+        </div>
+        </SplideSlide>
+   )
+ }) }
+
+  </Splide>
+  </div>
+  <hr></hr>
+ </>
+)
+}
         
     
-          <SplideSlide key={item.id}>
-          <div className='Card'>
-          <img src={item.image}></img>
-          <h1 >{item.title}</h1>
-          </div>
-          </SplideSlide>
-     
-   
-     )
-   }) }
-  
-    </Splide>
-    </div>
 
    
-   </>
- )
-}
+     
+   
 
      
 

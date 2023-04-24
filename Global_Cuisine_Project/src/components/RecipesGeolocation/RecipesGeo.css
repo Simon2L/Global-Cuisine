@@ -4,7 +4,7 @@
   border-radius: 1rem;
   border: solid;
   max-width: 20rem;
-  min-height: 20rem;
+  height: 20rem;
 }
 
 .Card img {
@@ -14,4 +14,12 @@
 
 .Card h1 {
   font-size: 20px;
+  text-align: center;
+}
+
+.Card:hover {
+  background-color: rgb(220, 228, 236);
+  border: solid;
+  height: 20rem;
+  transform: translateY(-1px);
 }
