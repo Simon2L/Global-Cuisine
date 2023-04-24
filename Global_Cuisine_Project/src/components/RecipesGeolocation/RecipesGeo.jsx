@@ -89,7 +89,7 @@ switch (continentTemp) {
     }
         
 
-    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=464af0a5c0304561ad1a51dbe015d0c4&cuisine=${"European"}`);
+    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=464af0a5c0304561ad1a51dbe015d0c4&cuisine=${region}`);
     const recipes = await dataRec.json();
     console.log(recipes)
     setRecipes(recipes)
@@ -120,8 +120,8 @@ switch (continentTemp) {
       return(
         
     
-          <SplideSlide >
-          <div className='Card' key={item.id}>
+          <SplideSlide key={item.id}>
+          <div className='Card'>
           <img src={item.image}></img>
           <h1 >{item.title}</h1>
           </div>

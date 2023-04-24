@@ -15,8 +15,3 @@
 .Card h1 {
   font-size: 20px;
 }
-
-.RecipeCards {
-  display: flex;
-  margin: 1rem;
-}
