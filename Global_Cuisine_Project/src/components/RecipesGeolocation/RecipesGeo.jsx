@@ -110,8 +110,8 @@ switch (continentTemp) {
     {loading ? <h1>Loading...</h1> : recipesRegion.results.map(item => {
       return(
         <div className='Card' key={item.id}>
-          <h1 >{item.title}</h1>
           <img src={item.image}></img>
+          <h1 >{item.title}</h1>
         </div>
      )
    }) }
