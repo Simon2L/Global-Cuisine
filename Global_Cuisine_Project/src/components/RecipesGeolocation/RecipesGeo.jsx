@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './RecipesGeo.css'
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import "@splidejs/splide/dist/css/splide.min.css";
 
 
 export default function GetCoordinates() {
@@ -87,7 +89,7 @@ switch (continentTemp) {
     }
         
 
-    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=7c540f2e3dce4ed3b30794aeb0a5789e&cuisine=${region}`);
+    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=464af0a5c0304561ad1a51dbe015d0c4&cuisine=${"European"}`);
     const recipes = await dataRec.json();
     console.log(recipes)
     setRecipes(recipes)
@@ -107,19 +109,36 @@ switch (continentTemp) {
     <hr></hr>
     <h1>based on your location. here is some {currentRegion} recipes for you</h1>
     <div className='RecipeCards'>
+    <Splide options={{
+      perPage: 5,
+      arrows: false,
+      drag: 'free',
+      pagination: false,
+    }}>
+
     {loading ? <h1>Loading...</h1> : recipesRegion.results.map(item => {
       return(
-        <div className='Card' key={item.id}>
+        
+    
+          <SplideSlide >
+          <div className='Card' key={item.id}>
           <img src={item.image}></img>
           <h1 >{item.title}</h1>
-        </div>
+          </div>
+          </SplideSlide>
+     
+   
      )
    }) }
+  
+    </Splide>
     </div>
+
    
    </>
  )
 }
+
      
 
     
