@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 export default function GetCoordinates() {
@@ -11,10 +11,12 @@ export default function GetCoordinates() {
     const [recipesRegion, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     let region = "";
-    
-    
     const Nordic = ["SE", "FI", "NO", "DK", "IS"]
     const [currentRegion, setRegion] = useState(null);
+    
+    
+
+useEffect(() => {
 
 
       
@@ -93,24 +95,16 @@ switch (continentTemp) {
 
 
     }
+ 
+    getLocation()
 
-
-
+  }, [currentRegion])
 
 
   return (
     <>
-    <h1>Status: {status}</h1>
     <hr></hr>
-    <button className='myBtn' onClick={() => getLocation()}>Get my location</button>
-    <h2><ins>Continent</ins>: <i>{continent}</i></h2>
-    <h2><ins>Country</ins>: <i>{country}</i></h2>
-    <h2><ins>City</ins>: <i>{city}</i></h2>
-    <h3>lat: {lat}</h3>
-    <h3>long: {lng}</h3>
-    <h1>Based on your location your local recipes should be</h1>
-    <h1 style={textstyle}>{currentRegion}</h1>
-    <div></div>
+    <h1>based on your location. here is some {currentRegion} recipes for you</h1>
     {loading ? <h1>Loading...</h1> : recipesRegion.results.map(item => {
       return(
         <div key={item.id}>
