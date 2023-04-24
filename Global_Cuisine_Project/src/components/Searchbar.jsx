@@ -2,6 +2,7 @@ import './Searchbar.css'
 import { FaSearch, FaAlignLeft } from 'react-icons/fa'
 import logoimage from '../assets/logo-no-background.svg';
 import { useState } from 'react';
+import Fetch from './API-Fetch/Fetch'
 
 
 
@@ -9,6 +10,7 @@ import { useState } from 'react';
 const Searchbar = () => {
     
     const [search, setSearch] = useState("");
+    const [recipes, setRecipes] = useState([]);
 
 const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +25,7 @@ const getRecipes = async () => {
         const response = await fetch(url);
         const result = await response.json();
         console.log(result);
+        setRecipes(result.results)
       } catch (e) {
         console.log(e);
       }
