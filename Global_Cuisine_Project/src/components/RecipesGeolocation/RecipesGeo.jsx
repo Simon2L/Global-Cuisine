@@ -6,7 +6,6 @@ export default function GetCoordinates() {
     const [lng, setLng] = useState(null);
     const [country, setCountry] = useState(null);
     const [continent, setContinent] = useState(null);
-    const [city, setCity] = useState(null);
     const [status, setStatus] = useState(null);
     const [recipesRegion, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -117,11 +116,6 @@ switch (continentTemp) {
  )
 }
      
-
-    
-const textstyle = {
-    color: "green"
-}
 
     
 
