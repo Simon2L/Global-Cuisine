@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './RecipesGeo.css'
 
 
 export default function GetCoordinates() {
@@ -6,6 +7,7 @@ export default function GetCoordinates() {
     const [lng, setLng] = useState(null);
     const [country, setCountry] = useState(null);
     const [continent, setContinent] = useState(null);
+    const [city, setCity] = useState(null);
     const [status, setStatus] = useState(null);
     const [recipesRegion, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -104,14 +106,17 @@ switch (continentTemp) {
     <>
     <hr></hr>
     <h1>based on your location. here is some {currentRegion} recipes for you</h1>
+    <div className='RecipeCards'>
     {loading ? <h1>Loading...</h1> : recipesRegion.results.map(item => {
       return(
-        <div key={item.id}>
+        <div className='Card' key={item.id}>
           <h1 >{item.title}</h1>
           <img src={item.image}></img>
         </div>
      )
    }) }
+    </div>
+   
    </>
  )
 }

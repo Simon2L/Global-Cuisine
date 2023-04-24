@@ -1,17 +1,17 @@
-.myBtn {
-    height: 3rem;
-    font-size: 20px;
-    border-radius: 1rem;
-    padding: 10px;
-    border: 3px solid #22BFC9;
-    background-color: aliceblue;
-    box-shadow: 0 5px #666;
-    margin: 0.5rem;
-}
-.myBtn:hover {background-color: rgb(223, 232, 239)}
+.Card {
+  margin: 2rem;
 
-.myBtn:active {
-  background-color: rgb(223, 232, 239);
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+}
+
+.Card img {
+  height: 10rem;
+}
+
+.Card h1 {
+  font-size: 20px;
+}
+
+.RecipeCards {
+  display: flex;
+
 }
