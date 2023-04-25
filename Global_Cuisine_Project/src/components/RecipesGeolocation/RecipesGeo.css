@@ -9,6 +9,10 @@
   align-items: stretch;
 }
 
+.linkTag {
+  text-decoration: none;
+}
+
 .Card img {
   border-radius: 1rem;
   max-width: 100%;

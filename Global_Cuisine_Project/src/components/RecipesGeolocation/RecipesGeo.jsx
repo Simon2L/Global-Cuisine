@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './RecipesGeo.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
+import { Link } from "react-router-dom";
 
 
 export default function GetCoordinates() {
@@ -106,7 +107,7 @@ switch (continentTemp) {
   return (
     <>
     <hr></hr>
-    <h1 className='h1Location'>based on your location. here is some {currentRegion} recipes just for you:</h1>
+    <h1 className='h1Location'>Here is some <i style={iStyle}>{currentRegion}</i> recipes just for you:</h1>
     <div className='RecipeCards'>
     <Splide options={{
       perPage: 5,
@@ -134,9 +135,11 @@ switch (continentTemp) {
       return(
         <SplideSlide key={item.id}>
         <div className='Card'>
+          <Link style={linkStyle} to={`recipes/${item.id}`}>
         <img src={item.image}></img>
         <hr></hr>
         <h1 >{item.title}</h1>
+        </Link>
         </div>
         </SplideSlide>
    )
@@ -149,11 +152,15 @@ switch (continentTemp) {
 )
 }
         
-    
-
+const linkStyle = {
+  textDecoration: "none",
+  color: 'black'
+};
    
      
-   
+const iStyle = {
+  color: 'blue'
+};
 
      
 
