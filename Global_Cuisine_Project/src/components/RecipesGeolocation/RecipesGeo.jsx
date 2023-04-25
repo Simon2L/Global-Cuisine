@@ -91,7 +91,7 @@ switch (continentTemp) {
     }
         
 
-    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=062fea2f5f254739b82b8c88a89e57a1&cuisine=${region}`);
+    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=a64c57e31f05493dbe3e71bdce029ea9&cuisine=${region}`);
     const recipes = await dataRec.json();
     setRecipes(recipes)
     setLoading(false)
