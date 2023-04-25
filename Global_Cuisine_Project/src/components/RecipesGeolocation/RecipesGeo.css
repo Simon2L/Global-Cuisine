@@ -5,21 +5,41 @@
   border: solid;
   max-width: 20rem;
   height: 20rem;
+  margin: 0.5rem;
+  align-items: stretch;
 }
 
 .Card img {
   border-radius: 1rem;
-  max-height: 20rem;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 .Card h1 {
   font-size: 20px;
   text-align: center;
+  color: black;
 }
 
 .Card:hover {
   background-color: rgb(220, 228, 236);
   border: solid;
-  height: 20rem;
   transform: translateY(-1px);
+}
+
+.h1Location{
+  font-size: 2vw;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .h1Location{
+    font-size: 4vw;
+  }
+
+
+  .Card {
+    max-width: 17rem;
+    height: 17rem;
+  }
 }

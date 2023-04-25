@@ -106,10 +106,24 @@ switch (continentTemp) {
   return (
     <>
     <hr></hr>
-    <h1>based on your location. here is some {currentRegion} recipes just for you:</h1>
+    <h1 className='h1Location'>based on your location. here is some {currentRegion} recipes just for you:</h1>
     <div className='RecipeCards'>
     <Splide options={{
       perPage: 5,
+      breakpoints: {
+        1730: {
+          perPage: 4,
+        },
+        1300: {
+          perPage: 3,
+        },
+        800: {
+          perPage: 2,
+        },
+        400: {
+          perPage: 1,
+        },
+      },
       arrows: false,
       drag: 'free',
       pagination: false,
@@ -121,6 +135,7 @@ switch (continentTemp) {
         <SplideSlide key={item.id}>
         <div className='Card'>
         <img src={item.image}></img>
+        <hr></hr>
         <h1 >{item.title}</h1>
         </div>
         </SplideSlide>
