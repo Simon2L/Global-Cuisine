@@ -16,56 +16,52 @@ export default function GetCoordinates() {
   
     const [currentRegion, setRegion] = useState(null);
     
-    
-
-useEffect(() => {
-
-
-      
+         
     const getLocation = async () => {
       
-  //#region hämtar koordinaterna
-        navigator.geolocation.getCurrentPosition((position) => {
-            setStatus("");
-            setLat(position.coords.latitude);
-            setLng(position.coords.longitude)
-        }),
-        () => {
-            setStatus("Unable to retrieve your location")
+      //#region hämtar koordinaterna
+            navigator.geolocation.getCurrentPosition((position) => {
+                setStatus("");
+                setLat(position.coords.latitude);
+                setLng(position.coords.longitude)
+            }),
+            () => {
+                setStatus("Unable to retrieve your location")
+            }
+    //#endregion
+            
+    //#region tar fram var i världen man är mha av lat och long
+            const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
+    
+                   const resp = await fetch(geoApiUrl);
+                   const data = await resp.json();
+                  // console.log(data)
+                  const continentTemp = data.continent;
+                  const countryTemp = data.countryCode;
+    //#endregion
+    
+                 
+    
+                 
+    //#region  matchar vilken region användaren är vid
+            tempRegion = (Region(continentTemp, countryTemp))
+            setRegion(Region(continentTemp, countryTemp))
+    //#endregion
+                    
+    //#region hämtar recept enligt vilken region användaren är på, om den inte hittar region så blir tempRegion tom
+        const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=ca9ea86f4b914c5e8ff1f83332e8378c&cuisine=${tempRegion}`);
+        const recipes = await dataRec.json();
+        setRecipes(recipes)
+        setLoading(false)
+    //#endregion        
+    
+    
         }
-//#endregion
-        
-//#region tar fram var i världen man är mha av lat och long
-               const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
-        
-               const resp = await fetch(geoApiUrl);
-               const data = await resp.json();
-              // console.log(data)
-              const continentTemp = data.continent;
-              const countryTemp = data.countryCode;
-//#endregion
+      
 
-             
-
-             
-//#region  matchar vilken region användaren är vid
-        tempRegion = (Region(continentTemp, countryTemp))
-        setRegion(Region(continentTemp, countryTemp))
-//#endregion
-                
-//#region hämtar recept enligt vilken region användaren är på, om den inte hittar region så blir tempRegion tom
-    const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=ca9ea86f4b914c5e8ff1f83332e8378c&cuisine=${tempRegion}`);
-    const recipes = await dataRec.json();
-    setRecipes(recipes)
-    setLoading(false)
-//#endregion        
-
-
-    }
- 
+  useEffect(() => {
     getLocation() // startar i gång funktionen som hämtar location och recept
-
-  }, [currentRegion])
+  }, [])
 
 
   return (
