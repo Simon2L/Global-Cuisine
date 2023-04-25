@@ -1,9 +1,8 @@
-import React from 'react'
 
 //#region checkar vilken kontinent användaren är i
 export default function Region(continentTemp, countryTemp) {
 let region = "";
-console.log(continentTemp)
+// console.log(continentTemp)
 
     switch (continentTemp) {
         case 'Europe':
@@ -26,7 +25,7 @@ console.log(continentTemp)
                 region = "Thai"
             break;
           default:
-            console.log(`something went wrong in Regions`); // om ingen kontinent matchar så skickas en tom region tillbaka
+            console.log(`no regions found`); // om ingen kontinent matchar så skickas en tom region tillbaka
             region = ""
         }
   return (

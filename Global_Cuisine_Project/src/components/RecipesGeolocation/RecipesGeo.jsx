@@ -23,31 +23,28 @@ useEffect(() => {
 
       
     const getLocation = async () => {
-        if(!navigator.getLocation) {
-            setStatus("Geolocation not working")
-        } else {
-            setStatus("Loading...");
-        }
-    
+      
+  //#region hämtar koordinaterna
         navigator.geolocation.getCurrentPosition((position) => {
             setStatus("");
             setLat(position.coords.latitude);
             setLng(position.coords.longitude)
-          
         }),
         () => {
             setStatus("Unable to retrieve your location")
         }
+//#endregion
         
+//#region tar fram var i världen man är mha av lat och long
                const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
         
                const resp = await fetch(geoApiUrl);
                const data = await resp.json();
               // console.log(data)
-            
+              const continentTemp = data.continent;
+              const countryTemp = data.countryCode;
+//#endregion
 
-                const continentTemp = data.continent;
-                const countryTemp = data.countryCode;
              
 
              
