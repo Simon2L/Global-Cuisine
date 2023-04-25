@@ -6,7 +6,9 @@
   max-width: 20rem;
   height: 20rem;
   margin: 0.5rem;
-  align-items: stretch;
+  align-items:center;
+  overflow: clip;
+  
 }
 
 .linkTag {
@@ -17,6 +19,7 @@
   border-radius: 1rem;
   max-width: 100%;
   object-fit: cover;
+  
 }
 
 .Card h1 {
@@ -43,7 +46,7 @@
 
 
   .Card {
-    max-width: 17rem;
-    height: 17rem;
+    max-width: 15rem;
+    height: 15rem;
   }
 }
