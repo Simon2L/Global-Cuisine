@@ -49,7 +49,7 @@ export default function GetCoordinates() {
     //#endregion
                     
     //#region hämtar recept enligt vilken region användaren är på, om den inte hittar region så blir tempRegion tom
-        const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=ca9ea86f4b914c5e8ff1f83332e8378c&cuisine=${tempRegion}`);
+        const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5303c07f7ada44cfb627489c597befb7&cuisine=${tempRegion}`);
         const recipes = await dataRec.json();
         setRecipes(recipes)
         setLoading(false)
