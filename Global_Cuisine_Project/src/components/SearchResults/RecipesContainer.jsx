@@ -1,13 +1,13 @@
-
+import './RecipesContainer.css'
 import RecipeCard from "./RecipeCard";
 
 const RecipesContainer = (props) => {
   return (
-    <div>
+    <section className="recipe-card-container">
       {props.recipes.map(recipe => (
-        <RecipeCard key={recipe.id} recipe={recipe} />
+        <RecipeCard recipe={recipe} />
       ))}
-    </div>
+    </section>
   );
 };
 
