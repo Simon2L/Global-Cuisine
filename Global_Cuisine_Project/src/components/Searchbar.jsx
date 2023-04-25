@@ -2,20 +2,18 @@ import './Searchbar.css'
 import { FaSearch, FaAlignLeft } from 'react-icons/fa'
 import logoimage from '../assets/logo-no-background.svg';
 import { useState } from 'react';
-import Fetch from './API-Fetch/Fetch'
 
 
 
 
-const Searchbar = () => {
+const Searchbar = (props) => {
     
     const [search, setSearch] = useState("");
-    const [recipes, setRecipes] = useState([]);
+
 
 const handleSubmit = (e) => {
     e.preventDefault();
     getRecipes();
-    console.log(search);
 }
 
 const getRecipes = async () => {
@@ -24,8 +22,7 @@ const getRecipes = async () => {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}`;
         const response = await fetch(url);
         const result = await response.json();
-        console.log(result);
-        setRecipes(result.results)
+        props.setRecipes(result.results);
       } catch (e) {
         console.log(e);
       }
