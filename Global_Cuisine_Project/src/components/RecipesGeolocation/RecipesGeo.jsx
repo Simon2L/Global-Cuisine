@@ -87,6 +87,7 @@ switch (continentTemp) {
         break;
       default:
         console.log(`something went wrong`);
+        setRegion('')
     }
         
 
