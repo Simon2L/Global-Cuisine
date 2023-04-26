@@ -49,10 +49,28 @@ export default function GetCoordinates() {
     //#endregion
                     
     //#region hämtar recept enligt vilken region användaren är på, om den inte hittar region så blir tempRegion tom
-        const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5303c07f7ada44cfb627489c597befb7&cuisine=${tempRegion}`);
-        const recipes = await dataRec.json();
-        setRecipes(recipes)
-        setLoading(false)
+            try {
+    const check = localStorage.getItem('recipesGeo');
+    if(check){
+      setRecipes(JSON.parse(check))
+      console.log("no api fetch needed")
+      setLoading(false)
+    }
+    else {
+      const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5303c07f7ada44cfb627489c597befb7&cuisine=${tempRegion}`);
+      const recipes = await dataRec.json();
+      console.log(recipes)
+      localStorage.setItem('recipesGeo', JSON.stringify(recipes))
+      setRecipes(recipes)
+      setLoading(false)
+    }
+  }
+  catch (error) {
+  console.error(error);
+  // Expected output: ReferenceError: nonExistentFunction is not defined
+  // (Note: the exact output may be browser-dependent)
+}
+
     //#endregion        
     
     
