@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 import getUserRegion from './Functions/GetUserRegion';
 import GetUserCoordinates from './Functions/GetUserCoordinates';
 import GetUserLocation from './Functions/GetUserLocation';
+import GetRecipes from './Functions/GetRecipes';
 
 
 export default function LocationRecipes() {
     const [recipesRegion, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [userRegion, setRegion] = useState(null);
+    const [totalRecipes, setTotal] = useState(null);
     
     useEffect(() => {
 
@@ -21,43 +23,20 @@ export default function LocationRecipes() {
 
 
     const LoadRecipes = async () => {
-      let latLng = (await GetUserCoordinates())
-      let location = (await GetUserLocation(latLng[0], latLng[1]))
-      let tempRegion = (await getUserRegion(location[0], location[1]))
-      await getRecipes(tempRegion)
-
-      setRegion(tempRegion)
-      // console.log(loc)
-      // console.log(reg)
-    }
-
-    const getRecipes = async (region) => {
-      try {
-        const check = sessionStorage.getItem('recipesGeo');
-      if(check){
-        setRecipes(JSON.parse(check))
-        console.log("no fetch needed")
-        setLoading(false)
-      }
-      else {
-        console.log("fetched data")
-        const tempApiKey = "5303c07f7ada44cfb627489c597befb7"
-        const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${tempApiKey}&cuisine=${region}&&addRecipeInformation=true&addRecipeNutritionaddRecipeNutrition=true`);
-        const recipes = await dataRec.json();
-        console.log(recipes)
-        sessionStorage.setItem('recipesGeo', JSON.stringify(recipes))
-        setRecipes(recipes)
-        setLoading(false)
-    }
-  }
-      catch (error) {
-        console.log(error);
-      }
-     
-    
-    
-}
+      const latLng = await GetUserCoordinates()
+      const location = await GetUserLocation(latLng[0], latLng[1])
+      const tempRegion = await getUserRegion(location[0], location[1])
+      const tempRecipes = await GetRecipes(tempRegion)
+      console.log(tempRecipes)
       
+      setRecipes(tempRecipes[0])  // tempRecipes[0] är dem hämtade recepten
+      setLoading(tempRecipes[1])  // tempRecipes[1] är false om allt lyckades att hämtas
+      setRegion(tempRegion)
+      console.log(tempRecipes[0].results.length)
+      setTotal(tempRecipes[0].results.length)
+    }
+
+   
 
 
 
@@ -65,12 +44,12 @@ export default function LocationRecipes() {
   return (
     <>
     <hr></hr>
-    <h1 className='h1Location'><i style={iStyle}>{userRegion}</i> recipes just for you:</h1>
+    <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
     <div className='RecipeCards'>
     {/* sättter upp alla splide options som hur många cards som ska visas etc */}
     <Splide options={{
       perPage: 5,
-      breakpoints: {
+      breakpoints: { // bestämmer hur många kort som visas beroende på window size
         1730: {
           perPage: 4,
         },
@@ -87,23 +66,22 @@ export default function LocationRecipes() {
       arrows: false,
       drag: 'free',
       pagination: false,
-      type: 'loop'
     }}>
 
-    {loading ? <h1>Loading...</h1> : recipesRegion.results.map(item => {
+    {loading ? <h1>Loading...</h1> : recipesRegion.results.map(item => { // för varje hämtad recipes, görs det kort
       return(
         // en del av splide som gör att slidsen fungerar
         <SplideSlide key={item.id}>   
-        <div className='Card'>
-          <Link style={linkStyle} to={`recipes/${item.id}`}>
-        <img src={item.image}></img>
-        <hr></hr>
-        <h1 >{item.title}</h1>
-        </Link>
-        </div>
+          <div className='Card'>
+            <Link style={linkStyle} to={`recipes/${item.id}`}>
+              <img src={item.image}></img>
+              <hr></hr>
+              <h1 >{item.title}</h1>
+            </Link>
+          </div>
         </SplideSlide>
-   )
- }) }
+        )
+    })}
 
   </Splide>
   </div>
