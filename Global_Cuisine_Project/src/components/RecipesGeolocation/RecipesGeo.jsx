@@ -3,8 +3,9 @@ import './RecipesGeo.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from "react-router-dom";
-import getRegion from './Functions/GetRegion';
-import GetCoordinates from './Functions/GetCoordinates';
+import getRegion from './Functions/GetUserRegion';
+import GetCoordinates from './Functions/GetUserCoordinates';
+import GetLocation from './Functions/GetUserLocation';
 
 
 export default function LocationRecipes() {
