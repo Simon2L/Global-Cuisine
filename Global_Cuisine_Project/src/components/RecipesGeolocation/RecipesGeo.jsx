@@ -3,9 +3,9 @@ import './RecipesGeo.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from "react-router-dom";
-import getRegion from './Functions/GetUserRegion';
-import GetCoordinates from './Functions/GetUserCoordinates';
-import GetLocation from './Functions/GetUserLocation';
+import getUserRegion from './Functions/GetUserRegion';
+import GetUserCoordinates from './Functions/GetUserCoordinates';
+import GetUserLocation from './Functions/GetUserLocation';
 
 
 export default function LocationRecipes() {
@@ -14,36 +14,23 @@ export default function LocationRecipes() {
     const [recipesRegion, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     let tempRegion = "";
-  
+    const [userLocation, SetUserLoc] = useState([]);
     const [currentRegion, setRegion] = useState(null);
     
-         
-    const getGeoRecipes = async () => {
-      
-//#region hämtar koordinaterna med getCoordinates funktionen
-      setLatLng(GetCoordinates()) 
-      console.log(latLng[0] + latLng[1] + latLng[2])
-    //#endregion
-            
-    //#region tar fram var i världen man är mha av lat och long
-            const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latLng[0]}&longitude=${latLng[1]}&localityLanguage=en`
-    
-                   const resp = await fetch(geoApiUrl);
-                   const data = await resp.json();
-                  console.log(data)
-                  const continentTemp = data.continent;
-                  const countryTemp = data.countryCode;
-    //#endregion
-    
-                 
-    
-                 
-    //#region  matchar vilken region användaren är vid
-            tempRegion = (getRegion(continentTemp, countryTemp))
-            setRegion(getRegion(continentTemp, countryTemp))
-    //#endregion
-                    
-    //#region hämtar recept enligt vilken region användaren är på, om den inte hittar region så blir tempRegion tom
+    useEffect(() => {
+    LoadRecipes()
+    }, [])
+    const LoadRecipes = async () => {
+      let lat = await GetUserCoordinates()
+      let loc = await GetUserLocation(lat[0], lat[1])
+      let reg = await getUserRegion(loc[0], loc[1])
+      await getGeoRecipes(reg)
+      // startar i gång funktionen som hämtar location och recept
+      console.log(loc)
+      console.log(reg)
+    }
+
+    const getGeoRecipes = async (tempRegion) => {
             try {
     const check = localStorage.getItem('recipesGeo');
     if(check){
@@ -71,15 +58,13 @@ export default function LocationRecipes() {
         }
       
 
-  useEffect(() => {
-    getGeoRecipes() // startar i gång funktionen som hämtar location och recept
-  }, [])
+
 
 
   return (
     <>
     <hr></hr>
-    <h1 className='h1Location'><i style={iStyle}>{currentRegion}</i> recipes just for you: {latLng[2]}</h1>
+    <h1 className='h1Location'><i style={iStyle}>{currentRegion}</i> recipes just for you: {tempRegion}</h1>
     <div className='RecipeCards'>
     {/* sättter upp alla splide options som hur många cards som ska visas etc */}
     <Splide options={{
