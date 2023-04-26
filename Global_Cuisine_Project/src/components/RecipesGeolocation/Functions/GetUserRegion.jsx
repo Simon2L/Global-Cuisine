@@ -1,12 +1,12 @@
 
 //#region checkar vilken kontinent användaren är i
-export default async function getUserRegion(continentTemp, countryTemp) {
+export default async function getUserRegion(continent, country) {
 let region = "";
-// console.log(continentTemp)
+console.log(`Continent: ${continent} Country: ${country}`)
 
-    switch (continentTemp) {
+    switch (continent) {
         case 'Europe':
-            region = EuropeRegions(countryTemp) // kollar igenom om landet matchar någon Europeisk Region
+            region = EuropeRegions(country) // kollar igenom om landet matchar någon Europeisk Region
             break;
           case 'North America':
               region = "American"
@@ -19,7 +19,7 @@ let region = "";
               region = "Latin American"
             break;
             case 'Asia':
-                region = AsiaRegions(countryTemp) // kollar igenom om landet matchar någon asiatisk Region
+                region = AsiaRegions(country) // kollar igenom om landet matchar någon asiatisk Region
             break;
             case 'Australian continent':
                 region = "Thai"
