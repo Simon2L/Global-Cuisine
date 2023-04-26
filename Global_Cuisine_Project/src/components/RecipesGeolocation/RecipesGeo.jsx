@@ -4,11 +4,11 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from "react-router-dom";
 import getRegion from './Functions/GetRegion';
+import GetCoordinates from './Functions/GetCoordinates';
 
 
-export default function GetCoordinates() {
-    const [lat, setLat] = useState(null);
-    const [lng, setLng] = useState(null);
+export default function LocationRecipes() {
+    const [latLng, setLatLng] = useState([]);
     const [status, setStatus] = useState(null);
     const [recipesRegion, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -17,25 +17,19 @@ export default function GetCoordinates() {
     const [currentRegion, setRegion] = useState(null);
     
          
-    const getLocation = async () => {
+    const GeoRecipes = async () => {
       
-      //#region hämtar koordinaterna
-            navigator.geolocation.getCurrentPosition((position) => {
-                setStatus("");
-                setLat(position.coords.latitude);
-                setLng(position.coords.longitude)
-            }),
-            () => {
-                setStatus("Unable to retrieve your location")
-            }
+//#region hämtar koordinaterna med getCoordinates funktionen
+      setLatLng(GetCoordinates()) 
+      console.log(latLng[0] + latLng[1] + latLng[2])
     //#endregion
             
     //#region tar fram var i världen man är mha av lat och long
-            const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
+            const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latLng[0]}&longitude=${latLng[1]}&localityLanguage=en`
     
                    const resp = await fetch(geoApiUrl);
                    const data = await resp.json();
-                  // console.log(data)
+                  console.log(data)
                   const continentTemp = data.continent;
                   const countryTemp = data.countryCode;
     //#endregion
@@ -57,7 +51,8 @@ export default function GetCoordinates() {
       setLoading(false)
     }
     else {
-      const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=5303c07f7ada44cfb627489c597befb7&cuisine=${tempRegion}`);
+      const tempApiKey = "5303c07f7ada44cfb627489c597befb7"
+      const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${tempApiKey}&cuisine=${tempRegion}&&addRecipeInformation=true&addRecipeNutritionaddRecipeNutrition=true`);
       const recipes = await dataRec.json();
       console.log(recipes)
       localStorage.setItem('recipesGeo', JSON.stringify(recipes))
@@ -76,14 +71,14 @@ export default function GetCoordinates() {
       
 
   useEffect(() => {
-    getLocation() // startar i gång funktionen som hämtar location och recept
+    GeoRecipes() // startar i gång funktionen som hämtar location och recept
   }, [])
 
 
   return (
     <>
     <hr></hr>
-    <h1 className='h1Location'><i style={iStyle}>{currentRegion}</i> recipes just for you: {status}</h1>
+    <h1 className='h1Location'><i style={iStyle}>{currentRegion}</i> recipes just for you: {latLng[2]}</h1>
     <div className='RecipeCards'>
     {/* sättter upp alla splide options som hur många cards som ska visas etc */}
     <Splide options={{
