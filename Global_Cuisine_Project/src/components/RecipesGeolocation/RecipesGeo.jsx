@@ -3,7 +3,7 @@ import './RecipesGeo.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from "react-router-dom";
-import Region from './Region';
+import getRegion from './Functions/GetRegion';
 
 
 export default function GetCoordinates() {
@@ -44,8 +44,8 @@ export default function GetCoordinates() {
     
                  
     //#region  matchar vilken region användaren är vid
-            tempRegion = (Region(continentTemp, countryTemp))
-            setRegion(Region(continentTemp, countryTemp))
+            tempRegion = (getRegion(continentTemp, countryTemp))
+            setRegion(getRegion(continentTemp, countryTemp))
     //#endregion
                     
     //#region hämtar recept enligt vilken region användaren är på, om den inte hittar region så blir tempRegion tom
@@ -67,8 +67,6 @@ export default function GetCoordinates() {
   }
   catch (error) {
   console.error(error);
-  // Expected output: ReferenceError: nonExistentFunction is not defined
-  // (Note: the exact output may be browser-dependent)
 }
 
     //#endregion        

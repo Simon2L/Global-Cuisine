@@ -1,6 +1,6 @@
 
 //#region checkar vilken kontinent användaren är i
-export default function Region(continentTemp, countryTemp) {
+export default function getRegion(continentTemp, countryTemp) {
 let region = "";
 // console.log(continentTemp)
 
