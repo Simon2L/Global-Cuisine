@@ -17,7 +17,7 @@ export default function LocationRecipes() {
     const [currentRegion, setRegion] = useState(null);
     
          
-    const GeoRecipes = async () => {
+    const getGeoRecipes = async () => {
       
 //#region hämtar koordinaterna med getCoordinates funktionen
       setLatLng(GetCoordinates()) 
@@ -71,7 +71,7 @@ export default function LocationRecipes() {
       
 
   useEffect(() => {
-    GeoRecipes() // startar i gång funktionen som hämtar location och recept
+    getGeoRecipes() // startar i gång funktionen som hämtar location och recept
   }, [])
 
 
