@@ -24,33 +24,34 @@ export default function LocationRecipes() {
       let latLng = (await GetUserCoordinates())
       let location = (await GetUserLocation(latLng[0], latLng[1]))
       let tempRegion = (await getUserRegion(location[0], location[1]))
-      await getGeoRecipes(tempRegion)
+      await getRecipes(tempRegion)
 
       setRegion(tempRegion)
       // console.log(loc)
       // console.log(reg)
     }
 
-    const getGeoRecipes = async (region) => {
+    const getRecipes = async (region) => {
       try {
-        const check = localStorage.getItem('recipesGeo');
+        const check = sessionStorage.getItem('recipesGeo');
       if(check){
         setRecipes(JSON.parse(check))
-        console.log("no api fetch needed")
+        console.log("no fetch needed")
         setLoading(false)
       }
       else {
+        console.log("fetched data")
         const tempApiKey = "5303c07f7ada44cfb627489c597befb7"
         const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${tempApiKey}&cuisine=${region}&&addRecipeInformation=true&addRecipeNutritionaddRecipeNutrition=true`);
         const recipes = await dataRec.json();
         console.log(recipes)
-        localStorage.setItem('recipesGeo', JSON.stringify(recipes))
+        sessionStorage.setItem('recipesGeo', JSON.stringify(recipes))
         setRecipes(recipes)
         setLoading(false)
     }
   }
       catch (error) {
-        console.error(error);
+        console.log(error);
       }
      
     
