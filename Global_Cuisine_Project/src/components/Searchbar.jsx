@@ -2,6 +2,7 @@ import './Searchbar.css'
 import { FaSearch, FaAlignLeft } from 'react-icons/fa'
 import logoimage from '../assets/logo-no-background.svg';
 import { useState } from 'react';
+import FilterMenu from './SearchBar/FilterMenu';
 
 
 
@@ -17,7 +18,7 @@ const handleSubmit = (e) => {
 }
 
 const getRecipes = async () => {
-    const apiKey = 'ca68133f5df34a13b64e53f977918ba8';
+    // const apiKey = 'ca68133f5df34a13b64e53f977918ba8';
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}&&addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
@@ -31,6 +32,7 @@ const getRecipes = async () => {
 
     return(
         <>
+        
         <section className="search-form">
             <img src={logoimage} alt="global cuisine" className='logoimage'></img>
             <form className="search-form__container" onSubmit={handleSubmit}>
@@ -40,9 +42,10 @@ const getRecipes = async () => {
                 
             </form>
             {/* ref={menuRef} */}
-            <button  className='search-form__filter' onClick={ () => changeHandle()}>
+            {/* <button  className='search-form__filter' onClick={ () => changeHandle()}>
                 <FaAlignLeft />
-            </button>
+            </button> */}
+            <FilterMenu />
         </section>
         </>
     )
