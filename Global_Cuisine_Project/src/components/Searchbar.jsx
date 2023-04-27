@@ -36,12 +36,17 @@ const getRecipes = async () => {
             <form className="search-form__container" onSubmit={handleSubmit}>
                 <input className="search-form__input" onChange={(e) => setSearch(e.target.value)} maxLength={25} data-="text" placeholder="Search..."/>
                 <FaSearch className="search-form__submit" />
-                <button className="search-form__filter"> <FaAlignLeft /></button>
+                
                 
             </form>
+            {/* ref={menuRef} */}
+            <button  className='search-form__filter' onClick={ () => changeHandle()}>
+                <FaAlignLeft />
+            </button>
         </section>
         </>
     )
 }
+           
 
 export default Searchbar;

@@ -84,6 +84,7 @@
   cursor: pointer;
   max-width: 65px;
   max-height: 65px;
+  z-index: 1;
 }
 @media screen and (max-width: 768px) {
   .search-form__filter {
