@@ -1,8 +1,8 @@
 
 //#region checkar vilken kontinent användaren är i
 export default async function getUserRegion(continent, country) {
-let region = "";
-console.log(`Continent: ${continent} Country: ${country}`)
+    let region = "";
+    // console.log(`Continent: ${continent} Country: ${country}`)
 
     switch (continent) {
         case 'Europe':
@@ -42,7 +42,6 @@ function EuropeRegions(country) {
     let europRegion = "";
     const nordic = ["SE", "FI", "NO", "DK", "IS"]
     // const mediterian = ["",""]
-    // const british = ["", ""]
     // const easternEuropean = ["", ""]
 
     switch(country) {
@@ -63,6 +62,9 @@ function EuropeRegions(country) {
             break;
         case 'IE':
             europRegion = "Irish"
+            break;
+        case 'GB':
+            europRegion = "British"
             break;
     default:
         if(nordic.includes(country)) {

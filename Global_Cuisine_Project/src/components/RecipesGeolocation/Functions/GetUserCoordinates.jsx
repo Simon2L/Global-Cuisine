@@ -1,4 +1,3 @@
-import React from 'react'
 
 export default async function GetUserCoordinates() {
     let lat;

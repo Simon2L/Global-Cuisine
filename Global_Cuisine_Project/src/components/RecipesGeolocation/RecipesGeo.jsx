@@ -16,24 +16,23 @@ export default function LocationRecipes() {
     const [totalRecipes, setTotal] = useState(null);
     
     useEffect(() => {
-
-    LoadRecipes()
+      LoadRecipes()
     }, [])
 
 
 
+
     const LoadRecipes = async () => {
-      const latLng = await GetUserCoordinates()
-      const location = await GetUserLocation(latLng[0], latLng[1])
-      const tempRegion = await getUserRegion(location[0], location[1])
-      const tempRecipes = await GetRecipes(tempRegion)
-      console.log(tempRecipes)
+      const latLng = await GetUserCoordinates() // hämtar koordinaterna
+      const location = await GetUserLocation(latLng[0], latLng[1])  // hämtar användarens land och kontinent
+      const tempRegion = await getUserRegion(location[0], location[1]) // matchar vilken region användaren är vid
+      const tempRecipes = await GetRecipes(tempRegion) // hämtar recepten för regionen
+      // console.log(tempRecipes)
       
       setRecipes(tempRecipes[0])  // tempRecipes[0] är dem hämtade recepten
       setLoading(tempRecipes[1])  // tempRecipes[1] är false om allt lyckades att hämtas
-      setRegion(tempRegion)
-      console.log(tempRecipes[0].results.length)
-      setTotal(tempRecipes[0].results.length)
+      setRegion(tempRegion) // så man kan skriva ut vilken region användaren är vid
+      setTotal(tempRecipes[0].results.length) // visar antal hämtade recept, max 50(kan ändras)
     }
 
    
@@ -43,51 +42,51 @@ export default function LocationRecipes() {
 
   return (
     <>
-    <hr></hr>
-    <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
-    <div className='RecipeCards'>
-    {/* sättter upp alla splide options som hur många cards som ska visas etc */}
-    <Splide options={{
-      perPage: 5,
-      breakpoints: { // bestämmer hur många kort som visas beroende på window size
-        1730: {
-          perPage: 4,
+      <hr></hr>
+      <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
+      <div className='RecipeCards'>
+        {/* sättter upp alla splide options som hur många cards som ska visas etc */}
+        <Splide options={{
+          perPage: 5,
+          breakpoints: { // bestämmer hur många kort som visas beroende på window size
+            1730: {
+            perPage: 4,
+          },
+            1300: {
+            perPage: 3,
+          },
+            800: {
+            perPage: 2,
+          },
+            400: {
+            perPage: 1,
+          },
         },
-        1300: {
-          perPage: 3,
-        },
-        800: {
-          perPage: 2,
-        },
-        400: {
-          perPage: 1,
-        },
-      },
-      arrows: false,
-      drag: 'free',
-      pagination: false,
-    }}>
+          arrows: false,
+          drag: 'free',
+          pagination: false,
+        }}>
 
-    {loading ? <h1>Loading...</h1> : recipesRegion.results.map(item => { // för varje hämtad recipes, görs det kort
-      return(
-        // en del av splide som gör att slidsen fungerar
-        <SplideSlide key={item.id}>   
-          <div className='Card'>
-            <Link style={linkStyle} to={`recipes/${item.id}`}>
-              <img src={item.image}></img>
-              <hr></hr>
-              <h1 >{item.title}</h1>
-            </Link>
-          </div>
-        </SplideSlide>
-        )
-    })}
+        {loading ? <h1>Loading...</h1> : recipesRegion.results.map(recipe => { // för varje hämtad recipes, görs det kort
+          return(
+            // en del av splide som gör att slidsen fungerar
+            <SplideSlide key={recipe.id}>   
+              <div className='Card'>
+                <Link style={linkStyle} to={`recipes/${recipe.title}`} state={{recipe: recipe}}>
+                  <img src={recipe.image}></img>
+                  <hr></hr>
+                  <h1>{recipe.title}</h1>
+                </Link>
+              </div>
+            </SplideSlide>
+          )
+        })}
 
-  </Splide>
-  </div>
-  <hr></hr>
- </>
-)
+        </Splide>
+      </div>
+      <hr></hr>
+    </>
+  )
 }
 
 //#region små styling som inte behövs vara i en css fil
