@@ -104,7 +104,7 @@ function AsiaRegions(country) {
             asiaRegions = "Indian"
             break;
         case 'CN':
-            asiaRegions = "Indian"
+            asiaRegions = "Chinese"
             break;
     default:
             asiaRegions = "Asian"
