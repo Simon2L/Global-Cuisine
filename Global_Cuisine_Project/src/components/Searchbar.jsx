@@ -19,7 +19,7 @@ const handleSubmit = (e) => {
 const getRecipes = async () => {
     const apiKey = 'ca68133f5df34a13b64e53f977918ba8';
     try {
-        const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}`;
+        const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}&&addRecipeInformation=true&addRecipeNutritionaddRecipeNutrition=true&number=100`;
         const response = await fetch(url);
         const result = await response.json();
         console.log(result)

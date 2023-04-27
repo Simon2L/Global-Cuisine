@@ -5,7 +5,7 @@ const RecipesContainer = (props) => {
   return (
     <section className="recipe-card-container">
       {props.recipes.map(recipe => (
-        <RecipeCard recipe={recipe} />
+        <RecipeCard recipe={recipe} key={recipe.id} />
       ))}
     </section>
   );
