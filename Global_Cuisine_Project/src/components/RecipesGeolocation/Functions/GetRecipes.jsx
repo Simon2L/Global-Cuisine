@@ -11,7 +11,7 @@ async function GetRecipes(region) {
         }
         else {
           console.log("fetched data")
-          const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${tempApiKey}&cuisine=${region}&&addRecipeInformation=true&addRecipeNutritionaddRecipeNutrition=true&number=50`);
+          const dataRec = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${tempApiKey}&cuisine=${region}&addRecipeInformation=true&addRecipeNutrition=true&fillIngredients=true&number=50`);
           recipes = await dataRec.json();
         //   console.log(recipes)
           sessionStorage.setItem('recipesGeo', JSON.stringify(recipes))
