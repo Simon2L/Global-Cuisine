@@ -1,13 +1,18 @@
 import React from 'react'
 import './FilterOption.css'
 
-export default function FilterOption() {
+export default function FilterOption(props) {
+
+  const handleChange = (option) => {
+    props.SetRegionOption(option.target.value)
+  };
   return (
-    <select className='dropdown__mealtype'>
+    <select className='dropdown__mealtype' onChange={handleChange}>
           <option value="" disabled selected hidden>Choose mealtype</option>
-            <option value={'frukost'}>Frukost</option>
-            <option value={'lunch'}>Lunch</option>
-            <option value={'middag'}>Middag</option>
+            <option value={""}>All</option>
+            <option value={'European'} >European</option>
+            <option value={'Italian'}>Italian</option>
+            <option value={'Japanese'}>Japanese</option>
           </select>
   )
 }

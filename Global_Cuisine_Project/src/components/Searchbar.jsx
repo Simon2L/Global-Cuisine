@@ -8,7 +8,7 @@ import FilterMenu from './SearchBar/FilterMenu';
 
 
 const Searchbar = (props) => {
-    
+    const [regionOption, setRegionOption] = useState("")
     const [search, setSearch] = useState("");
 
 
@@ -18,9 +18,11 @@ const handleSubmit = (e) => {
 }
 
 const getRecipes = async () => {
-    // const apiKey = 'ca68133f5df34a13b64e53f977918ba8';
+    const apiKey = '5792d7fbb36b444fa9f484820f5fb862';
     try {
-        const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${search}&&addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
+        const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
+        + `&query=${search}&cuisine=${regionOption}&`
+        + `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
         const result = await response.json();
         console.log(result)
@@ -45,7 +47,7 @@ const getRecipes = async () => {
             {/* <button  className='search-form__filter' onClick={ () => changeHandle()}>
                 <FaAlignLeft />
             </button> */}
-            <FilterMenu />
+            <FilterMenu SetRegionOption={setRegionOption}/>
         </section>
         </>
     )
