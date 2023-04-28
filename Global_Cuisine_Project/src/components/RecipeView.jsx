@@ -12,6 +12,25 @@ export default function RecipeView() {
     const summary = '<h3>'+data.summary.split('. ',1)+'</h3>'; // splits and saves the first sentence of summary atribute of the recipe
     
 
+    const [similar, setSimilars] = useState([]);
+    const getSimilars = async (id) => {
+    const apiKey = '27bb6d5c926f4d7a9031e952cb4c9849';
+    try {
+        const url = `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}`;
+        const response = await fetch(url);
+        const result = await response.json();               
+        setSimilars(result.results);
+        console.log(result);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    useEffect(() => {
+        getSimilars(data.id)
+    },[])
+    console.log(similar)
+
         return (
             
             <div className="recipe-container">
