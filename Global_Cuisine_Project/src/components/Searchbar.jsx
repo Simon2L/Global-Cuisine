@@ -13,22 +13,35 @@ const Searchbar = (props) => {
     const [dietOption, setDietOption] = useState("")
     const [intoleranceOption, setIntoleranceOption] = useState([])
     const [search, setSearch] = useState("");
-    const array = ["Gluten", "Dairy"]
+    let intolerance = [["Gluten,", true], ["Dairy", true]]
+    let diet = [["Vegetarian,", true], ["Vegan", true]]
 
+    let test = ""
+    diet.forEach(item => {
+        if(item[1] === true) test += item[0]
+    });
+
+    
+    
+    // let text = array.map((item) =>{
+    //     if(item[1] === true) return `${item[0]},`
+    //     else return ' '
+    // })
 
 const handleSubmit = (e) => {
     e.preventDefault();
     getRecipes();
 }
+// + `intolerances=${intoleranceOption.map((item => `${item},`))}&`
 
 const getRecipes = async () => {
-    const apiKey = '5792d7fbb36b444fa9f484820f5fb862';
+    const apiKey = 'ca68133f5df34a13b64e53f977918ba8';
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${regionOption}&`
         + `type=${mealTypeOption}&`
-        + `diet=${dietOption}&`
-        + `intolerances=${intoleranceOption.map((item => `${item},`))}&`
+        + `diet=${test}&`
+        + `intolerances=${""}&`
         + `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
         const result = await response.json();
