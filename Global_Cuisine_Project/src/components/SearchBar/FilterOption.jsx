@@ -4,7 +4,7 @@ import './FilterOption.css'
 export default function FilterOption({SetOption, Title, filters, id }) {
   
 
-  console.log(filters)
+  // console.log(filters)
   const handleChange = (option) => {
     SetOption(option.target.value)
   };

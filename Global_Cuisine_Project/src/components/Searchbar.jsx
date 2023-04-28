@@ -26,6 +26,7 @@ const getRecipes = async () => {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${regionOption}&`
         + `type=${mealTypeOption}&`
+        + `diet=${dietOption}&`
         + `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
         const result = await response.json();
