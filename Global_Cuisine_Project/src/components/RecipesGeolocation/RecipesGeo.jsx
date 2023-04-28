@@ -72,7 +72,7 @@ export default function LocationRecipes() {
             // en del av splide som gör att slidsen fungerar
             <SplideSlide key={recipe.id}>   
               <div className='Card'>
-                <Link style={linkStyle} to={`recipes/${recipe.title}`} state={{recipe: recipe}}>
+                <Link style={linkStyle} to={`recipes/${recipe.id}`}>
                   <img src={recipe.image}></img>
                   <hr></hr>
                   <h1>{recipe.title}</h1>
