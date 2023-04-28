@@ -4,10 +4,10 @@ import './FilterMenu.css'
 import FilterOption from './FilterOption';
 
 const FilterMenu = ({SetRegionOption, setMealTypeOption, setDietOption, setIntoleranceOption}) => {
-    const regions= ["European", "Japanese", "Italian", "Nordic"]
-    const diets = ["Glutens Free", "Vegetarian", "Vegan", "Pescetarian"]
-    const mealTypes = ["breakfast","main course", "dessert"]
-    const intolerances = ["Gluten", "Peanut", "Dairy", "Soy"]
+    const regions= [["European", "European"], ["Japanese", "Japanese"], ["Italian", "Italian"], ["Nordic", "Nordic"]]
+    const diets = [["Glutens Free", "Glutens Free"], ["Vegetarian", "Vegeterian"], ["Vegan", "Vegan"], ["Pescetarian", "Pescetarian"]]
+    const mealTypes = [["breakfast", "Breakfast"],["main course", "Main Course"], ["dessert", "Dessert"]]
+    const intolerances = [["Gluten", "Gluten Free"], ["Peanut", "Peanut Free"], ["Dairy", "Dairy Free"], ["Soy", "Soy Free"]]
    
     const [show, setShow] = useState(false);
 

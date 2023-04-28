@@ -6,13 +6,12 @@ import { useState } from 'react';
 
 function Home() {
   const [recipes, setRecipes] = useState([]);
-
   return (
     <>
       <Searchbar setRecipes={setRecipes} />
       <RecipesGeo />
       <RecipesContainer recipes={recipes} />
- 
+
     </>
   )
 }

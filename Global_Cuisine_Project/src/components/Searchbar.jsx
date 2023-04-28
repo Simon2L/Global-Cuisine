@@ -11,8 +11,9 @@ const Searchbar = (props) => {
     const [regionOption, setRegionOption] = useState("")
     const [mealTypeOption, setMealTypeOption] = useState("")
     const [dietOption, setDietOption] = useState("")
-    const [intoleranceOption, setIntoleranceOption] = useState("")
+    const [intoleranceOption, setIntoleranceOption] = useState([])
     const [search, setSearch] = useState("");
+    const array = ["Gluten", "Dairy"]
 
 
 const handleSubmit = (e) => {
@@ -27,7 +28,7 @@ const getRecipes = async () => {
         + `&query=${search}&cuisine=${regionOption}&`
         + `type=${mealTypeOption}&`
         + `diet=${dietOption}&`
-        + `intolerances=${intoleranceOption}&`
+        + `intolerances=${intoleranceOption.map((item => `${item},`))}&`
         + `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
         const result = await response.json();
@@ -55,7 +56,15 @@ const getRecipes = async () => {
             </button> */}
             <FilterMenu SetRegionOption={setRegionOption} setMealTypeOption={setMealTypeOption} 
             setDietOption={setDietOption} setIntoleranceOption={setIntoleranceOption}/>
+            <div>
+                <label>{regionOption}</label>
+                <label>{mealTypeOption}</label>
+                <label>{dietOption}</label>
+                <label>{intoleranceOption}</label>
+            </div>
+             
         </section>
+    
         </>
     )
 }

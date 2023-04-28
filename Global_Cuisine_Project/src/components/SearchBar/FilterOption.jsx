@@ -10,17 +10,18 @@ export default function FilterOption({SetOption, Title, filters, id }) {
   };
   return (
     <>
-    <select id={id} className='dropdown__mealtype' onChange={handleChange}>
-      {/* <option value="" disabled selected hidden>{Title}</option> */}
-      <option value={""}>All</option>
-          {filters.map((filter) => {
-            return(
-              <option key={filter} value={filter}>{filter}</option>
-            )
-            })}
-    </select>
-    <label htmlFor={id}> {Title} </label>
+      <label htmlFor={id}> {Title} </label>
+      <select id={id} className='dropdown__mealtype' onChange={handleChange}>
+        {/* <option value="" disabled selected hidden>{Title}</option> */}
+        <option value={""}>None</option>
+        {filters.map((filter) => {
+          return(
+            <option key={filter[0]} value={filter[0]}>{filter[1]}</option>
+          )
+        })}
+      </select>
     </>
-
   )
 }
+
+ 
