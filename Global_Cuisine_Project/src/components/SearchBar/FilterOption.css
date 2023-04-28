@@ -1,0 +1,22 @@
+
+.filterContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 200px;
+    justify-content: center;
+    align-content: center;
+   
+}
+
+.MenuContainer {
+    width: 200px;
+    margin-bottom: 1px;
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+.MenuContainer:hover {
+    background-color: rgb(230, 227, 227);
+}

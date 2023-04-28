@@ -1,32 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './FilterOption.css'
+import FilterButton from './FilterButton'
 
 export default function FilterOption({Title, filters}) {
-    // console.log(filters)
-  const handleClick = (item) => {
-    item[1] = !item[1]
+  const [open, SetOpen] = useState(false)
+  
+  
+  const onClick = () => {
+    SetOpen(!open)
   }
+ 
 
-  const handleChange = (option) => {
-    SetOption(option.target.value)
-  };
-  return (
-    <>
-      <label> {Title} </label>
-      <select className='dropdown__mealtype' onChange={handleChange}>
-        {/* <option value="" disabled selected hidden>{Title}</option> */}
-        <option value={""}>None</option>
-        {filters?.map((filter) => {
+  const ShowFilter = () => {
+    return(
+      <div className='filterContainer'>
+        {filters?.map((item) => {
           return(
-            <option onClick={() => handleClick(filter)} 
-            key={filter[0]}
-            style={{backgroundColor: filter[1] ? "white" : "red"}}>
-            {filter[1]}</option>
+            <FilterButton key={item} filterName={item[0]} active={item[1]} />
           )
         })}
-      </select>
+    </div>
+    )
+  }
+  
+  return (
+    <>
+      <div className='MenuContainer' >
+        <h3 onClick={() => onClick()}>{Title}</h3>
+        { open ? 
+          <div> 
+            <ShowFilter /> 
+          </div> : 
+        <></>}
+      </div>
     </>
   )
 }
+
+
+
+
 
  

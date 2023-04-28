@@ -14,6 +14,8 @@ const Searchbar = (props) => {
     const [intoleranceOption, setIntoleranceOption] = useState([])
     const [search, setSearch] = useState("");
    
+    const [region, setRegion] = useState([["Italian,", false], ["European", false]])
+    let mealType = [["breakfast,", false], ["main course", false]]
     let diet = [["Vegetarian,", false], ["Vegan", false]]
     let intolerance = [["Gluten,", false], ["Dairy", false]]
 
@@ -30,13 +32,14 @@ const Searchbar = (props) => {
     // })
 
 const handleSubmit = (e) => {
+    console.log(region)
     e.preventDefault();
     getRecipes();
 }
 // + `intolerances=${intoleranceOption.map((item => `${item},`))}&`
 
 const getRecipes = async () => {
-    const apiKey = 'ca68133f5df34a13b64e53f977918ba8';
+    const apiKey = 'd9621eb8bc7949e39c16d7f5fab52053';
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${regionOption}&`
@@ -64,19 +67,7 @@ const getRecipes = async () => {
                 
                 
             </form>
-            {/* ref={menuRef} */}
-            {/* <button  className='search-form__filter' onClick={ () => changeHandle()}>
-                <FaAlignLeft />
-            </button> */}
-            <FilterMenu SetRegionOption={setRegionOption} setMealTypeOption={setMealTypeOption} 
-            setDietOption={setDietOption} setIntoleranceOption={setIntoleranceOption}/>
-            {/* <div>
-                <label>{regionOption}</label>
-                <label>{mealTypeOption}</label>
-                <label>{dietOption}</label>
-                <label>{intoleranceOption}</label>      
-            </div> */}
-             
+            <FilterMenu region={region} mealType={mealType} diet={diet} intolerance={intolerance} />
         </section>
     
         </>

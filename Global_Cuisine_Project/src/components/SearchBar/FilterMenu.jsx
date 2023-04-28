@@ -3,12 +3,14 @@ import { FaSearch, FaAlignLeft } from 'react-icons/fa'
 import './FilterMenu.css'
 import FilterOption from './FilterOption';
 
-const FilterMenu = ({array}) => {
-   
+const FilterMenu = ({region, mealType, diet, intolerance}) => {
    
     const [show, setShow] = useState(false);
 
-    const changeHandle = () => show ? setShow(false) : setShow(true)
+    const changeHandle = () => {
+        setShow(!show)
+      
+    }
 
 
     return(
@@ -17,10 +19,11 @@ const FilterMenu = ({array}) => {
                 <FaAlignLeft />
             </button>
             <aside className={"filter-menu" + (show ? " is-active" : "")}>
-                <FilterOption Title={"Choose Region"} filters={array} />
-                <FilterOption Title={"Meal Type"} filters={array}/>
-                <FilterOption Title={"Diet"} filters={array}/>
-                <FilterOption Title={"Intolerances"} filters={array}/>
+                <FilterOption Title={"Region"} filters={region}/>
+                <FilterOption Title={"Meal Type"} filters={mealType}/>
+                <FilterOption Title={"Diet"} filters={diet}/>
+                <FilterOption Title={"intolerances"} filters={intolerance}/>
+                
             </aside>
         </>
     )
