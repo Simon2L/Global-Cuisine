@@ -22,13 +22,13 @@ const handleSubmit = (e) => {
 }
 
 const getRecipes = async () => {
-    const apiKey = '5792d7fbb36b444fa9f484820f5fb862';
+    const apiKey = 'ca68133f5df34a13b64e53f977918ba8';
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${regionOption}&`
         + `type=${mealTypeOption}&`
         + `diet=${dietOption}&`
-        + `intolerances=${intoleranceOption.map((item => `${item},`))}&`
+        + `intolerances=${intoleranceOption}&`
         + `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
         const result = await response.json();
