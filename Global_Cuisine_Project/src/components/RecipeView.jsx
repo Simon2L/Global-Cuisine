@@ -79,15 +79,31 @@ export default function RecipeView() {
                 <div className="nutrition-info">
                     <h2>Nutritions Facts : </h2>
                     <hr className='solid'></hr>                    
-                    <p>Serving size :<span>
+                    <p className="serving">Serving size : <span>
                         {data.nutrition.weightPerServing.amount}{data.nutrition.weightPerServing.unit}</span></p>
-                    
+                        <hr className="light"/>
+                        <p className="caloric">Caloric breakdown: </p>
+                        <div className="caloricinfo">
+                        <p>Carbs: <span>
+                        {data.nutrition.caloricBreakdown.percentCarbs}%</span></p>
+                        <p>Fat: <span>
+                        {data.nutrition.caloricBreakdown.percentFat}%</span></p>
+                        <p>Protein: <span>
+                        {data.nutrition.caloricBreakdown.percentProtein}%</span></p>
+                        </div>
+                        <hr className="light"/>
+                        <div className="nutrients">
+                        {data.nutrition.nutrients.map((nutrient) => <p className="nutrient">{nutrient.name}: <span>
+                        {nutrient.amount}{nutrient.unit}</span></p> )}
+                        </div>
+                        
                     
                     <div >
                         <ul>
                               {/* {data.}   */}
                             </ul>
                     </div>
+                    
                 </div>
             </div>
             

@@ -160,3 +160,61 @@ h3 {
     height: 20rem;
   }
 }
+
+.light {
+  width: 100%;
+  height: 0.5px;
+  border-color: black;
+
+}
+
+.nutrients {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: small;
+  line-height: 2px;
+}
+
+.nutrient {
+  width: 90%;
+  /* margin: 1rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.caloric {
+  width: 94%;
+  font-weight: 600;
+  text-align: left;
+}
+
+.caloricinfo {
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.caloricinfo p {
+  width: 65%;
+  line-height: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+}
+
+.serving {
+  width: 94%;
+  font-weight: 800;
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
