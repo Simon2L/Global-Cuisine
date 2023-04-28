@@ -13,10 +13,11 @@ const Searchbar = (props) => {
     const [dietOption, setDietOption] = useState("")
     const [intoleranceOption, setIntoleranceOption] = useState([])
     const [search, setSearch] = useState("");
-    let intolerance = [["Gluten,", true], ["Dairy", true]]
-    let diet = [["Vegetarian,", true], ["Vegan", true]]
+   
+    let diet = [["Vegetarian,", false], ["Vegan", false]]
+    let intolerance = [["Gluten,", false], ["Dairy", false]]
 
-    let test = ""
+    let diets = ""
     diet.forEach(item => {
         if(item[1] === true) test += item[0]
     });
@@ -40,7 +41,7 @@ const getRecipes = async () => {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${regionOption}&`
         + `type=${mealTypeOption}&`
-        + `diet=${test}&`
+        + `diet=${diets}&`
         + `intolerances=${""}&`
         + `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
@@ -69,12 +70,12 @@ const getRecipes = async () => {
             </button> */}
             <FilterMenu SetRegionOption={setRegionOption} setMealTypeOption={setMealTypeOption} 
             setDietOption={setDietOption} setIntoleranceOption={setIntoleranceOption}/>
-            <div>
+            {/* <div>
                 <label>{regionOption}</label>
                 <label>{mealTypeOption}</label>
                 <label>{dietOption}</label>
-                <label>{intoleranceOption}</label>
-            </div>
+                <label>{intoleranceOption}</label>      
+            </div> */}
              
         </section>
     

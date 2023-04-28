@@ -3,7 +3,7 @@ import { FaSearch, FaAlignLeft } from 'react-icons/fa'
 import './FilterMenu.css'
 import FilterOption from './FilterOption';
 
-const FilterMenu = ({SetRegionOption, setMealTypeOption, setDietOption, setIntoleranceOption}) => {
+const FilterMenu = ({array}) => {
    
    
     const [show, setShow] = useState(false);
@@ -17,10 +17,10 @@ const FilterMenu = ({SetRegionOption, setMealTypeOption, setDietOption, setIntol
                 <FaAlignLeft />
             </button>
             <aside className={"filter-menu" + (show ? " is-active" : "")}>
-                <FilterOption Title={"Choose Region"} filters={regions} SetOption={SetRegionOption} id={"reg"} />
-                <FilterOption Title={"Meal Type"} filters={mealTypes} SetOption={setMealTypeOption} id={"type"}/>
-                <FilterOption Title={"Diet"} filters={diets} SetOption={setDietOption} id={"diet"}/>
-                <FilterOption Title={"Intolerances"} filters={intolerances} SetOption={setIntoleranceOption} id={"int"}/>
+                <FilterOption Title={"Choose Region"} filters={array} />
+                <FilterOption Title={"Meal Type"} filters={array}/>
+                <FilterOption Title={"Diet"} filters={array}/>
+                <FilterOption Title={"Intolerances"} filters={array}/>
             </aside>
         </>
     )
