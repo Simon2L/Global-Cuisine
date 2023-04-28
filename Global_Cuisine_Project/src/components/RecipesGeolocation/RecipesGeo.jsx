@@ -15,9 +15,9 @@ export default function LocationRecipes() {
     const [userRegion, setRegion] = useState(null);
     const [totalRecipes, setTotal] = useState(null);
     
-    useEffect(() => {
-      LoadRecipes()
-    }, [])
+    // useEffect(() => {
+    //   LoadRecipes()
+    // }, [])
 
 
 

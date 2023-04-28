@@ -20,10 +20,10 @@ const FilterMenu = ({SetRegionOption, setMealTypeOption, setDietOption, setIntol
                 <FaAlignLeft />
             </button>
             <aside className={"filter-menu" + (show ? " is-active" : "")}>
-                <FilterOption Title={"Choose Region"} filters={regions} SetRegionOption={SetRegionOption} id={"reg"} />
-                <FilterOption Title={"Meal Type"} filters={mealTypes} setMealTypeOption={setMealTypeOption} id={"type"}/>
-                <FilterOption Title={"Diet"} filters={diets} setDietOption={setDietOption} id={"diet"}/>
-                <FilterOption Title={"Intolerances"} filters={intolerances} setIntoleranceOption={setIntoleranceOption} id={"int"}/>
+                <FilterOption Title={"Choose Region"} filters={regions} SetOption={SetRegionOption} id={"reg"} />
+                <FilterOption Title={"Meal Type"} filters={mealTypes} SetOption={setMealTypeOption} id={"type"}/>
+                <FilterOption Title={"Diet"} filters={diets} SetOption={setDietOption} id={"diet"}/>
+                <FilterOption Title={"Intolerances"} filters={intolerances} SetOption={setIntoleranceOption} id={"int"}/>
             </aside>
         </>
     )

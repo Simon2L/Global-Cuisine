@@ -1,12 +1,12 @@
 import React from 'react'
 import './FilterOption.css'
 
-export default function FilterOption({SetRegionOption, Title, filters, id }) {
+export default function FilterOption({SetOption, Title, filters, id }) {
   
 
   console.log(filters)
   const handleChange = (option) => {
-    SetRegionOption(option.target.value)
+    SetOption(option.target.value)
   };
   return (
     <>
