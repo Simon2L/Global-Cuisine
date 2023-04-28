@@ -9,6 +9,9 @@ import FilterMenu from './SearchBar/FilterMenu';
 
 const Searchbar = (props) => {
     const [regionOption, setRegionOption] = useState("")
+    const [mealTypeOption, setMealTypeOption] = useState("")
+    const [dietOption, setDietOption] = useState("")
+    const [intoleranceOption, setIntoleranceOption] = useState("")
     const [search, setSearch] = useState("");
 
 
@@ -47,7 +50,8 @@ const getRecipes = async () => {
             {/* <button  className='search-form__filter' onClick={ () => changeHandle()}>
                 <FaAlignLeft />
             </button> */}
-            <FilterMenu SetRegionOption={setRegionOption}/>
+            <FilterMenu SetRegionOption={setRegionOption} setMealTypeOption={setMealTypeOption} 
+            setDietOption={setDietOption} setIntoleranceOption={setIntoleranceOption}/>
         </section>
         </>
     )

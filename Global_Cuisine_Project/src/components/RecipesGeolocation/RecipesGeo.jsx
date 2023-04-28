@@ -11,7 +11,7 @@ import GetRecipes from './Functions/GetRecipes';
 
 export default function LocationRecipes() {
     const [recipesRegion, setRecipes] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
     const [userRegion, setRegion] = useState(null);
     const [totalRecipes, setTotal] = useState(null);
     
@@ -23,10 +23,10 @@ export default function LocationRecipes() {
 
 
     const LoadRecipes = async () => {
-      const latLng = await GetUserCoordinates() // hämtar koordinaterna
+      const latLng = await GetUserCoordinates() 
       const location = await GetUserLocation(latLng[0], latLng[1])  // hämtar användarens land och kontinent
       const tempRegion = await getUserRegion(location[0], location[1]) // matchar vilken region användaren är vid
-      const tempRecipes = await GetRecipes(tempRegion) // hämtar recepten för regionen
+      const tempRecipes = await GetRecipes(tempRegion) 
       // console.log(tempRecipes)
       
       setRecipes(tempRecipes[0])  // tempRecipes[0] är dem hämtade recepten
