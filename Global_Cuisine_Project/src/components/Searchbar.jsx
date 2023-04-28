@@ -27,6 +27,7 @@ const getRecipes = async () => {
         + `&query=${search}&cuisine=${regionOption}&`
         + `type=${mealTypeOption}&`
         + `diet=${dietOption}&`
+        + `intolerances=${intoleranceOption}&`
         + `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
         const result = await response.json();

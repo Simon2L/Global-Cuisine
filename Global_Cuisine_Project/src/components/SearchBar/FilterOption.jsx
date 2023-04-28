@@ -19,7 +19,7 @@ export default function FilterOption({SetOption, Title, filters, id }) {
             )
             })}
     </select>
-    <label for={id}> {Title} </label>
+    <label htmlFor={id}> {Title} </label>
     </>
 
   )
