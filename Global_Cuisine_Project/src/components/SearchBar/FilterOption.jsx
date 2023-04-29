@@ -4,21 +4,25 @@ import FilterButton from './FilterButton'
 
 export default function FilterOption({Title, filters}) {
   const [open, SetOpen] = useState(false)
-  
-  
+  const [array, setArray] = useState([])
+
+
   const onClick = () => {
     SetOpen(!open)
   }
  
+
+
 
   const ShowFilter = () => {
     return(
       <div className='filterContainer'>
         {filters?.map((item) => {
           return(
-            <FilterButton key={item} filterName={item[0]} active={item[1]} />
+            <FilterButton filterName={item} setArray={setArray} array={array} />
           )
         })}
+        <h1>{array}</h1>
     </div>
     )
   }

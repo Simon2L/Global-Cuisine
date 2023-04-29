@@ -20,3 +20,35 @@
 .MenuContainer:hover {
     background-color: rgb(230, 227, 227);
 }
+
+.active {
+    width: 10em;
+    height: 1.5rem;
+    border-radius: 1rem;
+    background-color: #F1D0C5;
+    color: black;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-self: center;
+}
+
+.notActive {
+    width: 10em;
+    height: 1.5rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    color: black;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-self: center;
+}
+
+
+.active:hover{
+    background-color: #dbbdb2;
+}
+.notActive:hover{
+    background-color: #d7caca;
+}
