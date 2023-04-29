@@ -5,6 +5,7 @@ import FilterOption from './FilterOption';
 
 const FilterMenu = () => {
     const region = ["French", "Italian", "Spanish"]
+    const mealType = ["Breakfast", "Main Course", "Snack"]
     const [show, setShow] = useState(false);
 
     const changeHandle = () => {
@@ -20,6 +21,7 @@ const FilterMenu = () => {
             </button>
             <aside className={"filter-menu" + (show ? " is-active" : "")}>
                 <FilterOption Title={"Region"} filters={region}/>
+                <FilterOption Title={"Meal Type"} filters={mealType}/>
             </aside>
         </>
     )
