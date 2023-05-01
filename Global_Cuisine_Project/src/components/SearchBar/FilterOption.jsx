@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import './FilterOption.css'
 import FilterButton from './FilterButton'
 
-export default function FilterOption({Title, filters}) {
+export default function FilterOption({Title, filters, setArray, array}) {
   const [open, SetOpen] = useState(false)
-  const [array, setArray] = useState([])
 
 
   const onClick = () => {
@@ -19,10 +18,9 @@ export default function FilterOption({Title, filters}) {
       <div className='filterContainer'>
         {filters?.map((item) => {
           return(
-            <FilterButton filterName={item} setArray={setArray} array={array} />
+            <FilterButton key={item} filterName={item} setArray={setArray} array={array} />
           )
         })}
-        <h1>{array}</h1>
     </div>
     )
   }

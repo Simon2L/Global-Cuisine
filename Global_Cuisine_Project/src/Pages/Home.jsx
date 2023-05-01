@@ -9,8 +9,9 @@ function Home() {
   return (
     <>
       <Searchbar setRecipes={setRecipes} />
-      <RecipesGeo />
       <RecipesContainer recipes={recipes} />
+      <RecipesGeo />
+     
 
     </>
   )

@@ -15,7 +15,7 @@ function FilterButton({filterName, setArray, array}) {
   }
 
   const onBtnClick = (filter) => {
-      active ?  RemoveFilter(filter) : tempArray.push(filter)
+      active ?  RemoveFilter(filter) : tempArray.push(filter) // om filtret redan är vald så tas den bort. annars läggs den till
       setActive(!active)
       setArray(tempArray)
       console.log(array)
