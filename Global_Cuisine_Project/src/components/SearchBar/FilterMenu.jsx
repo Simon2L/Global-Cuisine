@@ -26,7 +26,7 @@ const FilterMenu = ({setRegionArray, regionArray, setMealTypeArray, mealTypeArra
                 <FilterOption Title={"Regions"} filters={regions} setArray={setRegionArray} array={regionArray}/>
                 <FilterOption Title={"Meal Types"} filters={mealTypes} setArray={setMealTypeArray} array={mealTypeArray}/>
                 <FilterOption Title={"Diets"} filters={diets} setArray={setDietArray} array={dietArray}/>
-                <FilterOption Title={"intolerances"} filters={intolerances} setArray={setMealTypeArray} array={mealTypeArray}/>
+                <FilterOption Title={"intolerances"} filters={intolerances} setArray={setIntoleranceArray} array={intoleranceArray}/>
             </aside>
         </>
     )
