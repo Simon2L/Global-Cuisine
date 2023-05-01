@@ -3,15 +3,18 @@ import { FaSearch, FaAlignLeft } from 'react-icons/fa'
 import './FilterMenu.css'
 import FilterOption from './FilterOption';
 
-const FilterMenu = ({SetRegionOption, setMealTypeOption, setDietOption, setIntoleranceOption}) => {
-    const regions= [["European", "European"], ["Japanese", "Japanese"], ["Italian", "Italian"], ["Nordic", "Nordic"]]
-    const diets = [["Glutens Free", "Glutens Free"], ["Vegetarian", "Vegeterian"], ["Vegan", "Vegan"], ["Pescetarian", "Pescetarian"]]
-    const mealTypes = [["breakfast", "Breakfast"],["main course", "Main Course"], ["dessert", "Dessert"]]
-    const intolerances = [["Gluten", "Gluten Free"], ["Peanut", "Peanut Free"], ["Dairy", "Dairy Free"], ["Soy", "Soy Free"]]
-   
+const FilterMenu = ({setRegionArray, regionArray, setMealTypeArray, mealTypeArray, 
+    setDietArray, dietArray, setIntoleranceArray, intoleranceArray}) => {
+    const regions = ["French", "Italian", "Spanish", "Chinese", "Nordic", "American", "Japanese", "Greek"]
+    const mealTypes = ["breakfast", "main course", "drink"]
+    const diets = ["Vegetarian", "Vegan", "Gluten Free"]
+    const intolerances = ["Gluten", "Dairy"]
     const [show, setShow] = useState(false);
 
-    const changeHandle = () => show ? setShow(false) : setShow(true)
+    const changeHandle = () => {
+        setShow(!show)
+      
+    }
 
 
     return(
@@ -20,10 +23,10 @@ const FilterMenu = ({SetRegionOption, setMealTypeOption, setDietOption, setIntol
                 <FaAlignLeft />
             </button>
             <aside className={"filter-menu" + (show ? " is-active" : "")}>
-                <FilterOption Title={"Choose Region"} filters={regions} SetOption={SetRegionOption} id={"reg"} />
-                <FilterOption Title={"Meal Type"} filters={mealTypes} SetOption={setMealTypeOption} id={"type"}/>
-                <FilterOption Title={"Diet"} filters={diets} SetOption={setDietOption} id={"diet"}/>
-                <FilterOption Title={"Intolerances"} filters={intolerances} SetOption={setIntoleranceOption} id={"int"}/>
+                <FilterOption Title={"Regions"} filters={regions} setArray={setRegionArray} array={regionArray}/>
+                <FilterOption Title={"Meal Types"} filters={mealTypes} setArray={setMealTypeArray} array={mealTypeArray}/>
+                <FilterOption Title={"Diets"} filters={diets} setArray={setDietArray} array={dietArray}/>
+                <FilterOption Title={"intolerances"} filters={intolerances} setArray={setMealTypeArray} array={mealTypeArray}/>
             </aside>
         </>
     )
