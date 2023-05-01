@@ -8,6 +8,7 @@ import { Form } from "react-router-dom";
 
 
 
+
 const Searchbar = (props) => {
     const [regionOption, setRegionOption] = useState([])
     const [mealTypeOption, setMealTypeOption] = useState([])
@@ -43,8 +44,8 @@ const getRecipes = async () => {
         + `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
         const response = await fetch(url);
         const result = await response.json();
-        console.log(result)
-        props.setRecipes(result.results);
+        // console.log(result)
+        props.setRecipes(result);
       } catch (e) {
         console.log(e);
       }

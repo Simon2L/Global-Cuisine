@@ -1,13 +1,18 @@
 import './RecipesContainer.css'
 import RecipeCard from "./RecipeCard";
+import { useEffect } from 'react';
 
-const RecipesContainer = (props) => {
+const RecipesContainer = ({data}) => {
+     
   return (
+    <>
+    <p>{data.length > 0 ? `${data.totalResults} recipes found` : ""}</p>
     <section className="recipe-card-container">
-      {props.recipes.map(recipe => (
+      {data?.results?.map(recipe => (
         <RecipeCard recipe={recipe} key={recipe.id} />
       ))}
     </section>
+    </>
   );
 };
 
