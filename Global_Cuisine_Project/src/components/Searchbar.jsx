@@ -17,12 +17,12 @@ const Searchbar = (props) => {
 
 
    const PrintFilters = (array) => {
-    let filterString = ""
-    array.forEach(element => {
+        let filterString = ""
+        array.forEach(element => {
         filterString += `${element}, `
-    });
+        });
 
-    return filterString
+        return filterString.slice(0, -2) // slice tar bort sista kommatecknet så den sista filtret funkar
     };
         
 
