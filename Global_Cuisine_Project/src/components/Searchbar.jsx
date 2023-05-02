@@ -34,7 +34,7 @@ const handleSubmit = (e) => {
 
 
 const getRecipes = async () => {
-    const apiKey = 'b6fe3c11873b42a0a632232c087c84e8';
+    const apiKey = '6afda3141a6246569ed46a639cbfbfa6';
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${PrintFilters(regionOption)}&`
