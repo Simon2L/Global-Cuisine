@@ -89,4 +89,5 @@
   margin-left: 2vw;
   padding: 0px;
   cursor: pointer;
+  z-index: 1;
 }

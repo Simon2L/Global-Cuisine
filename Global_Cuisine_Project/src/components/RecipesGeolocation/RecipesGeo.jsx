@@ -64,7 +64,7 @@ export default function LocationRecipes() {
         },
           arrows: false,
           drag: 'free',
-          pagination: true,
+          pagination: false,
         }}>
 
         {loading ? <h1>Loading...</h1> : recipesRegion.results.map(recipe => { // för varje hämtad recipes, görs det kort
