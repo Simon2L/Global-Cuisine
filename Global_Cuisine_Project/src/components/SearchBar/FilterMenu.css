@@ -5,6 +5,7 @@
     right: -100%;
     display: flex;
     flex-direction: column;
+    transition: width, 0.5s;
 }
 
 .filter-menu.is-active {

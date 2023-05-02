@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { FaSearch, FaAlignLeft } from 'react-icons/fa'
 import './FilterMenu.css'
 import FilterOption from './FilterOption';
@@ -16,13 +16,22 @@ const FilterMenu = ({setRegionArray, regionArray, setMealTypeArray, mealTypeArra
       
     }
 
+    let menuRef = useRef();
+    useEffect(() => {
+        document.addEventListener('mousedown', (event) => {
+            if(!menuRef.current.contains(event.target)){
+                setShow(false);
+            }
+        })
+    })
+
 
     return(
         <>
-        <button  className='search-form__filter' onClick={() => changeHandle()}>
+        <button className='search-form__filter' onClick={() => changeHandle()}>
                 <FaAlignLeft />
             </button>
-            <aside className={"filter-menu" + (show ? " is-active" : "")}>
+            <aside ref={menuRef} className={"filter-menu" + (show ? " is-active" : "")}>
                 <FilterOption Title={"Regions"} filters={regions} setArray={setRegionArray} array={regionArray}/>
                 <FilterOption Title={"Meal Types"} filters={mealTypes} setArray={setMealTypeArray} array={mealTypeArray}/>
                 <FilterOption Title={"Diets"} filters={diets} setArray={setDietArray} array={dietArray}/>
