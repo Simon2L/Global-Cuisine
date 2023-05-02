@@ -1,22 +1,35 @@
+.RecipeCards {
+  margin: 0% 5%;
+}
+
+.textContainer {
+  min-height: 75px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splide {
+  z-index: 0;
+}
+
 .Card {
-  background-color: aliceblue;
-  padding: 1rem;
+  background-color: #AB4545;
   border-radius: 1rem;
-  border: solid;
-  max-width: 20rem;
+  max-width: 16rem;
   height: 20rem;
   margin: 0.5rem;
   align-items:center;
   overflow: clip;
-  
 }
+
 
 .linkTag {
   text-decoration: none;
 }
 
 .Card img {
-  border-radius: 1rem;
   max-width: 100%;
   object-fit: cover;
   
@@ -25,12 +38,12 @@
 .Card h1 {
   font-size: 20px;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+ 
 }
 
 .Card:hover {
-  background-color: rgb(220, 228, 236);
-  border: solid;
+  background-color: #8e3939;
   transform: translateY(-1px);
 }
 
@@ -45,9 +58,14 @@
     font-size: 4vw;
   }
 
-
+  .Card h1 {
+    font-size: 15px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+   
+  }
   .Card {
-    max-width: 15rem;
+    max-width: 11rem;
     height: 15rem;
   }
 }

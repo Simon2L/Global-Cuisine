@@ -11,7 +11,7 @@ import GetRecipes from './Functions/GetRecipes';
 
 export default function LocationRecipes() {
     const [recipesRegion, setRecipes] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
     const [userRegion, setRegion] = useState(null);
     const [totalRecipes, setTotal] = useState(null);
     
@@ -23,10 +23,10 @@ export default function LocationRecipes() {
 
 
     const LoadRecipes = async () => {
-      const latLng = await GetUserCoordinates() // hämtar koordinaterna
+      const latLng = await GetUserCoordinates() 
       const location = await GetUserLocation(latLng[0], latLng[1])  // hämtar användarens land och kontinent
       const tempRegion = await getUserRegion(location[0], location[1]) // matchar vilken region användaren är vid
-      const tempRecipes = await GetRecipes(tempRegion) // hämtar recepten för regionen
+      const tempRecipes = await GetRecipes(tempRegion) 
       // console.log(tempRecipes)
       
       setRecipes(tempRecipes[0])  // tempRecipes[0] är dem hämtade recepten
@@ -45,17 +45,17 @@ export default function LocationRecipes() {
       <hr></hr>
       <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
       <div className='RecipeCards'>
-        {/* sättter upp alla splide options som hur många cards som ska visas etc */}
+        {/* sättter upp splide options som hur många cards som ska visas etc */}
         <Splide options={{
           perPage: 5,
           breakpoints: { // bestämmer hur många kort som visas beroende på window size
-            1730: {
+            1650: {
             perPage: 4,
           },
-            1300: {
+            800: {
             perPage: 3,
           },
-            800: {
+            600: {
             perPage: 2,
           },
             400: {
@@ -74,13 +74,15 @@ export default function LocationRecipes() {
               <div className='Card'>
                 <Link style={linkStyle} to={`recipes/${recipe.id}`}>
                   <img src={recipe.image}></img>
-                  <hr></hr>
-                  <h1>{recipe.title}</h1>
+                  <div className='textContainer'>
+                    <h1>{recipe.title}</h1>
+                  </div>
                 </Link>
               </div>
             </SplideSlide>
           )
         })}
+      
 
         </Splide>
       </div>
@@ -97,7 +99,7 @@ const linkStyle = {
    
      
 const iStyle = {
-  color: 'black'
+  color: "#743737"
 };
 
 //#endregion
