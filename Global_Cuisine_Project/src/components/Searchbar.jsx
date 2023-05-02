@@ -32,6 +32,17 @@ const handleSubmit = (e) => {
     getRecipes();
 }
 
+const MapLabels = ({filter}) => {
+    const labels = filter?.map((item) => {
+        return(
+            <label className='labelFilter' key={item}>{item}</label>
+            )
+        })
+       
+        return(
+            labels
+        )
+}
 
 const getRecipes = async () => {
     const apiKey = '6afda3141a6246569ed46a639cbfbfa6';
@@ -65,27 +76,11 @@ const getRecipes = async () => {
                 setRegionArray={setRegionOption} setMealTypeArray={setMealTypeOption}
                 setDietArray={setDietOption} setIntoleranceArray={setIntoleranceOption} />
         </section>
-        <section>
-            {regionOption?.map((item) => {
-                return(
-                    <label key={item}>{item}</label>
-                    )
-                })}
-            {mealTypeOption?.map((item) => {
-                return(
-                    <label key={item}>{item}</label>
-                )
-                })}
-            {dietOption?.map((item) => {
-                return(
-                    <label key={item}>{item}</label>
-                )
-                })}
-            {intoleranceOption?.map((item) => {
-                return(
-                    <label key={item}>{item}</label>
-                )
-            })}
+        <section className='filter-Container'>
+            <MapLabels filter={regionOption}/>
+            <MapLabels filter={mealTypeOption}/>
+            <MapLabels filter={dietOption}/>
+            <MapLabels filter={intoleranceOption}/>
        </section>
                 
                 

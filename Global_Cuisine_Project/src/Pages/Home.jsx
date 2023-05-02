@@ -12,6 +12,7 @@ function Home() {
   useEffect(() => {
     ref.current?.scrollIntoView({behavior: 'smooth'});
   },[recipes])
+  
   return (
     <>
       <Searchbar setRecipes={setRecipes} />
