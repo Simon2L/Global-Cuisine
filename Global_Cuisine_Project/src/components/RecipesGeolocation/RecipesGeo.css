@@ -1,6 +1,5 @@
 .RecipeCards {
   margin: 0% 5%;
-  z-index: -2;
 }
 
 .textContainer {
@@ -9,6 +8,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.splide {
+  z-index: 0;
 }
 
 .Card {
