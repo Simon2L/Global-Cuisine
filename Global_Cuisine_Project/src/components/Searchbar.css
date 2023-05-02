@@ -25,15 +25,23 @@
   border-radius: 10px;
 }
 
+
+
 .logoimage {
   position: relative;
   width: 60%;
   height: 15rem;
 }
 
+@media screen and (max-width: 800px){
+  .logoimage{
+    width: 80%;
+    height: 10rem;
+  }
+}
+
 .search-form__container {
   margin-top: 0;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -50,7 +58,7 @@
   border-color: black;
   padding-left: 15px;
   padding-right: 50px;
-  margin: 15px;
+  margin: 0px 15px 0 15px;
 }
 
 @media screen and (min-width: 800px){
@@ -58,36 +66,36 @@
     width: 80%;
     height: 65px;
     font-size: 35px;
-    border-radius: 10px;
-    border-color: black;
-    padding-left: 15px;
-    padding-right: 50px;
-    margin: 15px;
   }
 }
 
- @media screen and (min-width: 800px){
-  .search-form__submit {
-    margin-left: 90%;
-    font-size: 30px;
-    position: relative;
-    padding: 0px;
-    margin-top: 1px;
-  }
-} 
-
 .search-form__submit {
   margin-left: 75%;
-  position: absolute;
+  position:absolute;
   padding: 0px;
   margin-top: 1px;
   background-color: transparent;
   cursor: pointer;
 }
+ @media screen and (min-width: 800px){
+  .search-form__submit {
+    font-size: 30px;
+  }
+} 
+
 
 .search-form__filter {
-  margin-left: 2vw;
-  padding: 0px;
+  align-self: self-start;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: 20px;
   cursor: pointer;
   z-index: 1;
 }
+
+@media screen and (min-width: 800px){
+  .search-form__filter {
+    font-size: 35 px;
+    align-self: auto;
+  }
+} 
