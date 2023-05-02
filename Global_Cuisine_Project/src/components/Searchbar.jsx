@@ -56,7 +56,8 @@ const getRecipes = async () => {
         
         <section className="search-form">
             <img src={logoimage} alt="global cuisine" className='logoimage'></img>
-            <Form className="search-form__container" onSubmit={handleSubmit}>
+            <div className="search-form__container">
+            <Form className="search-form__form" onSubmit={handleSubmit}>
                 <input className="search-form__input" onChange={(e) => setSearch(e.target.value)} maxLength={25} data-="text" placeholder="Search..."/>
                 <FaSearch className="search-form__submit" />
             </Form>
@@ -64,6 +65,7 @@ const getRecipes = async () => {
                 dietArray={dietOption} intoleranceArray={intoleranceOption}
                 setRegionArray={setRegionOption} setMealTypeArray={setMealTypeOption}
                 setDietArray={setDietOption} setIntoleranceArray={setIntoleranceOption} />
+            </div>
         </section>
         <section>
             {regionOption?.map((item) => {
