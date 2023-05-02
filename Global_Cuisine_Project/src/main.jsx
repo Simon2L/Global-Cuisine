@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         element: 
         <>
           <RecipeView />
-          <hr></hr>
+          
         </>
       },
       {

@@ -1,11 +1,10 @@
 .about-container {
   display: flex;
-
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 98%;
-  margin: 0.3rem;
+  margin: auto;
   border: 2px solid black;
   border-radius: 10px;
 }

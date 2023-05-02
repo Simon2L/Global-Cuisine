@@ -1,17 +1,12 @@
-.recipe-container-desktop {
+.recipe-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
-  margin-left: 2rem;
-  margin-top: 2rem;
+  margin: auto;
+  width: 80%;
 }
-.recipe-container-mobile {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .recipe-info {
   display: flex;
   flex-direction: column;
@@ -19,72 +14,271 @@
   align-items: center;
   width: 70%;
 }
+.aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
 .nutrition-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  margin: 0rem 2rem 1rem 2rem;
   border: 2px solid black;
-  width: 30%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
   color: black;
+  width: 98%;
+  margin-bottom: 2rem;
 }
-.nutrition-info-mobile {
+
+.title-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
-  margin: 0rem 2rem 1rem 2rem;
-  border: 2px solid black;
-  width: 70%;
-  background-color: white;
-  color: black;
-}
-.recipe-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0rem 2rem 1rem 2rem;
-  border: 2px solid black;
   border-radius: 10px;
   width: 100%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
   color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+  border: 2px solid black;
 }
-h2 {
-  width: 100%;
+.title-info {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-}
-.title {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 2rem;
-}
-.solid {
-  background-color: black;
-  border-color: black;
-  width: 96%;
-  height: 2px;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 .img-container {
-  width: 100%;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  width: 45%;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .recipe-img {
-  width: 100%;
-  height: 20rem;
+  width: 20vw;
+  height: 25vw;
   object-fit: cover;
-  margin: 1rem;
+  border-radius: 5px;
+}
+.summary {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+h6,
+h4,
+h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: black !important;
+}
+.last {
+  margin-bottom: 0;
+}
+.recipe-ingredients {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+  border: 2px solid black;
+}
+.ingredients {
+  width: 40%;
+}
+.instructions {
+  width: 59%;
+}
+.list {
+  margin: 0;
+  padding-left: 30px;
+  padding-bottom: 2rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-size: large;
+  font-weight: 500;
+  line-height: 30px;
+}
+.solid {
+  background-color: black;
+  border-color: black;
+  width: 100%;
+  height: 1px;
+}
+.nutrition-title {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .recipe-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 98%;
+  }
+  .aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 98%;
+  }
+  .recipe-info {
+    width: 98%;
+  }
+  .title-container {
+    width: 98%;
+  }
+  .title-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .recipe-ingredients {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .ingredients,
+  .instructions {
+    width: 98%;
+    margin: auto;
+  }
+  .recipe-img {
+    width: 15rem;
+    height: 20rem;
+  }
+}
+
+.light {
+  width: 100%;
+  height: 0.5px;
+  border-color: black;
+}
+
+.nutrients {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: small;
+  line-height: 2px;
+}
+
+.nutrient {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 2px;
+}
+
+.caloric {
+  width: 94%;
+  font-weight: 600;
+  text-align: left;
+  margin: 2px;
+}
+
+.caloricinfo {
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+}
+
+.caloricinfo p {
+  width: 65%;
+  line-height: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-bottom: 5px;
+}
+
+.serving {
+  width: 94%;
+  font-weight: 800;
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2px;
+}
+.wine-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  width: 94%;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+  border: 2px solid black;
+  padding: 3%;
+}
+.wineCard {
+  width: 10rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 12px;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+.wineCard img {
+  margin: 0;
+  align-items: center;
+  width: 9rem;
+  height: 12rem;
+  border-radius: 10px;
+  object-fit: contain;
+}
+.wineCard a {
+  text-decoration: none;
+  font-size: large;
+  font-weight: 700;
+}
+.similar {
+  text-decoration: none;
+  font-size: large;
+  font-weight: 600;
+  color: #b57070;
+}
+.wineLink {
+  color: #b57070;
+  text-align: center;
 }

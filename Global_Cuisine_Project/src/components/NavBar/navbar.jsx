@@ -28,9 +28,8 @@ const Navbar = () => {
                 </div>
                 <ul className={"menu" + (show ? " is-active" : "")}>
                     <Link to="/">HOME</Link>
-                    <Link to="#recipes">RECIPES</Link>
-                    <Link to="/about">ABOUT US</Link>
-                    <Link to="/contact">CONTACT US</Link>
+                    <Link to="/about">ABOUT</Link>
+                    <Link to="/contact">CONTACT</Link>
                 </ul>
                 <button ref={menuRef} className={"hamburger" + (show ? " is-active" : "")} onClick={ () => changeHandle()}>
                     <div className="bar"></div>
