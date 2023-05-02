@@ -5,11 +5,11 @@ import { useEffect } from 'react';
 const RecipesContainer = ({data}) => {
 
   console.log(data);
-     
+  
   return (
     <>
-    <p>{data.totalResults > 0 ? `${data.totalResults} recipes found` : ""}</p>
-    <section className="recipe-card-container">
+      <h1 className='total-result'><i className='total-number'>{data.totalResults}</i>{data.totalResults > 0 ? ` recipes found` : ""}</h1>      
+      <section className="recipe-card-container">
       {data?.results?.map(recipe => (
         <RecipeCard recipe={recipe} key={recipe.id} />
       ))}
