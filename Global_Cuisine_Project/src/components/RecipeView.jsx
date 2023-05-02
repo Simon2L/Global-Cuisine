@@ -12,58 +12,72 @@ const Similars = () => {
 const params = useParams();
     const [similars, setSimilars] = useState([]);
     const getSimilars = async (id) => {
-    const apiKey = 'f27d562bd85b4cd5a482eb0b9108beeb';
+    const apiKey = 'e2c73c94740044a697df0291dcb3ff7f';
     try {
         const url = `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}`;
         const response = await fetch(url);
         const result = await response.json();               
-        setSimilars(result);
-        console.log(result);
+        setSimilars(result);        
       } catch (e) {
         console.log(e);
       }
     }
       useEffect(() => {        
         getSimilars(params.recipeId)
-    },[params.recipeId])
+    },[])
     return (
         similars ?
         <>
-        <h3>Similars:</h3>
+        <h3>Similars Recipes:</h3>
                 
                     <ul className='list'>
                             {similars.map((similar) =>
                                 
-                                <li key={similar.id} className='list-element'>
-                                    <Link to={"/recipes/" +similar.id}>
-                                        {similar.title}</Link></li>
-                                
-                                
-                                
-                            )}                        
-                        
-                        
-                    
-               
-                </ul>
+                                <li key={similar.id} >
+                                    <Link to={"/recipes/" +similar.id} className='similar'>
+                                        {similar.title}</Link></li>                          
+                          )}                        
+              </ul>
                 </> : <></>
     )
 }
 
+const Wines = ({props}) => {
+    if(Object.keys(props).length === 0)
+    return(
+        <></>
+    )
+    else
+        return (
+        props ?
+        <div className='wine-container'>
+        <h2>Wine recommendation:</h2>
+        <h4>{props.pairingText} </h4>                      
+                    <ul className='list'>
+                            {props.productMatches.map((wine) =>                                
+                                <div key={wine.id} className='wineCard'>                                    
+                                        <img src={wine.imageUrl} alt="wine"></img>
+                                        <a href={wine.link} target='_blank' className='wineLink'>{wine.title}</a>                                                             
+                                </div>    
+                        )}                        
+              </ul>
+               </div> : <></>
+    )
+}
+
 export default function RecipeView() {
-    // const location = useLocation();
-    // const data = location.state.recipe;  //gets the recipe object from home page
-    const params = useParams();
-    console.log(params)
+    
+    const params = useParams();   
     const [recipe,setRecipe] =useState();
+    const [wineList, setWineList] = useState();
     const getRecipe = async (id) => {
-    const apiKey = '27bb6d5c926f4d7a9031e952cb4c9849';
+    const apiKey = 'e2c73c94740044a697df0291dcb3ff7f';
     try {
         const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}&includeNutrition=true`;
         const response = await fetch(url);
         const result = await response.json();               
         setRecipe(result);
-        console.log(result);
+        setWineList(result.winePairing)        
       } catch (e) {
         console.log(e);
       }
@@ -72,10 +86,8 @@ export default function RecipeView() {
   
 
     useEffect(() => {
-        getRecipe(params.recipeId)
-        //getSimilars(params.recipeId)
-    },[params.recipeId])
-    //console.log(similar)
+        getRecipe(params.recipeId)       
+    },[])    
     const summary = '<h3>'+recipe?.summary.split('. ',1)+'</h3>'; // splits and saves the first sentence of summary atribute of the recipe
     
 
@@ -142,14 +154,11 @@ export default function RecipeView() {
                     </div>
                 </div>                
             </div>
-            <div className='recipe-ingredients'>
-                <Similars props={recipe.id}></Similars>
-                
-            </div>
+            <Wines props={wineList} />
             
             </div> 
-            <div>
-                <div className="nutrition-info">
+            <div className='aside'>
+                <div className="nutrition-info" >
                     <h3 className='nutrition-title'>Nutritions Facts : </h3>
                     <hr className='solid'></hr>                    
                     <p className="serving">Serving size : <span>
@@ -168,15 +177,13 @@ export default function RecipeView() {
                         <div className="nutrients">
                         {recipe.nutrition.nutrients.map((nutrient,index) => <p key={index} className="nutrient">{nutrient.name}: <span>
                         {nutrient.amount}{nutrient.unit}</span></p> )}
-                        </div>
-                        
-                    
+                        </div>                    
                   
                  </div>  
-                 {/* <div className='nutrition-info'>
-                    <h4>This meal goes with :</h4>
-                    {}
-                    </div>  */}
+                 <div className='nutrition-info'>
+                    <Similars className="similars"></Similars>
+                 </div>
+                 
                 </div>
             </div> : <></>
             

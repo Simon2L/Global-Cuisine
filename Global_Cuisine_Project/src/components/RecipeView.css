@@ -14,16 +14,24 @@
   align-items: center;
   width: 70%;
 }
+.aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
 .nutrition-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
-  width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   color: black;
+  width: 98%;
+  margin-bottom: 2rem;
 }
 
 .title-container {
@@ -129,7 +137,7 @@ h3 {
     margin: auto;
     width: 98%;
   }
-  .nutrition-info {
+  .aside {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -225,4 +233,52 @@ h3 {
   flex-direction: row;
   justify-content: space-between;
   margin: 2px;
+}
+.wine-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  width: 94%;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  text-align: center;
+  margin-bottom: 2rem;
+  border: 2px solid black;
+  padding: 3%;
+}
+.wineCard {
+  width: 10rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 12px;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+.wineCard img {
+  margin: 0;
+  align-items: center;
+  width: 9rem;
+  height: 12rem;
+  border-radius: 10px;
+  object-fit: contain;
+}
+.wineCard a {
+  text-decoration: none;
+  font-size: large;
+  font-weight: 700;
+}
+.similar {
+  text-decoration: none;
+  font-size: large;
+  font-weight: 600;
+  color: #b57070;
+}
+.wineLink {
+  color: #b57070;
+  text-align: center;
 }
