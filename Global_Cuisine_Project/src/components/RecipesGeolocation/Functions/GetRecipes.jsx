@@ -1,5 +1,5 @@
 async function GetRecipes(region) {
-    const tempApiKey = "5303c07f7ada44cfb627489c597befb7"
+    const tempApiKey = "d9621eb8bc7949e39c16d7f5fab52053"
     let recipes
     let loading = true
         try {
