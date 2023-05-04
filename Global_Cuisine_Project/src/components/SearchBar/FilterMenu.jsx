@@ -3,12 +3,19 @@ import { FaAlignLeft, FaTimes } from 'react-icons/fa'
 import './FilterMenu.css'
 import FilterOption from './FilterOption';
 
-const FilterMenu = ({setRegionArray, regionArray, setMealTypeArray, mealTypeArray, 
-    setDietArray, dietArray, setIntoleranceArray, intoleranceArray}) => {
-    const regions = ["French", "Italian", "Spanish", "Chinese", "Nordic", "American", "Japanese", "Greek"]
-    const mealTypes = ["breakfast", "main course", "drink"]
-    const diets = ["Vegetarian", "Vegan", "Gluten Free"]
-    const intolerances = ["Gluten", "Dairy"]
+const FilterMenu = ({updateOptions}) => {
+
+    // alla alternativ som man kan välja i filtret
+    const allOptions = {
+        region: ["French", "Italian", "Spanish", "Chinese", "Nordic", "American", "Japanese", "Greek"],
+        mealtype: ["breakfast", "main course", "drink"],
+        diet: ["Vegetarian", "Vegan", "Gluten Free"],
+        intolerance: ["Gluten", "Dairy"]
+    }
+    // const regions = ["French", "Italian", "Spanish", "Chinese", "Nordic", "American", "Japanese", "Greek"]
+    // const mealTypes = ["breakfast", "main course", "drink"]
+    // const diets = ["Vegetarian", "Vegan", "Gluten Free"]
+    // const intolerances = ["Gluten", "Dairy"]
     const [show, setShow] = useState(false);
 
     const changeHandle = () => {
@@ -23,10 +30,10 @@ const FilterMenu = ({setRegionArray, regionArray, setMealTypeArray, mealTypeArra
             </button>
             <aside className={"filter-menu" + (show ? " is-active" : "")}>
                 <FaTimes className="filter-menu__close" onClick={() => changeHandle()}/>
-                <FilterOption Title={"Regions"} filters={regions} setArray={setRegionArray} array={regionArray}/>
-                <FilterOption Title={"Meal Types"} filters={mealTypes} setArray={setMealTypeArray} array={mealTypeArray}/>
-                <FilterOption Title={"Diets"} filters={diets} setArray={setDietArray} array={dietArray}/>
-                <FilterOption Title={"intolerances"} filters={intolerances} setArray={setIntoleranceArray} array={intoleranceArray}/>
+                <FilterOption title={"Regions"} filters={allOptions.region} updateOptions={updateOptions}/>
+                <FilterOption title={"Mealtypes"} filters={allOptions.mealtype} updateOptions={updateOptions} />
+                <FilterOption title={"Diets"} filters={allOptions.diet} updateOptions={updateOptions} />
+                <FilterOption title={"Intolerances"} filters={allOptions.intolerance} updateOptions={updateOptions} />
             </aside>
         </>
     )

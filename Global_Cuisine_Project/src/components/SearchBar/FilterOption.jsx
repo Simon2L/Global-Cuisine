@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './FilterOption.css'
 import FilterButton from './FilterButton'
 
-export default function FilterOption({Title, filters, setArray, array}) {
+export default function FilterOption({title, filters, updateOptions}) {
   const [open, SetOpen] = useState(false)
 
 
@@ -13,28 +13,19 @@ export default function FilterOption({Title, filters, setArray, array}) {
 
 
 
-  const ShowFilter = () => {
+  const ShowFilter = () => { 
     return(
-      <div className='filterContainer'>
-        {filters?.map((item) => {
-          return(
-            <FilterButton key={item} filterName={item} setArray={setArray} array={array} />
-          )
-        })}
-    </div>
-    )
+    <div className="filter-container">
+      {open ? 
+      filters.map((item) => <button key={item} onClick={() => updateOptions(item, title)} className="filter-btn">{item}</button>) :
+      <></>}
+    </div>)
   }
   
   return (
     <>
-      <div className='MenuContainer' >
-        <h3 onClick={() => onClick()}>{Title}</h3>
-        { open ? 
-          <div> 
-            <ShowFilter /> 
-          </div> : 
-        <></>}
-      </div>
+      <button className="menu-item-btn" onClick={onClick}>{title}</button>
+      <ShowFilter />
     </>
   )
 }
@@ -43,4 +34,11 @@ export default function FilterOption({Title, filters, setArray, array}) {
 
 
 
- 
+      // <div className='MenuContainer' >
+      //   <h3 onClick={() => onClick()}>{Title}</h3>
+      //   { open ? 
+      //     <div> 
+      //       <ShowFilter /> 
+      //     </div> : 
+      //   <></>}
+      // </div>
