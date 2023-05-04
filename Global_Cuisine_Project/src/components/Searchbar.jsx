@@ -22,7 +22,6 @@ const Searchbar = (props) => {
     const updateOptions = (value, name) => {
 
         const arr = options;
-        console.log(name)
 
         if(name == "Regions"){
             console.log(value)
