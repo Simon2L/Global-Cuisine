@@ -1,5 +1,6 @@
 import './About.css'
 import prepFood from '../assets/logo-no-background.png'
+import { Link } from 'react-router-dom'
 
 export default function About() {
  return (
@@ -22,7 +23,7 @@ export default function About() {
         <h2>Hope you enjoy our website and do not hesitate to recommend it to your friends!</h2>
        </div> 
        <div className='signature'>
-        <h5>Have a nice meal,<br/> Global Cuisine developer team</h5>
+        <h5>Have a nice meal,<br/><Link to={'/theTeam'}>Global Cuisine developer team</Link> </h5>
         </div>       
         
     </div>
