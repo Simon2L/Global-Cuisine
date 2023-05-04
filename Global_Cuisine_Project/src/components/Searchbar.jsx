@@ -25,11 +25,18 @@ const Searchbar = (props) => {
 
         return filterString.slice(0, -2) // slice tar bort sista kommatecknet så den sista filtret funkar
     };
+
+   
         
 
 const handleSubmit = (e) => {
     e.preventDefault();
     getRecipes();
+    // reseting the filters after search
+    setRegionOption([])
+    setMealTypeOption([])
+    setDietOption([])
+    setIntoleranceOption([])
 }
 
 const MapLabels = ({filter}) => {
