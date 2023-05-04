@@ -64,7 +64,7 @@ export default function LocationRecipes() {
         },
           arrows: false,
           drag: 'free',
-          pagination: true,
+          pagination: false,
         }}>
 
         {loading ? <h1>Loading...</h1> : recipesRegion.results.map(recipe => { // för varje hämtad recipes, görs det kort
@@ -72,7 +72,7 @@ export default function LocationRecipes() {
             // en del av splide som gör att slidsen fungerar
             <SplideSlide key={recipe.id}>   
               <div className='Card'>
-                <Link style={linkStyle} to={`recipes/${recipe.title}`} state={{recipe: recipe}}>
+                <Link style={linkStyle} to={`recipes/${recipe.id}`}>
                   <img src={recipe.image}></img>
                   <div className='textContainer'>
                     <h1>{recipe.title}</h1>
@@ -99,7 +99,7 @@ const linkStyle = {
    
      
 const iStyle = {
-  color: 'black'
+  color: "#743737"
 };
 
 //#endregion
