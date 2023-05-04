@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="container">
             <nav className="navbar">
                 <div className="logo">
-                    <img src={logotype}></img>
+                    <Link to="/"><img src={logotype}></img></Link>                    
                 </div>
                 <ul className={"menu" + (show ? " is-active" : "")}>
                     <Link to="/">HOME</Link>

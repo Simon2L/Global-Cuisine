@@ -27,8 +27,8 @@ export default function FilterOption({Title, filters, setArray, array}) {
   
   return (
     <>
-      <div className='MenuContainer' >
-        <h3 onClick={() => onClick()}>{Title}</h3>
+      <div className='MenuContainer' onClick={() => onClick()} >
+        <h3>{Title}</h3>
         { open ? 
           <div> 
             <ShowFilter /> 

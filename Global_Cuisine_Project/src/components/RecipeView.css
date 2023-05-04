@@ -255,8 +255,7 @@ h3 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-left: 12px;
-  padding-top: 10px;
+  padding: 5px;
   border-radius: 5px;
 }
 .wineCard img {

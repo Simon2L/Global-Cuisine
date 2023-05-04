@@ -11,6 +11,7 @@ import ErrorPage from "./Pages/error-page";
 import RecipeView from './components/RecipeView'
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+import TheTeam from './Pages/TheTeam'
 
 
 //#region sätter upp Routing
@@ -51,6 +52,13 @@ const router = createBrowserRouter([
         element:  
         <>
        <Contact />
+      </>
+       },
+       {
+        path: "theTeam",
+        element:  
+        <>
+       <TheTeam />
       </>
        }
 ]

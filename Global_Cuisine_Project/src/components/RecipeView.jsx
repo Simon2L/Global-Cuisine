@@ -34,7 +34,7 @@ const params = useParams();
                             {similars.map((similar) =>
                                 
                                 <li key={similar.id} >
-                                    <Link to={"/recipes/" +similar.id} className='similar'>
+                                    <Link to={"/recipes/" + similar.id} reloadDocument className='similar'>
                                         {similar.title}</Link></li>                          
                           )}                        
               </ul>
@@ -43,7 +43,7 @@ const params = useParams();
 }
 
 const Wines = ({props}) => {
-    if(Object.keys(props).length === 0)
+    if(Object.keys(props).length === 0 || props.pairingText === '')
     return(
         <></>
     )
@@ -77,7 +77,8 @@ export default function RecipeView() {
         const response = await fetch(url);
         const result = await response.json();               
         setRecipe(result);
-        setWineList(result.winePairing)        
+        setWineList(result.winePairing) 
+        console.log(result)       
       } catch (e) {
         console.log(e);
       }
