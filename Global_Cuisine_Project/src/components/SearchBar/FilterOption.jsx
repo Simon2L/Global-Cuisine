@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './FilterOption.css'
-import FilterButton from './FilterButton'
 
 export default function FilterOption({title, filters, updateOptions}) {
   const [open, SetOpen] = useState(false)
