@@ -10,6 +10,9 @@
     width: 200px;
     transition: width, 0.5s;
 }
+.filter-menu::-webkit-scrollbar { 
+    display: none;
+}
 .filter-menu-close {
     transition: 0.2s;
     margin: 10px;

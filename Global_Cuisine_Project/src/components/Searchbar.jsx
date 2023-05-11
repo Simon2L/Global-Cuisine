@@ -1,5 +1,5 @@
 import "./Searchbar.css";
-import { FaSearch, FaAlignLeft } from "react-icons/fa";
+import { FaSearch, FaAlignLeft, FaTimesCircle } from "react-icons/fa";
 import logoimage from "../assets/logo-no-background.svg";
 import { useEffect, useState } from "react";
 import FilterMenu from "./SearchBar/FilterMenu";
@@ -24,22 +24,22 @@ const Searchbar = (props) => {
   const updateOptions = (value, arrName) => { // lägger till value i rätt array(dvs. region, mealtype, diet eller intolerance)
     const arr = options;
 
-    if (arrName == "Regions") {
+    if (arrName == "regions") {
       options.region.includes(value)
         ? arr.region.splice(arr.region.indexOf(value), 1)
         : arr.region.push(value);
     }
-    if (arrName == "Mealtypes") {
+    if (arrName == "mealtypes") {
       options.mealtype.includes(value)
         ? arr.mealtype.splice(arr.mealtype.indexOf(value), 1)
         : arr.mealtype.push(value);
     }
-    if (arrName == "Diets") {
+    if (arrName == "diets") {
       options.diet.includes(value)
         ? arr.diet.splice(arr.diet.indexOf(value), 1)
         : arr.diet.push(value);
     }
-    if (arrName == "Intolerances") {
+    if (arrName == "intolerances") {
       options.intolerance.includes(value)
         ? arr.intolerance.splice(arr.intolerance.indexOf(value), 1)
         : arr.intolerance.push(value);
@@ -74,8 +74,11 @@ const Searchbar = (props) => {
     let count = 0;
     for(const arr in options){
         labels[count] = options[arr].map((opt) => {
-            return( 
-                <label className="label-filter" key={opt}>{opt}</label>
+            return(<div className="label-filter" key={opt}>
+                <label className="label-filter-label" >{opt}</label>
+                <FaTimesCircle onClick={() => {updateOptions(opt, (arr + 's'))}} className="label-filter-exit"/>
+            </div>
+                
             )
         })
         count++;
@@ -127,7 +130,7 @@ const Searchbar = (props) => {
           />
         </div>
       </section>
-      <section className="filter-container">
+      <section className="filtername-container">
         <SelectedLabels /> 
       </section>
     </>

@@ -21,9 +21,9 @@ export default function FilterOption({
   
   const ShowFilter = () => { // komponent som visar alla options inuti filtret
     return (
-      <div className="filter-container">
-        {open ? (<div className="filter-container-open">
-          {filters.map((item) => (
+      <div className={"filter-container" + (open ? " open" : "")}>
+        {open ? (
+          filters.map((item) => (
             <button
               key={item}
               onClick={() => updateOptions(item, title)}
@@ -31,8 +31,7 @@ export default function FilterOption({
             >
               {item}
             </button>
-          ))}
-          </div>
+          ))
         ) : (
           <></>
         )}

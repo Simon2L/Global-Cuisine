@@ -50,25 +50,25 @@ const FilterMenu = ({ updateOptions, setShowFilter, showFilter, Clear }) => {
           onClick={() => changeHandle()}
         /></div>
         <FilterOption
-          title={"Regions"}
+          title={"regions"}
           filters={allOptions.region}
           updateOptions={updateOptions}
           showFilter={showFilter}
         />
         <FilterOption
-          title={"Mealtypes"}
+          title={"mealtypes"}
           filters={allOptions.mealtype}
           updateOptions={updateOptions}
           showFilter={showFilter}
         />
         <FilterOption
-          title={"Diets"}
+          title={"diets"}
           filters={allOptions.diet}
           updateOptions={updateOptions}
           showFilter={showFilter}
         />
         <FilterOption
-          title={"Intolerances"}
+          title={"intolerances"}
           filters={allOptions.intolerance}
           updateOptions={updateOptions}
           showFilter={showFilter}
