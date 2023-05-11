@@ -125,7 +125,13 @@
   justify-content: space-between;
   padding: 3px 10px 3px 10px;
   margin: 20px 5px 10px 0px;
+ 
 }
+.label-filter:hover{
+  cursor: pointer;
+  background-color: #923c3c;
+}
+
 .label-filter-label {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1rem;
