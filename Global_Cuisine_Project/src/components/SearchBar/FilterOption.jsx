@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FilterOption.css";
 
 export default function FilterOption({
@@ -7,17 +7,23 @@ export default function FilterOption({
   updateOptions,
   showFilter,
 }) {
-  const [open, SetOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  
+  useEffect(() => { // när filtermenyn stängs så stänger den alla filtermenyer som lämnats öppna
+    setOpen(false)
+  }, [showFilter])
 
   const onClick = () => {
-    SetOpen(!open);
+    setOpen(!open);
   };
 
-  const ShowFilter = () => {
+  
+  const ShowFilter = () => { // komponent som visar alla options inuti filtret
     return (
       <div className="filter-container">
-        {open ? (
-          filters.map((item) => (
+        {open ? (<div className="filter-container-open">
+          {filters.map((item) => (
             <button
               key={item}
               onClick={() => updateOptions(item, title)}
@@ -25,7 +31,8 @@ export default function FilterOption({
             >
               {item}
             </button>
-          ))
+          ))}
+          </div>
         ) : (
           <></>
         )}
@@ -36,18 +43,9 @@ export default function FilterOption({
   return (
     <>
       <button className="menu-item-btn" onClick={onClick}>
-        {title}
+        {title.toUpperCase()}
       </button>
       <ShowFilter />
     </>
   );
 }
-
-// <div className='MenuContainer' >
-//   <h3 onClick={() => onClick()}>{Title}</h3>
-//   { open ?
-//     <div>
-//       <ShowFilter />
-//     </div> :
-//   <></>}
-// </div>

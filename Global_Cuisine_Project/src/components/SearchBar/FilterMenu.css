@@ -1,4 +1,6 @@
 .filter-menu {
+    overflow-y: auto;
+    max-height: calc(100%-50px);
     background-color: #AB4545;
     position: fixed;
     height: 100vh;
@@ -8,6 +10,17 @@
     width: 200px;
     transition: width, 0.5s;
 }
+.filter-menu-close {
+    transition: 0.2s;
+    margin: 10px;
+    background-color: #c46666;
+    padding: 5px;
+    border-radius: 10px;
+    padding-right: 30px;
+}
+.filter-menu-close:hover {
+    background-color: white;
+}
 
 .filter-menu.is-active {
     right: 0;
@@ -16,14 +29,21 @@
     font-size: 20px;
 }
 
-/* .filter-menu__close {
-
-    margin: 10px;
-    align-self: self-end;
-    cursor: pointer;
-    border-radius: 10px;
+.clear-btn {
+    transition: 0.1s;
+    background-color: black;
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    margin: 10px 20px 100px 20px;;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
 }
 
-.filter-menu__close:hover {
-    background-color: #F1D0C5;
-} */
+.clear-btn:hover {
+    background-color: white;
+    color: black;
+
+}

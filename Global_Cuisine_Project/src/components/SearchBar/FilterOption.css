@@ -1,28 +1,43 @@
 
 
 .menu-item-btn {
+    background-color: transparent;
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
     align-self: center;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     border: none;
     border-bottom: 2px solid black;
+    transition: 0.1s;
 }
 .filter-container {
     display: flex;
     flex-wrap: wrap;
 }
+.filter-container-open {
+    padding: 10px;
+}
 .filter-btn {
+    transition: 0.1s;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
     border-radius: 10px;
     border: none;
     margin: 3px;
     padding: 5px 15px;
 }
 
-.active:hover{
+.filter-btn:hover{
     background-color: #dbbdb2;
+    font-weight: bold;
 }
-.notActive:hover{
-    background-color: #d7caca;
+.menu-item-btn:hover{
+    color: black;
+    font-size: 16px;
+    background-color: #e67777;
 }
 /* .MenuContainer {
     width: 200px;

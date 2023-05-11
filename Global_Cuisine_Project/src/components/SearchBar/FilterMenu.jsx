@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { FaAlignLeft, FaTimes } from "react-icons/fa";
+import { FaAlignLeft, FaTimes, FaChevronRight } from "react-icons/fa";
 import "./FilterMenu.css";
 import FilterOption from "./FilterOption";
 
-const FilterMenu = ({ updateOptions, setShowFilter, showFilter }) => {
+const FilterMenu = ({ updateOptions, setShowFilter, showFilter, Clear }) => {
   // alla alternativ som man kan välja i filtret
   const allOptions = {
     region: [
@@ -16,7 +16,7 @@ const FilterMenu = ({ updateOptions, setShowFilter, showFilter }) => {
       "Japanese",
       "Greek",
     ],
-    mealtype: ["breakfast", "main course", "drink"],
+    mealtype: ["Breakfast", "Main-Course", "Drink"],
     diet: ["Vegetarian", "Vegan", "Gluten Free"],
     intolerance: ["Gluten", "Dairy"],
   };
@@ -30,16 +30,25 @@ const FilterMenu = ({ updateOptions, setShowFilter, showFilter }) => {
     setShowFilter(!showFilter);
   };
 
+  const ClearButton = () => {
+    return(
+      <>
+        <button className="clear-btn" onClick={() => Clear()}>CLEAR</button>
+      </>
+    )
+  }
+
   return (
     <>
       <button className="search-form__filter" onClick={() => changeHandle()}>
         <FaAlignLeft />
       </button>
       <aside className={"filter-menu" + (showFilter ? " is-active" : "")}>
-        <FaTimes
-          className="filter-menu__close"
+        <div>
+        <FaChevronRight
+          className="filter-menu-close"
           onClick={() => changeHandle()}
-        />
+        /></div>
         <FilterOption
           title={"Regions"}
           filters={allOptions.region}
@@ -64,6 +73,7 @@ const FilterMenu = ({ updateOptions, setShowFilter, showFilter }) => {
           updateOptions={updateOptions}
           showFilter={showFilter}
         />
+        <ClearButton />
       </aside>
     </>
   );
