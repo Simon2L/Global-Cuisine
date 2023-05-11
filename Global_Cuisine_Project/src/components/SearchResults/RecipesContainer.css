@@ -1,16 +1,22 @@
 .recipe-card-container {
-    margin-top: 50px;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    padding: 20px;
+    padding: 10vw;
+    padding-top: 0;
 }
+
+@media screen and (max-width: 540px){
+    .recipe-card-container {
+        padding: 10px;
+    }
+  } 
 
 .total-result{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+    margin-left: 10vw;
 }
 
 .total-number{
