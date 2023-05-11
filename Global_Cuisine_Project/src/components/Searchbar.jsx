@@ -6,20 +6,20 @@ import FilterMenu from "./SearchBar/FilterMenu";
 import { Form } from "react-router-dom";
 
 const Searchbar = (props) => {
+  const optionsTemplate = { // hur options ser ut innan några värden har valts
+      region: [],
+      mealtype: [],
+      diet: [],
+      intolerance: [],
+    }
 
+    const [options, setOptions] = useState(optionsTemplate);
+    const [search, setSearch] = useState("");
+    const [showFilter, setShowFilter] = useState(false);
+    const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
+  
     
-    const optionsTemplate = { // hur options ser ut innan några värden har valts
-        region: [],
-        mealtype: [],
-        diet: [],
-        intolerance: [],
-      }
 
-  const [options, setOptions] = useState(optionsTemplate);
-
-  const [search, setSearch] = useState("");
-  const [showFilter, setShowFilter] = useState(false);
-  const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
 
   const updateOptions = (value, arrName) => { // lägger till value i rätt array(dvs. region, mealtype, diet eller intolerance)
     const arr = options;
@@ -65,8 +65,6 @@ const Searchbar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getRecipes();
-    // reseting the filters after search
-    ClearFilters();
   };
 
   const SelectedLabels = () => { // skriver ut alla valda options
