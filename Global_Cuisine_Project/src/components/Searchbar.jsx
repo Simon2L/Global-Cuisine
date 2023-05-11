@@ -6,67 +6,52 @@ import FilterMenu from "./SearchBar/FilterMenu";
 import { Form } from "react-router-dom";
 
 const Searchbar = (props) => {
-  const [options, setOptions] = useState({
-    region: [],
-    mealtype: [],
-    diet: [],
-    intolerance: [],
-  });
-  const [regionOption, setRegionOption] = useState([]);
-  const [mealTypeOption, setMealTypeOption] = useState([]);
-  const [dietOption, setDietOption] = useState([]);
-  const [intoleranceOption, setIntoleranceOption] = useState([]);
+
+    
+    const optionsTemplate = { // hur options ser ut innan några värden har valts
+        region: [],
+        mealtype: [],
+        diet: [],
+        intolerance: [],
+      }
+
+  const [options, setOptions] = useState(optionsTemplate);
+
   const [search, setSearch] = useState("");
   const [showFilter, setShowFilter] = useState(false);
+  const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
 
-  useEffect(() => {
-    OutputFilters(), [showFilter];
-  });
-
-  const OutputFilters = () => {
-    let labels = [];
-
-    for (const [key, value] of Object.entries(options)) {
-      console.log(`${key}: ${value}`);
-    }
-
-    // for (let key of options) {
-    //   key.map((item) => {
-    //     labels.push(<label className="labelFilter">{item}</label>);
-    //   });
-    // }
-
-    return labels;
-  };
-
-  const updateOptions = (value, name) => {
+  const updateOptions = (value, arrName) => { // lägger till value i rätt array(dvs. region, mealtype, diet eller intolerance)
     const arr = options;
 
-    if (name == "Regions") {
-      console.log(value);
+    if (arrName == "Regions") {
       options.region.includes(value)
         ? arr.region.splice(arr.region.indexOf(value), 1)
         : arr.region.push(value);
     }
-    if (name == "Mealtypes") {
+    if (arrName == "Mealtypes") {
       options.mealtype.includes(value)
         ? arr.mealtype.splice(arr.mealtype.indexOf(value), 1)
         : arr.mealtype.push(value);
     }
-    if (name == "Diets") {
+    if (arrName == "Diets") {
       options.diet.includes(value)
         ? arr.diet.splice(arr.diet.indexOf(value), 1)
         : arr.diet.push(value);
     }
-    if (name == "Intolerances") {
+    if (arrName == "Intolerances") {
       options.intolerance.includes(value)
         ? arr.intolerance.splice(arr.intolerance.indexOf(value), 1)
         : arr.intolerance.push(value);
     }
 
     setOptions(arr);
-    console.log(arr);
+    setUpdate(!update)
+    // console.log(arr);
+
   };
+
+  const ClearFilters = () => setOptions(optionsTemplate); // återställer options
 
   const PrintFilters = (array) => {
     let filterString = "";
@@ -81,32 +66,34 @@ const Searchbar = (props) => {
     e.preventDefault();
     getRecipes();
     // reseting the filters after search
-    setRegionOption([]);
-    setMealTypeOption([]);
-    setDietOption([]);
-    setIntoleranceOption([]);
+    ClearFilters();
   };
 
-  const MapLabels = ({ filter }) => {
-    const labels = filter?.map((item) => {
-      return (
-        <label className="labelFilter" key={item}>
-          {item}
-        </label>
-      );
-    });
-
+  const SelectedLabels = () => { // skriver ut alla valda options
+    let labels = [];
+    let count = 0;
+    for(const arr in options){
+        labels[count] = options[arr].map((opt) => {
+            return( 
+                <label className="label-filter" key={opt}>{opt}</label>
+            )
+        })
+        count++;
+    }
     return labels;
-  };
+    
+  }
 
+
+  // fetch
   const getRecipes = async () => {
     const apiKey = "6afda3141a6246569ed46a639cbfbfa6";
     try {
-      //const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
-      +`&query=${search}&cuisine=${PrintFilters(regionOption)}&` +
-        `type=${PrintFilters(mealTypeOption)}&` +
-        `diet=${PrintFilters(dietOption)}&` +
-        `intolerances=${PrintFilters(intoleranceOption)}&` +
+      const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
+      +`&query=${search}&cuisine=${PrintFilters(options.region)}&` +
+        `type=${PrintFilters(options.mealtype)}&` +
+        `diet=${PrintFilters(options.diet)}&` +
+        `intolerances=${PrintFilters(options.intolerance)}&` +
         `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
       const response = await fetch(url);
       const result = await response.json();
@@ -136,18 +123,16 @@ const Searchbar = (props) => {
             updateOptions={updateOptions}
             setShowFilter={setShowFilter}
             showFilter={showFilter}
+            Clear={ClearFilters}
           />
         </div>
       </section>
-      <section className="filter-Container">
-        {/* {Object.entries(options).values > 0 ? <OutputFilters /> : <></>} */}
-        <MapLabels filter={options.region} />
-        <MapLabels filter={options.mealtype} />
-        <MapLabels filter={options.diet} />
-        <MapLabels filter={options.intolerance} />
+      <section className="filter-container">
+        <SelectedLabels /> 
       </section>
     </>
   );
 };
 
 export default Searchbar;
+
