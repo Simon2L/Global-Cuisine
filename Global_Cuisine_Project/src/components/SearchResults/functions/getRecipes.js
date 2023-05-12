@@ -1,8 +1,6 @@
-import React from 'react'
-
 
   // fetch
-  const getRecipes = async (search, region, mealtype, diet, intolerance) => {
+  const getRecipes = async (search, region, mealtype, diet, intolerance, offset) => {
     const apiKey = "29ced68700ad4c9c87a702e6ba259d31";
 
     const PrintFilters = (array) => {
@@ -20,7 +18,7 @@ import React from 'react'
         `type=${PrintFilters(mealtype)}&` +
         `diet=${PrintFilters(diet)}&` +
         `intolerances=${PrintFilters(intolerance)}&` +
-        `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
+        `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100&offset=${offset}`;
       const response = await fetch(url);
       const result = await response.json();
       console.log(result)
