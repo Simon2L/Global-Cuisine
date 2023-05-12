@@ -30,3 +30,60 @@
     transform: translateY(-1px);
     background-color: #8e3939;
 }
+
+
+.tags {
+    font-size: x-small;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* .recipe-card h3 {
+    
+    text-align: left;
+    font-size: x-small;
+    margin-left: 10px;
+    border: none;
+    color: #ca5555;
+} */
+
+/* .recipe-card h3{
+    color: white;
+    background-color: #8f3838;
+    outline: none;
+    border: none;
+    border-width: 2cm;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 0px 5px;
+    cursor: pointer;
+  } */
+
+.vegantag h3 {
+    text-align: left;
+    font-size: x-small;
+    margin-left: 10px;
+    border: none;
+    color: #792929;
+    
+}
+
+.vegantag h3{
+    /* color: white; */
+    background-color: #8f3838;
+    outline: none;
+    border: none;
+    
+    border-width: 2cm;
+    margin: 10px 140px 0px 10px;
+    border-radius: 10px;
+    padding: 0px 5px 0px;
+    cursor: pointer;
+  }
+
+  .vegantag p {
+    color:white;
+    /* box-sizing: border-box; */
+  }
