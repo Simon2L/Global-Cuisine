@@ -8,9 +8,11 @@ const RecipeCard = (props) => {
       <div className="recipe-card">
           <Link to={"recipes/" + props.recipe.id}>
             <img src={props.recipe.image} alt="Recipe Image" ></img>
-            <div className="vegantag">
-              <div><h3>{props.recipe.vegan ? <Vegan /> : <p></p>}</h3></div>
-            </div>
+           
+              {props.recipe.vegan ? <Vegan /> : <p></p>}
+              {/* {props.recipe.glutenFree ? <Gluten /> : <p></p>} */}
+              {props.recipe.glutenFree ?  <p></p> : <Gluten />}
+          
             <div className="text-container">
               <h1>{props.recipe.title}</h1>
             </div>
@@ -27,7 +29,25 @@ const RecipeCard = (props) => {
 
 
   const Vegan =() => {
-    return <p>Vegan</p>
+    return (
+      <>
+        <div className="vegantag">
+          <p >Vegan</p>
+        </div>
+      </> 
+    );
+  
+   
+  }
+
+  const Gluten =() => {
+    return (
+      <>
+        <div className="glutentag">
+          <p>Gluten</p>
+        </div>
+      </>
+    );
   }
 
   // const ReadyIn =() => {

@@ -31,6 +31,7 @@
     background-color: #8e3939;
 }
 
+/*Jonas under*/
 
 .tags {
     font-size: x-small;
@@ -61,29 +62,36 @@
     cursor: pointer;
   } */
 
-.vegantag h3 {
-    text-align: left;
-    font-size: x-small;
-    margin-left: 10px;
-    border: none;
-    color: #792929;
-    
+
+
+.vegantag {
+    /* color: white; */
+    background-color: #0c7d25;
+    border-radius: 10px;
+    margin: 0.2rem;
+    /* margin: 5px 0px 0px 5px; */
+    position: relative;
+    /* overflow: hidden; */
+    inline-size: min-content;
+    /* inline-size: auto; */
+    padding: 0px 5px 0px 5px;
 }
 
-.vegantag h3{
-    /* color: white; */
-    background-color: #8f3838;
-    outline: none;
-    border: none;
-    
-    border-width: 2cm;
-    margin: 10px 140px 0px 10px;
-    border-radius: 10px;
-    padding: 0px 5px 0px;
-    cursor: pointer;
-  }
-
-  .vegantag p {
+.vegantag p {
     color:white;
-    /* box-sizing: border-box; */
-  }
+    font-size:xx-small;
+}
+
+.glutentag {
+    background-color: #d6dc25;
+    border-radius: 10px;
+    margin: 0.2rem;
+    position: relative;
+    inline-size: min-content;
+    padding: 0px 5px 0px 5px;
+}
+
+.glutentag p {
+    color: white;
+    font-size: xx-small;
+}
