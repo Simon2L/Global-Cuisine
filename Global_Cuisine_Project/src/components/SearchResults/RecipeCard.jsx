@@ -7,19 +7,19 @@ const RecipeCard = (props) => {
     return (
       <div className="recipe-card">
           <Link to={"recipes/" + props.recipe.id}>
-            <img src={props.recipe.image} alt="Recipe Image" ></img>
-           
+            <div>
+              <img src={props.recipe.image} alt="Recipe Image"  ></img>
+            </div>
+            <div className="tagposition">
               {props.recipe.vegan ? <Vegan /> : <p></p>}
-              {/* {props.recipe.glutenFree ? <Gluten /> : <p></p>} */}
               {props.recipe.glutenFree ?  <p></p> : <Gluten />}
-          
+            </div>
             <div className="text-container">
               <h1>{props.recipe.title}</h1>
             </div>
           </Link>
-          <div className="tags">
-              {/* <h3>{props.recipe.vegan ? <Vegan /> : <p></p>}</h3> */}
-              <div><p>Ready in </p>{props.recipe.readyInMinutes} minutes</div>
+          <div className="tags"> 
+              <div><p>Ready in: {props.recipe.readyInMinutes} minutes</p></div>
           </div>
         </div>
     );
@@ -27,6 +27,7 @@ const RecipeCard = (props) => {
   
   export default RecipeCard;
 
+/*V--Dessa är taggarna i kortet--V*/
 
   const Vegan =() => {
     return (
@@ -49,7 +50,3 @@ const RecipeCard = (props) => {
       </>
     );
   }
-
-  // const ReadyIn =() => {
-  //   return <p>Ready in +{props.recipe.readyInMinutes}</p>
-  // }
