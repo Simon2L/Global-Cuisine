@@ -7,6 +7,14 @@ import {useRef} from 'react';
 
 function Home() {
   const [recipes, setRecipes] = useState([]);
+  const optionsTemplate = { // hur options ser ut innan några värden har valts
+    region: [],
+    mealtype: [],
+    diet: [],
+    intolerance: [],
+  }
+
+  const [options, setOptions] = useState(optionsTemplate);
   const ref = useRef(null)
 
   useEffect(() => {
@@ -15,7 +23,7 @@ function Home() {
   
   return (
     <>
-      <Searchbar setRecipes={setRecipes} />
+      <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options}/>
       <RecipesGeo />
       <div ref={ref}>
         <RecipesContainer data={recipes} />

@@ -7,23 +7,15 @@ import { Form } from "react-router-dom";
 import getRecipes from "./SearchResults/functions/getRecipes";
 
 
-const Searchbar = (props) => {
-  const optionsTemplate = { // hur options ser ut innan några värden har valts
-      region: [],
-      mealtype: [],
-      diet: [],
-      intolerance: [],
-    }
+const Searchbar = ({setRecipes, setOptions, options}) => {
 
-    const [options, setOptions] = useState(optionsTemplate);
     const [search, setSearch] = useState("");
     const [showFilter, setShowFilter] = useState(false);
     const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      props.setRecipes(await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance));
-  
+      setRecipes(await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance));
     };
 
 

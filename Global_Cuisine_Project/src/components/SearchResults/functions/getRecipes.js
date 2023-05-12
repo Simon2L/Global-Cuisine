@@ -3,7 +3,7 @@ import React from 'react'
 
   // fetch
   const getRecipes = async (search, region, mealtype, diet, intolerance) => {
-    const apiKey = "22fc971864984ed2a26294d71e05109b";
+    const apiKey = "29ced68700ad4c9c87a702e6ba259d31";
 
     const PrintFilters = (array) => {
         let filterString = "";
