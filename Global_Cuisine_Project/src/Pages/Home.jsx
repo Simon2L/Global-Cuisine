@@ -4,6 +4,7 @@ import RecipesGeo from '../components/RecipesGeolocation/RecipesGeo'
 import RecipesContainer from '../components/SearchResults/RecipesContainer'
 import { useState } from 'react';
 import {useRef} from 'react';
+import './Home.css'
 
 function Home() {
   const [recipes, setRecipes] = useState([]);
@@ -25,8 +26,9 @@ function Home() {
     <>
       <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options}/>
       <RecipesGeo />
-      <div ref={ref}>
+      <div ref={ref} className='searchResultContainer'>
         <RecipesContainer data={recipes} />
+        <button className='loadBtn'>Load more</button>
       </div>
     </>
   )

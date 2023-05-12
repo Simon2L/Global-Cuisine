@@ -1,0 +1,8 @@
+.searchResultContainer {
+    flex-direction: column;
+    display: flex;
+}
+
+.loadBtn {
+    align-self: center;
+}
