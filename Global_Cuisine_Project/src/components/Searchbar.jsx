@@ -4,6 +4,8 @@ import logoimage from "../assets/logo-no-background.svg";
 import { useEffect, useState } from "react";
 import FilterMenu from "./SearchBar/FilterMenu";
 import { Form } from "react-router-dom";
+import getRecipes from "./SearchResults/functions/getRecipes";
+
 
 const Searchbar = (props) => {
   const optionsTemplate = { // hur options ser ut innan några värden har valts
@@ -18,7 +20,11 @@ const Searchbar = (props) => {
     const [showFilter, setShowFilter] = useState(false);
     const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
   
-    
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      props.setRecipes(await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance));
+  
+    };
 
 
   const updateOptions = (value, arrName) => { // lägger till value i rätt array(dvs. region, mealtype, diet eller intolerance)
@@ -53,19 +59,9 @@ const Searchbar = (props) => {
 
   const ClearFilters = () => setOptions(optionsTemplate); // återställer options
 
-  const PrintFilters = (array) => {
-    let filterString = "";
-    array.forEach((element) => {
-      filterString += `${element}, `;
-    });
 
-    return filterString.slice(0, -2); // slice tar bort sista kommatecknet så den sista filtret funkar
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    getRecipes();
-  };
+
 
   const SelectedLabels = () => { // skriver ut alla valda options
     let labels = [];
@@ -85,25 +81,6 @@ const Searchbar = (props) => {
     
   }
 
-
-  // fetch
-  const getRecipes = async () => {
-    const apiKey = "6afda3141a6246569ed46a639cbfbfa6";
-    try {
-      const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
-      +`&query=${search}&cuisine=${PrintFilters(options.region)}&` +
-        `type=${PrintFilters(options.mealtype)}&` +
-        `diet=${PrintFilters(options.diet)}&` +
-        `intolerances=${PrintFilters(options.intolerance)}&` +
-        `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
-      const response = await fetch(url);
-      const result = await response.json();
-      // console.log(result)
-      props.setRecipes(result);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   return (
     <>
