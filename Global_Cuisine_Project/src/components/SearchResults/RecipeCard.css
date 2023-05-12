@@ -57,10 +57,11 @@
 .vegantag p {
     color:white;
     font-size:xx-small;
+    font-weight: bold;
 }
 
 .glutentag {
-    background-color: #d6dc25;
+    background-color: #babf1b;
     border-radius: 10px;
     position: relative;
     inline-size: min-content;
@@ -70,6 +71,7 @@
 .glutentag p {
     color: white;
     font-size: xx-small;
+    font-weight: bold;
 }
 
 .tagposition {
