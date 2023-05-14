@@ -61,6 +61,10 @@ a{
 
 }
 
+.sb__footer-links_div a:hover{
+    color: #eafa0c;
+}
+
 .sb__footer-below{
     display: flex;
     flex-direction: row;
@@ -79,7 +83,14 @@ a{
     margin-left: 2rem;
     color: white;
     font-weight: 600;
+    
 }
+
+.sb__footer-below-links p:hover{
+   
+    color: #eafa0c;
+}
+
 
 hr{
     color: white !important;
