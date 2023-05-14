@@ -53,7 +53,7 @@ const MapLabels = ({filter}) => {
 
 const getRecipes = async () => {
     const apiKey = '6afda3141a6246569ed46a639cbfbfa6';
-    console.log(process.env.SIMON_APIKEY);
+    // console.log(process.env.SIMON_APIKEY);
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${PrintFilters(regionOption)}&`
