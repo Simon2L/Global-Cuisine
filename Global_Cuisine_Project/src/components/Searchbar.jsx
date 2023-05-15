@@ -50,10 +50,10 @@ const MapLabels = ({filter}) => {
             labels
         )
 }
-
+const testKey = process.env.SIMON_APIKEY;
 const getRecipes = async () => {
     const apiKey = '6afda3141a6246569ed46a639cbfbfa6';
-    const testKey = process.env.SIMON_APIKEY;
+    //const testKey = process.env.SIMON_APIKEY;
     console.log(testKey);
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
