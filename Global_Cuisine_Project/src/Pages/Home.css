@@ -10,3 +10,26 @@
 .searchResultContainer p {
     align-self: center;
 }
+
+
+#zero-state {
+    margin: 2rem auto;
+    text-align: center;
+    color: #818181;
+    margin-top: 8rem;
+    margin-bottom: 10rem;
+  }
+  
+  #zero-state a {
+    color: inherit;
+  }
+  
+  #zero-state a:hover {
+    color: #121212;
+  }
+  
+  #zero-state:before {
+    display: block;
+    margin-bottom: 0.5rem;
+    /* content: url("/Global-Cuisine/Global_Cuisine_Project/src/assets/logo-no-background.png"); */
+  }
