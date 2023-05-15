@@ -35,10 +35,10 @@ function Home() {
   
   return (
     <>
-      <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch} setOffSet={setOffSet}/>
+      <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch} setOffSet={setOffSet} setTotalRecipes={setTotalRecipes}/>
       <RecipesGeo />
       <div ref={ref} >
-        <RecipesContainer data={recipes} total={recipes.totalResults} />
+        <RecipesContainer data={recipes} total={totalRecipes} />
         {recipes.length >= 20 ? // visas inte om inga recept har laddats fram än eller om den totala är mindre än 20
         <LoadMore recipes={recipes} setRecipes={setRecipes} offset={offset} setOffSet={setOffSet} search={search} options={options}/> : <></>}
       </div>

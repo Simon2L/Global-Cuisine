@@ -7,7 +7,7 @@ import { Form } from "react-router-dom";
 import getRecipes from "./SearchResults/functions/getRecipes";
 
 
-const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSet}) => {
+const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSet, setTotalRecipes}) => {
 
    
     const [showFilter, setShowFilter] = useState(false);
@@ -18,6 +18,7 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
       let recipeData = await getRecipes(search, options, 0)
       setRecipes(recipeData.results);
       setOffSet(20)
+      setTotalRecipes(recipeData.totalResults)
     };
 
 

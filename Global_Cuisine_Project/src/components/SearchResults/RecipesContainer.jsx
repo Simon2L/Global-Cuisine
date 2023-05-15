@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 const RecipesContainer = ({data, total}) => {
 
-  console.log(data);
+  console.log(total);
   
   return (
     <>
