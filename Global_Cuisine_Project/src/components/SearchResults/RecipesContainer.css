@@ -4,8 +4,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    padding: 10vw;
-    padding-top: 0;
+    padding: 0vw 10vw 1vw;
 }
 
 @media screen and (max-width: 540px){
