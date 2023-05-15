@@ -7,20 +7,21 @@ import {useRef} from 'react';
 import './Home.css'
 import getRecipes from '../components/SearchResults/functions/getRecipes';
 
+const optionsTemplate = { // hur options ser ut innan några värden har valts
+  region: [],
+  mealtype: [],
+  diet: [],
+  intolerance: [],
+}
 
 function Home() {
-  const optionsTemplate = { // hur options ser ut innan några värden har valts
-    region: [],
-    mealtype: [],
-    diet: [],
-    intolerance: [],
-  }
   const [search, setSearch] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [totalRecipes, setTotalRecipes] = useState([]);
   const [options, setOptions] = useState(optionsTemplate);
   const [offset, setOffSet] = useState(24)
   const ref = useRef(null)
+
   
 
   const onLoadMore = async () => {
@@ -33,10 +34,12 @@ function Home() {
     setOffSet(offset + 24)
   }
 
-  useEffect(() => {
-    ref.current?.scrollIntoView({behavior: 'smooth'});
+  useEffect(() => 
+  {
+    if(offset === 24) ref.current?.scrollIntoView({behavior: 'smooth'});
     setTotalRecipes(recipes.totalResults)
   },[recipes])
+    
   
   return (
     <>
