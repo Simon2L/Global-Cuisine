@@ -47,7 +47,7 @@ function Home() {
       <RecipesGeo />
       <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
-        {recipes.length > 0 ? 
+        {recipes.length >= 24 ? 
         <div className='searchResultContainer'>
           <p>{offset} recipes loaded</p>
           <button className='loadBtn' onClick={() => onLoadMore()}>Load more</button> 
