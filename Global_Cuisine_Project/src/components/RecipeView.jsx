@@ -3,6 +3,7 @@ import './RecipeView.css'
 import recipeImage from '../assets/brooke.jpg'
 import { useLocation, useParams } from 'react-router-dom'
 import { useState,useEffect } from 'react';
+import parse from 'html-react-parser'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom'

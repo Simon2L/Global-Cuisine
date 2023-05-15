@@ -45,9 +45,8 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch}) => {
     }
 
     setOptions(arr);
-    setUpdate(!update)
+    setUpdate(!update);
     // console.log(arr);
-
   };
 
   const ClearFilters = () => setOptions(optionsTemplate); // återställer options
@@ -56,19 +55,25 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch}) => {
 
 
 
-  const SelectedLabels = () => { // skriver ut alla valda options
+  const SelectedLabels = () => {
+    // skriver ut alla valda options
     let labels = [];
     let count = 0;
-    for(const arr in options){
-        labels[count] = options[arr].map((opt) => {
-            return(<div className="label-filter" key={opt}>
-                <label className="label-filter-label" >{opt}</label>
-                <FaTimesCircle onClick={() => {updateOptions(opt, (arr + 's'))}} className="label-filter-exit"/>
-            </div>
-                
-            )
-        })
-        count++;
+    for (const arr in options) {
+      labels[count] = options[arr].map((opt) => {
+        return (
+          <div className="label-filter" key={opt}>
+            <label className="label-filter-label">{opt}</label>
+            <FaTimesCircle
+              onClick={() => {
+                updateOptions(opt, arr + "s");
+              }}
+              className="label-filter-exit"
+            />
+          </div>
+        );
+      });
+      count++;
     }
     return labels;
     
@@ -99,11 +104,10 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch}) => {
         </div>
       </section>
       <section className="filtername-container">
-        <SelectedLabels /> 
+        <SelectedLabels />
       </section>
     </>
   );
 };
 
 export default Searchbar;
-
