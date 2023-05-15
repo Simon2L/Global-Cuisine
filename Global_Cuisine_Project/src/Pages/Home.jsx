@@ -6,6 +6,8 @@ import { useState } from 'react';
 import {useRef} from 'react';
 import './Home.css'
 import getRecipes from '../components/SearchResults/functions/getRecipes';
+import LoadMore from '../components/LoadMore';
+
 
 const optionsTemplate = { // hur options ser ut innan några värden har valts
   region: [],
@@ -22,23 +24,14 @@ function Home() {
   const [offset, setOffSet] = useState(20)
   const ref = useRef(null)
 
-  
-
-  const onLoadMore = async () => {
-    console.log("Hello")
-    let oldRecipesList = recipes
-    console.log(oldRecipesList)
-    let moreRecipes = await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance, offset)
-    console.log(moreRecipes.results)
-    setRecipes(oldRecipesList.concat(moreRecipes.results))
-    setOffSet(offset + 20)
-  }
-
   useEffect(() => 
   {
     if(offset === 20) ref.current?.scrollIntoView({behavior: 'smooth'});
     setTotalRecipes(recipes.totalResults)
   },[recipes])
+  
+
+
     
   
   return (
@@ -47,18 +40,16 @@ function Home() {
       <RecipesGeo />
       <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
-        {recipes.length >= 20 ? 
-        <div className='searchResultContainer'>
-          <p>{offset} recipes loaded</p>
-          <button className='loadBtn' onClick={() => onLoadMore()}>Load more</button> 
-        </div>
-        : <></>}
+        {recipes.length >= 20 ? // visas inte om inga recept har laddats fram än eller om den totala är mindre än 20
+        <LoadMore recipes={recipes} setRecipes={setRecipes} offset={offset} setOffSet={setOffSet} search={search} options={options}/> : <></>}
       </div>
-      
     </>
   )
 }
    
+      
+        
+      
      
       
 

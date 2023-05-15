@@ -1,16 +1,3 @@
-.searchResultContainer {
-    flex-direction: column;
-    display: flex;
-}
-
-.loadBtn {
-    align-self: center;
-}
-
-.searchResultContainer p {
-    align-self: center;
-}
-
 
 #zero-state {
     margin: 2rem auto;
