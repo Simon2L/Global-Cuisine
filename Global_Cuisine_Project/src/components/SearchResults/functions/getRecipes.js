@@ -1,7 +1,7 @@
 
   // fetch
   const getRecipes = async (search, region, mealtype, diet, intolerance, offset) => {
-    const apiKey = "29ced68700ad4c9c87a702e6ba259d31";
+    const apiKey = "8e011ed87d6c477ab42558ec7da511cc";
 
     const PrintFilters = (array) => {
         let filterString = "";
