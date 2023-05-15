@@ -21,11 +21,7 @@ function Home() {
       <div ref={ref}>
         <RecipesContainer data={recipes} />
       </div>
-      <h1 id="zero-state">
-      EMPTY PAGE.
-      <br />
       
-    </h1>
     </>
   )
 }
