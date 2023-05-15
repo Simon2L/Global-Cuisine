@@ -21,14 +21,12 @@ function Home() {
   const [recipes, setRecipes] = useState([]);
   const [totalRecipes, setTotalRecipes] = useState([]);
   const [options, setOptions] = useState(optionsTemplate);
-  const [offset, setOffSet] = useState(20)
+  const [offset, setOffSet] = useState(0)
   const ref = useRef(null)
 
   useEffect(() => 
   {
     if(offset === 20) ref.current?.scrollIntoView({behavior: 'smooth'});
-    console.log(recipes.totalResults)
-    setTotalRecipes(recipes.totalResults)
   },[recipes])
   
 
@@ -40,7 +38,7 @@ function Home() {
       <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch} setOffSet={setOffSet}/>
       <RecipesGeo />
       <div ref={ref} >
-        <RecipesContainer data={recipes} total={totalRecipes} />
+        <RecipesContainer data={recipes} total={recipes.totalResults} />
         {recipes.length >= 20 ? // visas inte om inga recept har laddats fram än eller om den totala är mindre än 20
         <LoadMore recipes={recipes} setRecipes={setRecipes} offset={offset} setOffSet={setOffSet} search={search} options={options}/> : <></>}
       </div>
