@@ -27,6 +27,7 @@ function Home() {
   useEffect(() => 
   {
     if(offset === 20) ref.current?.scrollIntoView({behavior: 'smooth'});
+    console.log(recipes.totalResults)
     setTotalRecipes(recipes.totalResults)
   },[recipes])
   
@@ -36,7 +37,7 @@ function Home() {
   
   return (
     <>
-      <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch}/>
+      <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch} setOffSet={setOffSet}/>
       <RecipesGeo />
       <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
