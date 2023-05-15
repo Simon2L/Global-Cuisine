@@ -26,7 +26,7 @@ function Home() {
 
   useEffect(() => 
   {
-    if(offset === 20) ref.current?.scrollIntoView({behavior: 'smooth', block: "start"});
+    if(offset === 24) ref.current?.scrollIntoView({behavior: 'smooth', block: "start"});
   },[recipes])
   
 
@@ -39,7 +39,7 @@ function Home() {
       <RecipesGeo />
       <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
-        {recipes.length >= 20 ? // visas inte om inga recept har laddats fram än eller om den totala är mindre än 20
+        {recipes.length >= 24 ? // visas inte om inga recept har laddats fram än eller om den totala är mindre än 24
         <LoadMore recipes={recipes} setRecipes={setRecipes} offset={offset} setOffSet={setOffSet} search={search} options={options}/> : <></>}
       </div>
     </>

@@ -17,7 +17,7 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
       e.preventDefault();
       let recipeData = await getRecipes(search, options, 0)
       setRecipes(recipeData.results);
-      setOffSet(20)
+      setOffSet(24)
       setTotalRecipes(recipeData.totalResults)
     };
 
