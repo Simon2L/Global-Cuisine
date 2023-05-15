@@ -18,7 +18,7 @@
         `type=${PrintFilters(mealtype)}&` +
         `diet=${PrintFilters(diet)}&` +
         `intolerances=${PrintFilters(intolerance)}&` +
-        `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=24&offset=${offset}`;
+        `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=20&offset=${offset}`;
       const response = await fetch(url);
       const result = await response.json();
       console.log(result)
