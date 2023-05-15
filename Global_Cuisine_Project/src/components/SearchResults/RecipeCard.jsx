@@ -3,23 +3,23 @@ import { Link
 } from "react-router-dom";
 
 
-const RecipeCard = (props) => {
+const RecipeCard = ({recipe}) => {
     return (
       <div className="recipe-card">
-          <Link to={"recipes/" + props.recipe.id}>
+          <Link to={"recipes/" + recipe.id}>
             <div>
-              <img src={props.recipe.image} alt="Recipe Image"  ></img>
+              <img src={recipe.image} alt="Recipe Image"  ></img>
             </div>
             <div className="tagposition">
-              {props.recipe.vegan ? <Vegan /> : <p></p>}
-              {props.recipe.glutenFree ?  <p></p> : <Gluten />}
+              {recipe.vegan ? <Vegan /> : <p></p>}
+              {recipe.glutenFree ?  <p></p> : <Gluten />}
             </div>
             <div className="text-container">
-              <h1>{props.recipe.title}</h1>
+              <h1>{recipe.title}</h1>
             </div>
           </Link>
           <div className="tags"> 
-              <div><p>Ready in: {props.recipe.readyInMinutes} minutes</p></div>
+              <div><p>Ready in: {recipe.readyInMinutes} minutes</p></div>
           </div>
         </div>
     );
