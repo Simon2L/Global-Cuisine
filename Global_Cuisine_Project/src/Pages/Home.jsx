@@ -26,7 +26,7 @@ function Home() {
 
   useEffect(() => 
   {
-    if(offset === 20) ref.current?.scrollIntoView({behavior: 'smooth'});
+    if(offset === 20) ref.current?.scrollIntoView({behavior: 'smooth', block: "start"});
   },[recipes])
   
 

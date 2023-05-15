@@ -1,6 +1,5 @@
 import './RecipesContainer.css'
 import RecipeCard from "./RecipeCard";
-import { useEffect } from 'react';
 
 const RecipesContainer = ({data, total}) => {
 
@@ -8,7 +7,9 @@ const RecipesContainer = ({data, total}) => {
   
   return (
     <>
-      <h1 className='total-result'><i className='total-number'>{total}</i>{total > 0 ? ` recipes found` : ""}</h1>      
+      <div className='textBox'>
+        <h1 className='total-result'><i className='total-number'>{total}</i>{total > 0 ? ` recipes found` : ""}</h1>
+      </div>
       <section className="recipe-card-container">
       {data.map(recipe => (
         <RecipeCard recipe={recipe} key={recipe.id} />
@@ -17,5 +18,7 @@ const RecipesContainer = ({data, total}) => {
     </>
   );
 };
+        
 
 export default RecipesContainer;
+      
