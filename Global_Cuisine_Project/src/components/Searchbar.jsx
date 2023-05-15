@@ -50,7 +50,7 @@ const MapLabels = ({filter}) => {
             labels
         )
 }
-const testKey = import.meta.env.SIMON_APIKEY;
+const testKey = import.meta.env.VITE_APIKEY;
 const getRecipes = async () => {
     const apiKey = '6afda3141a6246569ed46a639cbfbfa6';
     //const testKey = process.env.SIMON_APIKEY;
