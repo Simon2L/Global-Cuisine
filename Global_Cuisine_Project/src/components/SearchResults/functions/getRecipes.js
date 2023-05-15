@@ -1,6 +1,6 @@
 
   // fetch
-  const getRecipes = async (search, region, mealtype, diet, intolerance, offset) => {
+  const getRecipes = async (search, option, offset) => {
     const apiKey = "8e011ed87d6c477ab42558ec7da511cc";
 
     const PrintFilters = (array) => {
@@ -14,10 +14,10 @@
 
     try {
       const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
-      +`&query=${search}&cuisine=${PrintFilters(region)}&` +
-        `type=${PrintFilters(mealtype)}&` +
-        `diet=${PrintFilters(diet)}&` +
-        `intolerances=${PrintFilters(intolerance)}&` +
+      +`&query=${search}&cuisine=${PrintFilters(option.region)}&` +
+        `type=${PrintFilters(option.mealtype)}&` +
+        `diet=${PrintFilters(option.diet)}&` +
+        `intolerances=${PrintFilters(option.intolerance)}&` +
         `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=20&offset=${offset}`;
       const response = await fetch(url);
       const result = await response.json();
