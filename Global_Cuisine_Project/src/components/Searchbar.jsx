@@ -90,7 +90,7 @@ const Searchbar = (props) => {
 
   // fetch
   const getRecipes = async () => {
-    const apiKey = "6afda3141a6246569ed46a639cbfbfa6";
+    const apiKey = "4170ebb004174966beddc716a49c4a47"; // 4170ebb004174966beddc716a49c4a47 // 6afda3141a6246569ed46a639cbfbfa6
     try {
       const url =
         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}` +
