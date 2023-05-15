@@ -6,3 +6,7 @@
 .loadBtn {
     align-self: center;
 }
+
+.searchResultContainer p {
+    align-self: center;
+}

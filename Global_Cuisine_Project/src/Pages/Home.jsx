@@ -45,15 +45,21 @@ function Home() {
     <>
       <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch}/>
       <RecipesGeo />
-      <div ref={ref} className='searchResultContainer'>
+      <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
-        <button className='loadBtn' onClick={() => onLoadMore()}>Load more</button>
-        <p>{offset}</p>
+        {recipes.length > 0 ? 
+        <div className='searchResultContainer'>
+          <p>{offset} recipes loaded</p>
+          <button className='loadBtn' onClick={() => onLoadMore()}>Load more</button> 
+        </div>
+        : <></>}
       </div>
     </>
   )
 }
+   
      
+      
 
 
 
