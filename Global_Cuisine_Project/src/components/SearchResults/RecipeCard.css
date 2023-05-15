@@ -13,8 +13,10 @@
     border-top-left-radius: 10px;
 }
 .text-container {
-    min-height: 75px;
-    padding: 10px;
+    /* min-height: 75px; storleken på korten*/
+    min-height: 30px;
+    margin-bottom: 10px;
+    padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,6 +24,7 @@
 .recipe-card h1 {
     font-size: smaller;
     color: white;
+    margin-bottom: 0px;
 }
 .recipe-card a {
     text-decoration: none;
@@ -30,4 +33,51 @@
 .recipe-card:hover {
     transform: translateY(-1px);
     background-color: #8e3939;
+}
+
+/*v--Jonas under--V*/
+
+.tags {
+    font-size: x-small;
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+    
+}
+
+
+.vegantag {
+    background-color: #0c7d25;
+    border-radius: 10px;
+    position: relative;
+    inline-size: min-content;
+    padding: 0px 5px 0px 5px;
+    /* margin-top: -150px;  om man vill få in taggarna i bilden*/
+}
+
+.vegantag p {
+    color:white;
+    font-size:xx-small;
+    font-weight: bold;
+}
+
+.glutentag {
+    background-color: #babf1b;
+    border-radius: 10px;
+    position: relative;
+    inline-size: min-content;
+    padding: 0px 5px 0px 5px;
+}
+
+.glutentag p {
+    color: white;
+    font-size: xx-small;
+    font-weight: bold;
+}
+
+.tagposition {
+    /* position: absolute; */
+    margin-left: 5px;
+    margin-top: -5px;
+    
 }
