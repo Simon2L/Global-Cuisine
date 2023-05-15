@@ -17,6 +17,7 @@ function Home() {
   }
   const [search, setSearch] = useState("");
   const [recipes, setRecipes] = useState([]);
+  const [totalRecipes, setTotalRecipes] = useState([]);
   const [options, setOptions] = useState(optionsTemplate);
   const [offset, setOffSet] = useState(24)
   const ref = useRef(null)
@@ -24,12 +25,17 @@ function Home() {
 
   const onLoadMore = async () => {
     console.log("Hello")
-    setRecipes(await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance, offset));
+    let oldRecipesList = recipes
+    console.log(oldRecipesList)
+    let moreRecipes = await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance, offset)
+    console.log(moreRecipes.results)
+    setRecipes(oldRecipesList.concat(moreRecipes.results))
     setOffSet(offset + 24)
   }
 
   useEffect(() => {
     ref.current?.scrollIntoView({behavior: 'smooth'});
+    setTotalRecipes(recipes.totalResults)
   },[recipes])
   
   return (
@@ -37,7 +43,7 @@ function Home() {
       <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch}/>
       <RecipesGeo />
       <div ref={ref} className='searchResultContainer'>
-        <RecipesContainer data={recipes} />
+        <RecipesContainer data={recipes} total={totalRecipes} />
         <button className='loadBtn' onClick={() => onLoadMore()}>Load more</button>
         <p>{offset}</p>
       </div>

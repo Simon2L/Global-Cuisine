@@ -15,7 +15,8 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch}) => {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      setRecipes(await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance, 0));
+      let recipeData = await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance, 0)
+      setRecipes(recipeData.results);
     };
 
 
