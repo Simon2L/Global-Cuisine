@@ -43,11 +43,11 @@ const Footer = () => {
                 </div>
                 <div className='socialmedia'>
                     <h4>Social Platform</h4>
-                    <div className='socialmedia-Icon'>
-                    <a href="https://www.youtube.com/watch?v=_ZXeFPpPJeI&ab_channel=ChuckDrake" target="_blank"><BsYoutube></BsYoutube></a>
-                    <a href="https://twitter.com/" target="_blank"><BsTwitter></BsTwitter></a>
-                    <a href="https://www.instagram.com/" target="_blank"><BsInstagram></BsInstagram></a>
-                    <a href="https://github.com/Simon2L/Global-Cuisine" target="_blank" ><BsGithub></BsGithub></a>
+                    <div>
+                        <a href="https://www.youtube.com/watch?v=_ZXeFPpPJeI&ab_channel=ChuckDrake" target="_blank"><BsYoutube></BsYoutube></a>
+                        <a href="https://twitter.com/" target="_blank"><BsTwitter></BsTwitter></a>
+                        <a href="https://www.instagram.com/" target="_blank"><BsInstagram></BsInstagram></a>
+                        <a href="https://github.com/Simon2L/Global-Cuisine" target="_blank" ><BsGithub></BsGithub></a>   
                     </div>
                 </div>
             </div>
