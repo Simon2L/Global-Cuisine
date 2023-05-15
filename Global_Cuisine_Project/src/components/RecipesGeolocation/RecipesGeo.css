@@ -1,5 +1,5 @@
 .RecipeCards {
-  margin: 0% 5%;
+  margin: 0vw 10vw;
 }
 
 .textContainer {
@@ -39,7 +39,6 @@
   font-size: 20px;
   text-align: center;
   color: rgb(255, 255, 255);
- 
 }
 
 .Card:hover {
@@ -48,15 +47,22 @@
 }
 
 .h1Location{
-  font-size: 2vw;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0vw 10vw;
+  text-align: center;
+  
 }
 
+.textBox {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: center;
+}
 
 @media screen and (max-width: 1200px) {
-  .h1Location{
-    font-size: 4vw;
-  }
+ 
 
   .Card h1 {
     font-size: 15px;

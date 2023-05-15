@@ -42,8 +42,9 @@ export default function LocationRecipes() {
 
   return (
     <>
-      <hr></hr>
-      <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
+      <div className='textBox'>
+        <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
+      </div>
       <div className='RecipeCards'>
         {/* sättter upp splide options som hur många cards som ska visas etc */}
         <Splide options={{
