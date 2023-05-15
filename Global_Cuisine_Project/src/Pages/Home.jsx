@@ -39,7 +39,7 @@ function Home() {
       <RecipesGeo />
       <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
-        {recipes.length >= 24 ? // visas inte om inga recept har laddats fram än eller om den totala är mindre än 24
+        {offset == 0 ? // visas inte om inga recept har laddats fram än eller om den totala är mindre än 24 (recipes.length >= 24)
         <LoadMore recipes={recipes} setRecipes={setRecipes} offset={offset} setOffSet={setOffSet} search={search} options={options}/> : <></>}
       </div>
     </>
