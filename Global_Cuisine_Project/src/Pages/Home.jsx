@@ -18,14 +18,14 @@ function Home() {
   const [search, setSearch] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [options, setOptions] = useState(optionsTemplate);
-  const [offset, setOffSet] = useState(100)
+  const [offset, setOffSet] = useState(24)
   const ref = useRef(null)
   
 
   const onLoadMore = async () => {
     console.log("Hello")
     setRecipes(await getRecipes(search, options.region, options.mealtype, options.diet, options.intolerance, offset));
-    setOffSet(offset + 100)
+    setOffSet(offset + 24)
   }
 
   useEffect(() => {

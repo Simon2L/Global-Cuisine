@@ -1,5 +1,7 @@
 .recipe-card-container {
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin: 10px 20px 10px 0px;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;

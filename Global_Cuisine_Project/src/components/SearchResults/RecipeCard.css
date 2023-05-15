@@ -5,6 +5,7 @@
     text-transform: uppercase;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 10px;
+    margin: 2px
 }
 .recipe-card img {
     width: 100%;
