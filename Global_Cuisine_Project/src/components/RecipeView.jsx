@@ -207,7 +207,9 @@ export default function RecipeView() {
                  </div>
                  
                 </div>
-            </div> : <ClipLoader className='loader' />
+            </div> : <div className='loader-container'>
+                    <ClipLoader className='loader' />
+            </div>
             
         )
    

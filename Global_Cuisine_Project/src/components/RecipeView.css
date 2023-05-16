@@ -288,6 +288,10 @@ h3 {
 input[type="checkbox"]:checked + .step {
   text-decoration: line-through;
 }
+.loader-container {
+  width: 80%;
+  height: 50rem;
+}
 .loader {
   position: fixed;
   top: 50%;
