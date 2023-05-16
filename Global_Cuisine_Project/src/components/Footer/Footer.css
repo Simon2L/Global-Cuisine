@@ -39,11 +39,18 @@ a{
 .socialmedia{
     display: flex;
     flex-direction: column;
+    
+}
+.socialmedia div{
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .socialmedia a{
     color: white;
     font-size: 2.5rem;
+
 }
 
 .sb__footer-links_div h4{
@@ -105,6 +112,8 @@ hr{
 
 }
 
+
+
 @media screen and (max-width: 550px) {
     .sb__footer-heading h1{
         font-size: 34px ;
@@ -136,11 +145,18 @@ hr{
 
     .socialmedia{
         justify-content: left;
+        display: flex;
+        flex-direction: column;
     }
 
-    .socialmedia-Icon {
+    .socialmedia div{
+        display: flex;
         flex-direction: row;
-        margin-right: 10rem;
+        
+    }
+    .socialmedia div a{
+       margin-right: 2rem;
+        
     }
     
 }

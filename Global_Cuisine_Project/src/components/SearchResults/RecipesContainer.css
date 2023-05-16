@@ -7,6 +7,8 @@
     padding: 0vw 10vw 1vw;
 }
 
+
+
 @media screen and (max-width: 540px){
     .recipe-card-container {
         padding: 10px;
@@ -24,6 +26,11 @@
 }
     
 
-.total-number{
-    color: #743737;
+.total-number {
+  color: #743737;
+}
+.search-loader {
+  position: fixed;
+  top: 10%;
+  left: 50%;
 }

@@ -7,6 +7,7 @@ import getUserRegion from './Functions/GetUserRegion';
 import GetUserCoordinates from './Functions/GetUserCoordinates';
 import GetUserLocation from './Functions/GetUserLocation';
 import GetRecipes from './Functions/GetRecipes';
+import {ClipLoader} from 'react-spinners'
 
 
 export default function LocationRecipes() {
@@ -68,7 +69,7 @@ export default function LocationRecipes() {
           pagination: false,
         }}>
 
-        {loading ? <h1>Loading...</h1> : recipesRegion.results.map(recipe => { // för varje hämtad recipes, görs det kort
+        {loading ? <ClipLoader className='loader' /> : recipesRegion.results.map(recipe => { // för varje hämtad recipes, görs det kort
           return(
             // en del av splide som gör att slidsen fungerar
             <SplideSlide key={recipe.id}>   
