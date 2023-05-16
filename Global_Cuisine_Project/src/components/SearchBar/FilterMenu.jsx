@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaSearch, FaAlignLeft } from 'react-icons/fa'
+import { FaAlignLeft, FaTimes } from 'react-icons/fa'
 import './FilterMenu.css'
 import FilterOption from './FilterOption';
 
@@ -16,13 +16,13 @@ const FilterMenu = ({setRegionArray, regionArray, setMealTypeArray, mealTypeArra
       
     }
 
-
     return(
         <>
-        <button  className='search-form__filter' onClick={() => changeHandle()}>
+        <button className='search-form__filter' onClick={() => changeHandle()}>
                 <FaAlignLeft />
             </button>
             <aside className={"filter-menu" + (show ? " is-active" : "")}>
+                <FaTimes className="filter-menu__close" onClick={() => changeHandle()}/>
                 <FilterOption Title={"Regions"} filters={regions} setArray={setRegionArray} array={regionArray}/>
                 <FilterOption Title={"Meal Types"} filters={mealTypes} setArray={setMealTypeArray} array={mealTypeArray}/>
                 <FilterOption Title={"Diets"} filters={diets} setArray={setDietArray} array={dietArray}/>

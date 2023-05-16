@@ -25,11 +25,18 @@ const Searchbar = (props) => {
 
         return filterString.slice(0, -2) // slice tar bort sista kommatecknet så den sista filtret funkar
     };
+
+   
         
 
 const handleSubmit = (e) => {
     e.preventDefault();
     getRecipes();
+    // reseting the filters after search
+    setRegionOption([])
+    setMealTypeOption([])
+    setDietOption([])
+    setIntoleranceOption([])
 }
 
 const MapLabels = ({filter}) => {
@@ -45,7 +52,7 @@ const MapLabels = ({filter}) => {
 }
 
 const getRecipes = async () => {
-    const apiKey = 'e2c73c94740044a697df0291dcb3ff7f';
+    const apiKey = '154625150eaa4af38ac638721a40684a';
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${PrintFilters(regionOption)}&`

@@ -3,9 +3,9 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    width: 200px;
-    justify-content: center;
-    align-content: center;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
 }
 
 .MenuContainer {
@@ -13,8 +13,9 @@
     margin-bottom: 1px;
     background-color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   
-    
+    padding: 0.5rem;
+    cursor: pointer;
+
 }
 
 .MenuContainer:hover {
