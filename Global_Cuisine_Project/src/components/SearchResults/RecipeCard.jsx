@@ -1,22 +1,23 @@
 import './RecipeCard.css'
 import { Link
 } from "react-router-dom";
+import ImageCheck from '../ImageCheck';
+import comingSoon from '../coming-soon.png'
 
 
 const RecipeCard = (props) => {
     return (
       <div className="recipe-card">
           <Link to={"recipes/" + props.recipe.id}>
-            <div>
-              <img src={props.recipe.image} alt="Recipe Image"  ></img>
-            </div>
+
+            <img src={ImageCheck(props.recipe)? props.recipe.image : comingSoon} alt="recipe"></img>     
             <div className="tagposition">
               {props.recipe.vegan ? <Vegan /> : <p></p>}
               {props.recipe.glutenFree ?  <p></p> : <Gluten />}
             </div>
-            <div className="text-container">
-              <h1>{props.recipe.title}</h1>
-            </div>
+           <div className="text-container">
+          <h1>{props.recipe.title}</h1>
+          </div>
           </Link>
           <div className="tags"> 
               <div><p>Ready in: {props.recipe.readyInMinutes} minutes</p></div>

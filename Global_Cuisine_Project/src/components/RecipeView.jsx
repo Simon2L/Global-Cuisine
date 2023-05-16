@@ -7,6 +7,9 @@ import parse from 'html-react-parser'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom'
+import ImageCheck from './ImageCheck';
+import {ClipLoader} from 'react-spinners'
+import comingSoon from './coming-soon.png'
 
 const Similars = () => {
 const params = useParams();
@@ -51,14 +54,14 @@ const Wines = ({props}) => {
         return (
         props ?
         <div className='wine-container'>
-        <h2>Wine recommendation:</h2>
+        <h2>Wine suggestions:</h2>
         <h4>{props.pairingText} </h4>                      
                     <ul className='list'>
                             {props.productMatches.map((wine) =>                                
-                                <div key={wine.id} className='wineCard'>                                    
+                                <li key={wine.id} className='wineCard'>                                    
                                         <img src={wine.imageUrl} alt="wine"></img>
                                         <a href={wine.link} target='_blank' className='wineLink'>{wine.title}</a>                                                             
-                                </div>    
+                                </li>    
                         )}                        
               </ul>
                </div> : <></>
@@ -84,25 +87,36 @@ export default function RecipeView() {
       }
     }
 
-  
+   const [checked, setChecked] = useState(false);
+   
+    function handleBox() {
+        setChecked(!checked);        
+    }
+    
 
     useEffect(() => {
-        getRecipe(params.recipeId)       
+        const timer = setTimeout(
+            () => {
+                getRecipe(params.recipeId)
+            },500
+        );
+        return () => clearTimeout(timer);     
     },[])    
     const summary = '<h3>'+recipe?.summary.split('. ',1)+'</h3>'; // splits and saves the first sentence of summary atribute of the recipe
     
 
+
         return (
             recipe ?
             <div className="recipe-container">
+                
                 <div className='recipe-info'>
                            
                     <div className="title-container"> 
                         <h1>{recipe.title}</h1>
                         <div className='title-info'>                       
                             <div className='image-container'>                   
-                            <img src={recipe.image} alt="recipe image" 
-                            className='recipe-img' ></img>
+                            <img src={ImageCheck(recipe.image)? comingSoon : recipe.image} className='recipe-img'></img>
                             </div>
                             <div className='summary'>                            
                                 <span>{parse(summary)}</span>
@@ -143,15 +157,22 @@ export default function RecipeView() {
                         <hr className='solid' />            
                     <div>
                         <ol className='list'>
-                            {recipe.analyzedInstructions.map((instruction,index) => {
-                                return <div key={index} >
-                                    {instruction.steps.map((step) => <li key={step.number}>
-                                        <span>{step.step}</span></li>)}
+                             {recipe.analyzedInstructions.map((instruction,index) => {
+                                        return <div key={index} >
+                                    {instruction.steps.map((step,index) =>
+                                    <p key={step.number}>
+                                    <input type="checkbox" onChange={handleBox} ></input>
+                                     <label htmlFor='checkbox' className='step'>
+                                        <span>{step.number}. </span>
+                                        <span>{step.step}</span></label>
+                                        </p>)}
                                 </div>
                                 
                             } 
-                            )}                        
+                            )}                                                              
                         </ol>
+                        <h5>You can find more detailed information about this recipe 
+                            <a href={recipe.sourceUrl} target='_blank' className='wineLink'> here</a> !</h5>
                     </div>
                 </div>                
             </div>
@@ -186,7 +207,7 @@ export default function RecipeView() {
                  </div>
                  
                 </div>
-            </div> : <></>
+            </div> : <ClipLoader className='loader' />
             
         )
    
