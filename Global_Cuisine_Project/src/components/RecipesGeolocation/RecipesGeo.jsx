@@ -51,20 +51,20 @@ export default function LocationRecipes() {
         <Splide options={{
           perPage: 5,
           breakpoints: { // bestämmer hur många kort som visas beroende på window size
-            1650: {
+            1800: {
             perPage: 4,
           },
-            800: {
+            1400: {
             perPage: 3,
           },
-            600: {
+            1000: {
             perPage: 2,
           },
             400: {
             perPage: 1,
           },
         },
-          arrows: false,
+          pagination: true,
           drag: 'free',
           pagination: false,
         }}>
