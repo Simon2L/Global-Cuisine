@@ -45,7 +45,7 @@ const MapLabels = ({filter}) => {
 }
 
 const getRecipes = async () => {
-    const apiKey = '6afda3141a6246569ed46a639cbfbfa6';
+    const apiKey = 'e2c73c94740044a697df0291dcb3ff7f';
     try {
         const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
         + `&query=${search}&cuisine=${PrintFilters(regionOption)}&`

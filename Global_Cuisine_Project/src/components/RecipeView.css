@@ -281,3 +281,15 @@ h3 {
   color: #b57070;
   text-align: center;
 }
+.step {
+  color: black;
+  font-weight: 400;
+}
+input[type="checkbox"]:checked + .step {
+  text-decoration: line-through;
+}
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}

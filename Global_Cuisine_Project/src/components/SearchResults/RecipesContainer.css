@@ -1,18 +1,22 @@
 .recipe-card-container {
-    margin-top: 50px;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    padding: 20px;
+  margin-top: 50px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px;
 }
 
-.total-result{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+.total-result {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.total-number{
-    color: #743737;
+.total-number {
+  color: #743737;
+}
+.search-loader {
+  position: fixed;
+  top: 10%;
+  left: 50%;
 }
