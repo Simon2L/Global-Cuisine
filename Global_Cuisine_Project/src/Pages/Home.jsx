@@ -5,7 +5,6 @@ import RecipesContainer from '../components/SearchResults/RecipesContainer'
 import { useState } from 'react';
 import {useRef} from 'react';
 import './Home.css'
-import getRecipes from '../components/SearchResults/functions/getRecipes';
 import LoadMore from '../components/LoadMore';
 
 

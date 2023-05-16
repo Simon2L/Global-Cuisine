@@ -87,7 +87,6 @@ export default function LocationRecipes() {
 
         </Splide>
       </div>
-      <hr></hr>
     </>
   )
 }
