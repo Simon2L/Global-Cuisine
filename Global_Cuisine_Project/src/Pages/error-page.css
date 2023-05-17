@@ -1,0 +1,14 @@
+body{
+    background-image: url("../assets/Error-Background.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    
+}
+
+.Ooops-container{
+    color: gold;
+    font-family: 'Pacifico', cursive;
+}
+

@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Pages/Home' 
-import ErrorPage from "./Pages/error-page";
+import ErrorPage from './Pages/error-page';
 import RecipeView from './components/RecipeView'
 import About from './Pages/About';
 import Contact from './Pages/Contact';
