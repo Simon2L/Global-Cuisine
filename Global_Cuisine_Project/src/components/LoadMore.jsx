@@ -9,7 +9,7 @@ function LoadMore({recipes, setRecipes, offset, setOffSet, search, options}) {
         let oldRecipesList = recipes
         let moreRecipes = await getRecipes(search, options, offset)
         setRecipes(oldRecipesList.concat(moreRecipes.results))
-        setOffSet(offset + 20)
+        setOffSet(offset + 24)
       }
     
   return (

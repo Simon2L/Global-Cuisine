@@ -34,7 +34,7 @@ function Home() {
   
   return (
     <>
-      <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch} setOffSet={setOffSet} setTotalRecipes={setTotalRecipes}/>
+      <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch} offset={offset} setOffSet={setOffSet} setTotalRecipes={setTotalRecipes}/>
       <RecipesGeo />
       <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
