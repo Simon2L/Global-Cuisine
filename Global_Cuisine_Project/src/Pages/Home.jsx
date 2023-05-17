@@ -39,7 +39,12 @@ function Home() {
       <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
         {totalRecipes > 0 && totalRecipes > offset ? // visas inte om inga recept har laddats fram än eller om den totala är mindre än 24
-        <LoadMore recipes={recipes} setRecipes={setRecipes} offset={offset} setOffSet={setOffSet} search={search} options={options}/> 
+        <div className='LoadMoreContainer'>
+          <p className='textLoadedRecipes'>{recipes.length}/{totalRecipes} recipes</p>
+          <LoadMore recipes={recipes} setRecipes={setRecipes} offset={offset} setOffSet={setOffSet} search={search} options={options}/>
+          
+        </div>
+
         : <></>}
       </div>
     </>

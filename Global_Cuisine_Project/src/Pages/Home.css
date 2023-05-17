@@ -20,3 +20,13 @@
     margin-bottom: 0.5rem;
     /* content: url("/Global-Cuisine/Global_Cuisine_Project/src/assets/logo-no-background.png"); */
   }
+
+  .LoadMoreContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .textLoadedRecipes{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+  }

@@ -14,10 +14,10 @@ function LoadMore({recipes, setRecipes, offset, setOffSet, search, options}) {
     
   return (
     <div className='searchResultContainer'>
-    <p>{offset} recipes loaded</p>
     <button className='loadBtn' onClick={() => onLoadMore()}>Load more</button> 
   </div>
   )
 }
+
 
 export default LoadMore
