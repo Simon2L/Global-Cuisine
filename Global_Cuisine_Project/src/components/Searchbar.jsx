@@ -65,6 +65,7 @@ const Searchbar = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getRecipes();
+
   };
 
   const SelectedLabels = () => { // skriver ut alla valda options
@@ -75,6 +76,7 @@ const Searchbar = (props) => {
             return(<div className="label-filter" key={opt}>
                 <label className="label-filter-label" >{opt}</label>
                 <FaTimesCircle onClick={() => {updateOptions(opt, (arr + 's'))}} className="label-filter-exit"/>
+
             </div>
                 
             )
