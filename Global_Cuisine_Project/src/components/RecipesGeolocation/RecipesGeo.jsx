@@ -64,9 +64,8 @@ export default function LocationRecipes() {
             perPage: 1,
           },
         },
-          pagination: true,
-          drag: 'free',
           pagination: false,
+          drag: 'free',
         }}>
 
         {loading ? <ClipLoader className='loader' /> : recipesRegion.results.map(recipe => { // för varje hämtad recipes, görs det kort
