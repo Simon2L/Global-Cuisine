@@ -6,8 +6,15 @@ import FilterMenu from "./SearchBar/FilterMenu";
 import { Form } from "react-router-dom";
 import getRecipes from "./SearchResults/functions/getRecipes";
 
+const Searchbar = (props) => {
+  const optionsTemplate = { // hur options ser ut innan några värden har valts
+      region: [],
+      mealtype: [],
+      diet: [],
+      intolerance: [],
+    }
 
-const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSet, setTotalRecipes}) => {
+  const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSet, setTotalRecipes}) => {
   const [showFilter, setShowFilter] = useState(false);
   const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
 
@@ -20,7 +27,6 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
       setOffSet(24)
       setTotalRecipes(recipeData.totalResults)
     };
-
 
   const updateOptions = (value, arrName) => { // lägger till value i rätt array(dvs. region, mealtype, diet eller intolerance)
     const arr = options;
@@ -47,13 +53,11 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
     }
 
     setOptions(arr);
-    setUpdate(!update);
+    setUpdate(!update)
     // console.log(arr);
   };
 
   const ClearFilters = () => setOptions(optionsTemplate); // återställer options
-
-
 
 
 
@@ -81,7 +85,6 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
     
   }
 
-
   return (
     <>
       <section className="search-form">
@@ -106,10 +109,12 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
         </div>
       </section>
       <section className="filtername-container">
-        <SelectedLabels />
+
+        <SelectedLabels /> 
       </section>
     </>
   );
 };
 
 export default Searchbar;
+
