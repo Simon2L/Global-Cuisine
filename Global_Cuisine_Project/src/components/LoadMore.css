@@ -1,0 +1,23 @@
+.searchResultContainer {
+    flex-direction: column;
+    display: flex;
+}
+
+.loadBtn {
+    align-self: center;
+    padding: 0.7rem;
+    border-radius: 10px;
+    background-color: #AB4545;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.loadBtn:hover {
+    background-color: #913d3d;
+    transform: translateY(-1px);
+}
+
+

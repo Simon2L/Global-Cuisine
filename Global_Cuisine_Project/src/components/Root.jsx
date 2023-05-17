@@ -9,7 +9,6 @@ export default function Root() {
           <Navbar />
           <hr></hr>
          <Outlet />
-         <hr />
          <Footer/>
     </div>
   )

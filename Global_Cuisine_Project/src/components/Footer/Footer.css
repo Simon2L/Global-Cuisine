@@ -81,6 +81,7 @@ a{
 }
 
 .sb__footer-below-links {
+    margin-left: 1rem;
     display: flex;
     flex-direction: row;
 }
@@ -89,6 +90,7 @@ a{
     font-size:13px ;
     line-height: 15px;
     margin-left: 2rem;
+    margin-right: 2rem;
     color: white;
     font-weight: 600;
     
@@ -110,6 +112,7 @@ hr{
     line-height: 15px;
     color: rgb(255, 255, 255);
     font-weight: 600;
+    margin-left: 0.5rem;
 
 }
 

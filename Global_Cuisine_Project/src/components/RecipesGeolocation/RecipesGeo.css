@@ -1,5 +1,5 @@
 .RecipeCards {
-  margin: 0% 5%;
+  margin: 0vw 10vw;
 }
 
 .textContainer {
@@ -39,7 +39,6 @@
   font-size: 20px;
   text-align: center;
   color: rgb(255, 255, 255);
- 
 }
 
 .Card:hover {
@@ -48,24 +47,37 @@
 }
 
 .h1Location{
-  font-size: 2vw;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0vw 10vw;
+  text-align: center;
+  
 }
 
+.textBox {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: center;
+}
 
-@media screen and (max-width: 1200px) {
-  .h1Location{
-    font-size: 4vw;
-  }
+.hrLine{
+  width: 80%;
+}
+
+@media screen and (max-width: 800px) {
+ 
 
   .Card h1 {
-    font-size: 15px;
+    font-size: 20px;
     text-align: center;
     color: rgb(255, 255, 255);
    
   }
   .Card {
-    max-width: 11rem;
-    height: 15rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 80%;
+    height: 20rem;
   }
 }

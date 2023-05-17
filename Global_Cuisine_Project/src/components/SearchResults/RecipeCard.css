@@ -1,10 +1,11 @@
 .recipe-card {
-  width: 200px;
-  background-color: #ab4545;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border-radius: 10px;
+    width: 200px;
+    background-color: #AB4545;
+    text-align: center;
+    text-transform: uppercase;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    margin: 2px
 }
 .recipe-card img {
   width: 100%;
