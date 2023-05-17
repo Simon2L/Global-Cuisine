@@ -118,14 +118,34 @@
 }
 
 
-.filter-Container {
+.filtername-container {
   display: flex;
+  flex-wrap: wrap;
 } 
-.labelFilter{
-  font-size: 10px;
+.label-filter{
   background-color: #AB4545;
-  color: white;
   border-radius: 1rem;
-  padding: 0.5rem;
-  margin: 0.5rem
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 10px 3px 10px;
+  margin: 20px 5px 10px 0px;
+ 
+}
+.label-filter:hover{
+  cursor: pointer;
+  background-color: #923c3c;
+}
+
+.label-filter-label {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  color: white;
+  align-self: center;
+  margin: 0px 5px 0px 0px;
+}
+.label-filter-exit {
+  color: white;
+  height: 1rem;
+  width: 1rem;
+  align-self: center;
 }
