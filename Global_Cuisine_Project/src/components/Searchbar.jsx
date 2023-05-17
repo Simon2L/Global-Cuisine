@@ -7,7 +7,7 @@ import { Form } from "react-router-dom";
 import getRecipes from "./SearchResults/functions/getRecipes";
 
 
-const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSet, offset, setTotalRecipes}) => {
+const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSet, setTotalRecipes}) => {
   const [showFilter, setShowFilter] = useState(false);
   const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
 
@@ -17,7 +17,7 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
       e.preventDefault();
       let recipeData = await getRecipes(search, options, 0)
       setRecipes(recipeData.results);
-      setOffSet(offset + 24)
+      setOffSet(24)
       setTotalRecipes(recipeData.totalResults)
     };
 
