@@ -5,22 +5,22 @@ import ImageCheck from '../ImageCheck';
 import comingSoon from '../coming-soon.png'
 
 
-const RecipeCard = ({recipe}) => {
+const RecipeCard = (props) => {
     return (
       <div className="recipe-card">
-          <Link to={"recipes/" + recipe.id}>
+          <Link to={"recipes/" + props.recipe.id}>
 
-            <img src={ImageCheck(recipe)? recipe.image : comingSoon} alt="recipe"></img>     
+            <img src={ImageCheck(props.recipe)? props.recipe.image : comingSoon} alt="recipe"></img>     
             <div className="tagposition">
-              {recipe.vegan ? <Vegan /> : <p></p>}
-              {recipe.glutenFree ?  <p></p> : <Gluten />}
+              {props.recipe.vegan ? <Vegan /> : <p></p>}
+              {props.recipe.glutenFree ?  <p></p> : <Gluten />}
             </div>
-            <div className="text-container">
-              <h1>{recipe.title}</h1>
-            </div>
+           <div className="text-container">
+          <h1>{props.recipe.title}</h1>
+          </div>
           </Link>
           <div className="tags"> 
-              <div><p>Ready in: {recipe.readyInMinutes} minutes</p></div>
+              <div><p>Ready in: {props.recipe.readyInMinutes} minutes</p></div>
           </div>
         </div>
     );

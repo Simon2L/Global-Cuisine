@@ -1,10 +1,9 @@
 import "./Searchbar.css";
-import { FaSearch, FaTimesCircle } from "react-icons/fa";
+import { FaSearch, FaAlignLeft, FaTimesCircle } from "react-icons/fa";
 import logoimage from "../assets/logo-no-background.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FilterMenu from "./SearchBar/FilterMenu";
 import { Form } from "react-router-dom";
-import getRecipes from "./SearchResults/functions/getRecipes";
 
   const optionsTemplate = { // hur options ser ut innan några värden har valts
       region: [],
@@ -13,19 +12,13 @@ import getRecipes from "./SearchResults/functions/getRecipes";
       intolerance: [],
     }
 
-  const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSet, setTotalRecipes}) => {
-  const [showFilter, setShowFilter] = useState(false);
-  const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
-
-   
+    const [options, setOptions] = useState(optionsTemplate);
+    const [search, setSearch] = useState("");
+    const [showFilter, setShowFilter] = useState(false);
+    const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
   
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      let recipeData = await getRecipes(search, options, 0)
-      setRecipes(recipeData.results);
-      setOffSet(24)
-      setTotalRecipes(recipeData.totalResults)
-    };
+    
+
 
   const updateOptions = (value, arrName) => { // lägger till value i rätt array(dvs. region, mealtype, diet eller intolerance)
     const arr = options;
@@ -54,35 +47,64 @@ import getRecipes from "./SearchResults/functions/getRecipes";
     setOptions(arr);
     setUpdate(!update)
     // console.log(arr);
+
   };
 
   const ClearFilters = () => setOptions(optionsTemplate); // återställer options
 
+  const PrintFilters = (array) => {
+    let filterString = "";
+    array.forEach((element) => {
+      filterString += `${element}, `;
+    });
 
+    return filterString.slice(0, -2); // slice tar bort sista kommatecknet så den sista filtret funkar
+  };
 
-  const SelectedLabels = () => {
-    // skriver ut alla valda options
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getRecipes();
+
+  };
+
+  const SelectedLabels = () => { // skriver ut alla valda options
     let labels = [];
     let count = 0;
-    for (const arr in options) {
-      labels[count] = options[arr].map((opt) => {
-        return (
-          <div className="label-filter" key={opt}>
-            <label className="label-filter-label">{opt}</label>
-            <FaTimesCircle
-              onClick={() => {
-                updateOptions(opt, arr + "s");
-              }}
-              className="label-filter-exit"
-            />
-          </div>
-        );
-      });
-      count++;
+    for(const arr in options){
+        labels[count] = options[arr].map((opt) => {
+            return(<div className="label-filter" key={opt}>
+                <label className="label-filter-label" >{opt}</label>
+                <FaTimesCircle onClick={() => {updateOptions(opt, (arr + 's'))}} className="label-filter-exit"/>
+
+            </div>
+                
+            )
+        })
+        count++;
     }
     return labels;
     
   }
+
+
+  // fetch
+  const getRecipes = async () => {
+    const apiKey = "6afda3141a6246569ed46a639cbfbfa6";
+    try {
+      const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`
+      +`&query=${search}&cuisine=${PrintFilters(options.region)}&` +
+        `type=${PrintFilters(options.mealtype)}&` +
+        `diet=${PrintFilters(options.diet)}&` +
+        `intolerances=${PrintFilters(options.intolerance)}&` +
+        `addRecipeInformation=true&addRecipeNutritionadd=true&fillIngredients=true&number=100`;
+      const response = await fetch(url);
+      const result = await response.json();
+      // console.log(result)
+      props.setRecipes(result);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <>
@@ -108,7 +130,6 @@ import getRecipes from "./SearchResults/functions/getRecipes";
         </div>
       </section>
       <section className="filtername-container">
-
         <SelectedLabels /> 
       </section>
     </>
