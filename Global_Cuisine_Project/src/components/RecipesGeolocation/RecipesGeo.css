@@ -4,8 +4,9 @@
 
 .textContainer {
   min-height: 75px;
-  padding: 10px;
+  padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -72,6 +73,7 @@
     font-size: 20px;
     text-align: center;
     color: rgb(255, 255, 255);
+    margin-top: 10%;
    
   }
   .Card {
@@ -81,3 +83,48 @@
     height: 20rem;
   }
 }
+
+/*V--Recept taggar på splides--V*/
+
+.vegantagGeo {
+  background-color: #0c7d25;
+  border-radius: 10px;
+  position: relative;
+  inline-size: min-content;
+  padding: 0px 5px 0px 5px;
+  /* margin-top: -150px;  om man vill få in taggarna i bilden*/
+}
+
+.vegantagGeo p {
+  color:white;
+  font-size: 11px;
+  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.glutentagGeo {
+  background-color: #babf1b;
+  border-radius: 10px;
+  position: relative;
+  inline-size: min-content;
+  padding: 0px 5px 0px 5px;
+  margin-left: 5px;
+}
+
+.glutentagGeo p {
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tagpositionGeo  {
+  display: flex;
+  position: absolute;
+  padding: 5px;
+  margin-left: 5px;
+  margin-top: -5px;
+}
+
+
+
