@@ -72,7 +72,14 @@ export default function LocationRecipes() {
           return(
             // en del av splide som gör att slidsen fungerar
             <SplideSlide key={recipe.id}>   
-              <GeoRecipeCard recipe={recipe}/>
+              <div className='Card'>
+                <Link style={linkStyle} to={`recipes/${recipe.id}`}>
+                  <img src={recipe.image}></img>
+                  <div className='textContainer'>
+                    <h1>{recipe.title}</h1>
+                  </div>
+                </Link>
+              </div>
             </SplideSlide>
           )
         })}
@@ -97,46 +104,7 @@ const iStyle = {
 
 //#endregion
 
-/*V-- Taggar--V*/ 
      
-function GeoRecipeCard({recipe}) {
-  return(
-    <div className='Card'>
-      <Link style={linkStyle} to={`recipes/${recipe.id}`}>
-        <img src={recipe.image}></img>
-        <div className="tagpositionGeo">
-          <div className="vegan">{recipe.vegan ? <Vegan /> : <p></p>}</div>
-          <div className="gluten">{recipe.glutenFree ?  <p></p> : <Gluten />}</div>
-        </div>
-        <div className='textContainer'>
-          <h1>{recipe.title}</h1>
-        </div>
-      </Link>
-    </div>
-  );
-} 
 
-
-const Vegan =() => {
-  return (
-    <>
-      <div className="vegantagGeo">
-        <p >Vegan</p>
-      </div>
-    </> 
-  );
-
- 
-}
-
-const Gluten =() => {
-  return (
-    <>
-      <div className="glutentagGeo">
-        <p>Gluten</p>
-      </div>
-    </>
-  );
-}
     
 
