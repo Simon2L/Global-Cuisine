@@ -35,6 +35,7 @@ function Home() {
   return (
     <>
       <Searchbar setRecipes={setRecipes} setOptions={setOptions} options={options} search={search} setSearch={setSearch} setOffSet={setOffSet} setTotalRecipes={setTotalRecipes}/>
+      <BackToTopBtn />
       <RecipesGeo />
       <div ref={ref} >
         <RecipesContainer data={recipes} total={totalRecipes} />
@@ -51,7 +52,16 @@ function Home() {
   )
 }
    
-      
+const BackToTopBtn = () => {
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0
+  }
+
+  return (
+    <button className="top-btn" onClick={() => topFunction()}>Top</button>
+  )
+}      
         
       
      
