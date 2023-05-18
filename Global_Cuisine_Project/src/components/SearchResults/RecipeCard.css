@@ -14,9 +14,8 @@
 }
 .text-container {
 
-  /* min-height: 75px; */
-  max-height: 50px;
-  padding: 0px;
+  min-height: 75px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,15 +33,16 @@
   background-color: #8e3939;
 }
 
-/*v--Taggar--V*/
+/*v--Jonas under--V*/
 
 .tags {
-    font-size: 9px;
+    font-size: x-small;
     text-align: center;
     margin-bottom: 15px;
     color: white;
     
 }
+
 
 .vegantag {
     background-color: #0c7d25;
@@ -60,7 +60,7 @@
 }
 
 .glutentag {
-    background-color: #babf1b;;
+    background-color: #babf1b;
     border-radius: 10px;
     position: relative;
     inline-size: min-content;
@@ -75,8 +75,7 @@
 
 .tagposition {
     /* position: absolute; */
-    padding: 5px;
     margin-left: 5px;
-    margin-top: -10px;
+    margin-top: -5px;
+    
 }
-

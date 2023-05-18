@@ -20,7 +20,7 @@ const RecipeCard = ({recipe}) => {
             </div>
           </Link>
           <div className="tags"> 
-              <div><p>Estimated cookingtime: {recipe.readyInMinutes} minutes</p></div>
+              <div><p>Ready in: {recipe.readyInMinutes} minutes</p></div>
           </div>
         </div>
     );
