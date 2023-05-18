@@ -56,7 +56,6 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
 
 
 
-
   const SelectedLabels = () => {
     // skriver ut alla valda options
     let labels = [];
@@ -78,6 +77,7 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
       count++;
     }
     return labels;
+
     
   }
 
