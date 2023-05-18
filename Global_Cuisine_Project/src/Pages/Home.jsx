@@ -53,20 +53,33 @@ function Home() {
 }
    
 const BackToTopBtn = () => {
+  let myButton = document.getElementById("top-btn")
+
   function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0
   }
 
+  function scrollFunction() {
+    if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+
+      myButton.style.display = "block";
+    }
+    else {
+      myButton.style.display = "none";
+    }
+    
+  }
+
+  window.onscroll = () => {
+    scrollFunction()
+  }
+
   return (
-    <button className="top-btn" onClick={() => topFunction()}>Top</button>
+    <button id="top-btn" onClick={() => topFunction()}>Top</button>
+    
   )
 }      
         
-      
-     
-      
-
-
 
 export default Home;
