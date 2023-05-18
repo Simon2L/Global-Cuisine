@@ -43,29 +43,29 @@ export default function LocationRecipes() {
 
   return (
     <>
-      <div className='textBox'>
-        <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
-      </div>
+      <hr></hr>
+      <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
       <div className='RecipeCards'>
         {/* sättter upp splide options som hur många cards som ska visas etc */}
         <Splide options={{
           perPage: 5,
           breakpoints: { // bestämmer hur många kort som visas beroende på window size
-            1800: {
+            1650: {
             perPage: 4,
           },
-            1400: {
+            800: {
             perPage: 3,
           },
-            1000: {
+            600: {
             perPage: 2,
           },
             400: {
             perPage: 1,
           },
         },
-          pagination: false,
+          arrows: false,
           drag: 'free',
+          pagination: false,
         }}>
 
         {loading ? <ClipLoader className='loader' /> : recipesRegion.results.map(recipe => { // för varje hämtad recipes, görs det kort
@@ -87,6 +87,7 @@ export default function LocationRecipes() {
 
         </Splide>
       </div>
+      <hr></hr>
     </>
   )
 }
