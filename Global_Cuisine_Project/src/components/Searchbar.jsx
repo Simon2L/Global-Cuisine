@@ -6,7 +6,6 @@ import FilterMenu from "./SearchBar/FilterMenu";
 import { Form } from "react-router-dom";
 import getRecipes from "./SearchResults/functions/getRecipes";
 
-const Searchbar = (props) => {
   const optionsTemplate = { // hur options ser ut innan några värden har valts
       region: [],
       mealtype: [],
