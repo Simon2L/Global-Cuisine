@@ -5,17 +5,16 @@ import getRecipes from './SearchResults/functions/getRecipes'
 function LoadMore({recipes, setRecipes, offset, setOffSet, search, options}) {
 
     const onLoadMore = async () => {
-        console.log("Hello")
         let oldRecipesList = recipes
         let moreRecipes = await getRecipes(search, options, offset)
         setRecipes(oldRecipesList.concat(moreRecipes.results))
-        setOffSet(offset + 20)
+        setOffSet(offset + 24)
       }
     
   return (
     <div className='searchResultContainer'>
-    <button className='loadBtn' onClick={() => onLoadMore()}>Load more</button> 
-  </div>
+      <button className='loadBtn' onClick={() => onLoadMore()}>Load more</button> 
+    </div>
   )
 }
 
