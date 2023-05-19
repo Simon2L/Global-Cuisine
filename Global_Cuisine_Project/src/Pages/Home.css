@@ -31,3 +31,39 @@
     font-weight: bold;
     font-size: 20px;
   }
+
+/*V--back to top button--V*/
+
+  #top-btn {
+  display: none; 
+  position: fixed; 
+  bottom: 40px; 
+  right: 50px; 
+  z-index: 50; 
+  border: 2px solid rgb(131, 16, 16);
+  outline: none; 
+  background-color: #AB4545; 
+  color: white; 
+  cursor: pointer; 
+  padding: 5px; 
+  border-radius: 10px; 
+  font-size: 12px; 
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  width:80px;
+  }
+
+  #top-btn:hover {
+    background-color: #913d3d;
+    transform: translateY(-1px);
+  }
+  
+
+  @media screen and (max-width: 800px) {
+    #top-btn {
+      right: 10px;
+      width: 70px;
+    }
+  
+  }
+  
