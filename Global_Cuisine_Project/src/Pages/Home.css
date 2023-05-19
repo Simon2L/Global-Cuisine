@@ -34,20 +34,40 @@
 
 /*V--back to top button--V*/
 
+/* @media screen and (max-width: 800px) {
+  .top-btn {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+    align-items: end;
+  }
+
+} */
+
+
   #top-btn {
   display: none; 
   position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
+  bottom: 40px; /* Place the button at the bottom of the page */
   right: 30px; /* Place the button 30px from the right */
   z-index: 50; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
+  border: 2px solid black; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: red; /* Set a background color */
+  background-color: #AB4545; /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
+  padding: 4px; /* Some padding */
   border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+  font-size: 12px; /* Increase font size */
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  width:100px;
   }
 
+  #top-btn:hover {
+    background-color: #913d3d;
+    transform: translateY(-1px);
+  }
+  
   
