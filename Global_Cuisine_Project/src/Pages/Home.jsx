@@ -53,32 +53,30 @@ function Home() {
 }
    
 const BackToTopBtn = () => {
-  let myButton = document.getElementById("top-btn")
+  let myButton = document.getElementById("top-btn");
 
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0
-  }
+  window.onscroll = () => {
+    scrollFunction()
+  };
 
   function scrollFunction() {
     if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
-
       myButton.style.display = "block";
     }
     else {
       myButton.style.display = "none";
     }
-    
   }
 
-  window.onscroll = () => {
-    scrollFunction()
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
 
   return (
     <button id="top-btn" onClick={() => topFunction()}>Back to top</button>
     
-  )
+  );
 }      
         
 
