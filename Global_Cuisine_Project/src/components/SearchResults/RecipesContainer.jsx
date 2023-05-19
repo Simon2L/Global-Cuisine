@@ -21,22 +21,22 @@ const RecipesContainer = ({data, total}) => {
     let sorted;
     switch(type) {
       case 'title1':
-         sorted = [...data.results].sort((a,b) => a.title < b.title? -1:1);
+         sorted = [...data].sort((a,b) => a.title < b.title? -1:1);
         setState(sorted);
         setIsSorded(true);
         break;
       case 'title2':
-        sorted = [...data.results].sort((a,b) => a.title < b.title? 1:-1);
+        sorted = [...data].sort((a,b) => a.title < b.title? 1:-1);
         setState(sorted);
         setIsSorded(true);
         break;
       case 'time1':
-        sorted = [...data.results].sort((a,b) => a.readyInMinutes < b.readyInMinutes? -1:1);
+        sorted = [...data].sort((a,b) => a.readyInMinutes < b.readyInMinutes? -1:1);
         setState(sorted);
         setIsSorded(true);
         break;
       case 'time2':
-        sorted = [...data.results].sort((a,b) => a.readyInMinutes < b.readyInMinutes? 1:-1);
+        sorted = [...data].sort((a,b) => a.readyInMinutes < b.readyInMinutes? 1:-1);
         setState(sorted);
         setIsSorded(true);
         break;
@@ -66,10 +66,13 @@ const RecipesContainer = ({data, total}) => {
   return (
     data?
     <>
-      <h1 className='total-result'><i className='total-number'>{data.totalResults}</i>{total > 0 ? ` recipes found` : ""}</h1>      
+    <div className='total-result'>
+    <h1 ><i className='total-number'>{total}</i>{total > 0 ? ` recipes found` : ""}</h1>      
       {total > 0? 
         sortMenu() 
         : ""}
+    </div>
+   
       <section className="recipe-card-container">                    
        {isSorted ? state.map(recipe => (       
         <RecipeCard recipe={recipe} key={recipe.id} />    
