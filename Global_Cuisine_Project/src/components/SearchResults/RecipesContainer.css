@@ -12,6 +12,13 @@
   .recipe-card-container {
     padding: 10px;
   }
+
+  .total-result{
+   flex-direction: column;
+   align-items: center;
+
+}
+ 
 }
 
 
