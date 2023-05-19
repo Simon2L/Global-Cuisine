@@ -1,9 +1,10 @@
 .section__padding{
-    padding: 4rem 4rem;
+    padding: 1rem 1rem;
 }
 
 .footer{
     background-color: #AB4545;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .sb__footer{
