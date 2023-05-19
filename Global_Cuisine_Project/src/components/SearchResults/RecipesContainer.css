@@ -21,8 +21,10 @@
     justify-content: center;
 }
 .total-result{
+    display: flex;
+    justify-content: space-evenly;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    align-items: center;
+    align-content: center;
 
 }
     
@@ -40,7 +42,7 @@
   flex-direction: row;
   justify-content: end;
   align-items: center;
-  margin-right: 3rem;
+
 }
 .sortBy {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
