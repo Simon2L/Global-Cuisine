@@ -1,5 +1,5 @@
 async function GetRecipes(region) {
-    const tempApiKey = "d9621eb8bc7949e39c16d7f5fab52053"
+    const tempApiKey = import.meta.env.VITE_GEORECIPES;
     let recipes
     let loading = true
         try {
