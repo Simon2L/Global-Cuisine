@@ -1,46 +1,50 @@
-import React, { useState } from 'react'
-import './FilterOption.css'
-import FilterButton from './FilterButton'
+import React, { useEffect, useState } from "react";
+import "./FilterOption.css";
 
-export default function FilterOption({Title, filters, setArray, array}) {
-  const [open, SetOpen] = useState(false)
+export default function FilterOption({
+  title,
+  filters,
+  updateOptions,
+  showFilter,
+}) {
+  const [open, setOpen] = useState(false);
 
+  
+  useEffect(() => { // när filtermenyn stängs så stänger den alla filtermenyer som lämnats öppna
+    setOpen(false)
+  }, [showFilter])
 
   const onClick = () => {
-    SetOpen(!open)
-  }
- 
+    setOpen(!open);
+  };
 
-
-
-  const ShowFilter = () => {
-    return(
-      <div className='filterContainer'>
-        {filters?.map((item) => {
-          return(
-            <FilterButton key={item} filterName={item} setArray={setArray} array={array} />
-          )
-        })}
-    </div>
-    )
-  }
   
+  const ShowFilter = () => { // komponent som visar alla options inuti filtret
+    return (
+      <div className={"filter-container" + (open ? " open" : "")}>
+        {open ? (
+          filters.map((item) => (
+            <button
+              key={item}
+              onClick={() => updateOptions(item, title)}
+              className="filter-btn"
+            >
+              {item}
+            </button>
+          ))
+        ) : (
+          <></>
+        )}
+      </div>
+    );
+  };
+
   return (
     <>
-      <div className='MenuContainer' >
-        <h3 onClick={() => onClick()}>{Title}</h3>
-        { open ? 
-          <div> 
-            <ShowFilter /> 
-          </div> : 
-        <></>}
-      </div>
+      <button className="menu-item-btn" onClick={onClick}>
+        {title.toUpperCase()}
+      </button>
+      <ShowFilter />
     </>
-  )
+  );
 }
-
-
-
-
-
- 

@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { ClipLoader } from 'react-spinners';
 
 
-const RecipesContainer = ({data}) => {
+
+const RecipesContainer = ({data, total}) => {
   
   const [sortType, setSortType] = useState("");
   const [state,setState] = useState([]);
@@ -59,25 +60,28 @@ const RecipesContainer = ({data}) => {
     </div>
     )
   }
-  console.log(state)
   
+
   
   return (
     data?
     <>
-      <h1 className='total-result'><i className='total-number'>{data.totalResults}</i>{data.totalResults > 0 ? ` recipes found` : ""}</h1>      
-      {data.totalResults > 0? 
+      <h1 className='total-result'><i className='total-number'>{data.totalResults}</i>{total > 0 ? ` recipes found` : ""}</h1>      
+      {total > 0? 
         sortMenu() 
         : ""}
       <section className="recipe-card-container">                    
        {isSorted ? state.map(recipe => (       
         <RecipeCard recipe={recipe} key={recipe.id} />    
-      )) : data.results?.map(recipe => (       
+      )) : data?.map(recipe => (       
         <RecipeCard recipe={recipe} key={recipe.id} />    
       ))} 
+
     </section>
     </> : <ClipLoader className='search-loader' />
   );
 };
+        
 
 export default RecipesContainer;
+      

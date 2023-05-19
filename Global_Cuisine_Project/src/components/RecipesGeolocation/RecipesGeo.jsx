@@ -43,43 +43,36 @@ export default function LocationRecipes() {
 
   return (
     <>
-      <hr></hr>
-      <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
+      <div className='textBox'>
+        <h1 className='h1Location'><i style={iStyle}>{totalRecipes} {userRegion}</i> recipes just for you:</h1>
+      </div>
       <div className='RecipeCards'>
         {/* sättter upp splide options som hur många cards som ska visas etc */}
         <Splide options={{
           perPage: 5,
           breakpoints: { // bestämmer hur många kort som visas beroende på window size
-            1650: {
+            1800: {
             perPage: 4,
           },
-            800: {
+            1400: {
             perPage: 3,
           },
-            600: {
+            1000: {
             perPage: 2,
           },
             400: {
             perPage: 1,
           },
         },
-          arrows: false,
-          drag: 'free',
           pagination: false,
+          drag: 'free',
         }}>
 
         {loading ? <ClipLoader className='loader' /> : recipesRegion.results.map(recipe => { // för varje hämtad recipes, görs det kort
           return(
             // en del av splide som gör att slidsen fungerar
             <SplideSlide key={recipe.id}>   
-              <div className='Card'>
-                <Link style={linkStyle} to={`recipes/${recipe.id}`}>
-                  <img src={recipe.image}></img>
-                  <div className='textContainer'>
-                    <h1>{recipe.title}</h1>
-                  </div>
-                </Link>
-              </div>
+              <GeoRecipeCard recipe={recipe}/>
             </SplideSlide>
           )
         })}
@@ -87,7 +80,6 @@ export default function LocationRecipes() {
 
         </Splide>
       </div>
-      <hr></hr>
     </>
   )
 }
@@ -105,7 +97,46 @@ const iStyle = {
 
 //#endregion
 
+/*V-- Taggar--V*/ 
      
+function GeoRecipeCard({recipe}) {
+  return(
+    <div className='Card'>
+      <Link style={linkStyle} to={`recipes/${recipe.id}`}>
+        <img src={recipe.image}></img>
+        <div className="tagpositionGeo">
+          <div className="vegan">{recipe.vegan ? <Vegan /> : <p></p>}</div>
+          <div className="gluten">{recipe.glutenFree ?  <p></p> : <Gluten />}</div>
+        </div>
+        <div className='textContainer'>
+          <h1>{recipe.title}</h1>
+        </div>
+      </Link>
+    </div>
+  );
+} 
 
+
+const Vegan =() => {
+  return (
+    <>
+      <div className="vegantagGeo">
+        <p >Vegan</p>
+      </div>
+    </> 
+  );
+
+ 
+}
+
+const Gluten =() => {
+  return (
+    <>
+      <div className="glutentagGeo">
+        <p>Gluten</p>
+      </div>
+    </>
+  );
+}
     
 

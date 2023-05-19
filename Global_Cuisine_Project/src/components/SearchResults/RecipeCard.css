@@ -1,10 +1,11 @@
 .recipe-card {
-  width: 200px;
-  background-color: #ab4545;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border-radius: 10px;
+    width: 200px;
+    background-color: #AB4545;
+    text-align: center;
+    text-transform: uppercase;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    margin: 2px
 }
 .recipe-card img {
   width: 100%;
@@ -13,8 +14,9 @@
 }
 .text-container {
 
-  min-height: 75px;
-  padding: 10px;
+  /* min-height: 75px; */
+  max-height: 50px;
+  padding: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,16 +34,15 @@
   background-color: #8e3939;
 }
 
-/*v--Jonas under--V*/
+/*v--Taggar--V*/
 
 .tags {
-    font-size: x-small;
+    font-size: 9px;
     text-align: center;
     margin-bottom: 15px;
     color: white;
     
 }
-
 
 .vegantag {
     background-color: #0c7d25;
@@ -59,7 +60,7 @@
 }
 
 .glutentag {
-    background-color: #babf1b;
+    background-color: #babf1b;;
     border-radius: 10px;
     position: relative;
     inline-size: min-content;
@@ -74,7 +75,8 @@
 
 .tagposition {
     /* position: absolute; */
+    padding: 5px;
     margin-left: 5px;
-    margin-top: -5px;
-    
+    margin-top: -10px;
 }
+
