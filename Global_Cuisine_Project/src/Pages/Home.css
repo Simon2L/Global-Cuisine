@@ -34,32 +34,20 @@
 
 /*V--back to top button--V*/
 
-/* @media screen and (max-width: 800px) {
-  .top-btn {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: auto;
-    align-items: end;
-  }
-
-} */
-
-
   #top-btn {
   display: none; 
-  position: fixed; /* Fixed/sticky position */
-  bottom: 40px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 50; /* Make sure it does not overlap */
-  border: 2px solid black; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: #AB4545; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 5px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 12px; /* Increase font size */
+  position: fixed; 
+  bottom: 40px; 
+  right: 50px; 
+  z-index: 50; 
+  border: 2px solid rgb(131, 16, 16);
+  outline: none; 
+  background-color: #AB4545; 
+  color: white; 
+  cursor: pointer; 
+  padding: 5px; 
+  border-radius: 10px; 
+  font-size: 12px; 
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   width:80px;
@@ -70,4 +58,12 @@
     transform: translateY(-1px);
   }
   
+
+  @media screen and (max-width: 800px) {
+    #top-btn {
+      right: 10px;
+      width: 70px;
+    }
+  
+  }
   

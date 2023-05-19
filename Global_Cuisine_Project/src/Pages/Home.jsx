@@ -61,7 +61,7 @@ const BackToTopBtn = () => {
   }
 
   function scrollFunction() {
-    if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+    if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
 
       myButton.style.display = "block";
     }
