@@ -57,12 +57,12 @@
   background-color: #AB4545; /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 4px; /* Some padding */
+  padding: 5px; /* Some padding */
   border-radius: 10px; /* Rounded corners */
   font-size: 12px; /* Increase font size */
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
-  width:100px;
+  width:80px;
   }
 
   #top-btn:hover {

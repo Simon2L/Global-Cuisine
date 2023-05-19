@@ -76,7 +76,7 @@ const BackToTopBtn = () => {
   }
 
   return (
-    <button id="top-btn" onClick={() => topFunction()}>Back to search</button>
+    <button id="top-btn" onClick={() => topFunction()}>Back to top</button>
     
   )
 }      
