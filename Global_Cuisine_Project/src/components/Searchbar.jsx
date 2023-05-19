@@ -1,7 +1,7 @@
 import "./Searchbar.css";
-import { FaSearch, FaAlignLeft, FaTimesCircle } from "react-icons/fa";
+import { FaSearch, FaTimesCircle } from "react-icons/fa";
 import logoimage from "../assets/logo-no-background.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FilterMenu from "./SearchBar/FilterMenu";
 import { Form } from "react-router-dom";
 import getRecipes from "./SearchResults/functions/getRecipes";
