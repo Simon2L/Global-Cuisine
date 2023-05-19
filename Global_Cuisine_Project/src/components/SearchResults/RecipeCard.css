@@ -5,28 +5,78 @@
     text-transform: uppercase;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 10px;
+    margin: 2px
 }
 .recipe-card img {
-    width: 100%;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .text-container {
-    min-height: 75px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  /* min-height: 75px; */
+  max-height: 50px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .recipe-card h1 {
-    font-size: smaller;
-    color: white;
+  font-size: smaller;
+  color: white;
 }
 .recipe-card a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .recipe-card:hover {
-    transform: translateY(-1px);
-    background-color: #8e3939;
+  transform: translateY(-1px);
+  background-color: #8e3939;
 }
+
+/*v--Taggar--V*/
+
+.tags {
+    font-size: 9px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+    
+}
+
+.vegantag {
+    background-color: #0c7d25;
+    border-radius: 10px;
+    position: relative;
+    inline-size: min-content;
+    padding: 0px 5px 0px 5px;
+    /* margin-top: -150px;  om man vill få in taggarna i bilden*/
+}
+
+.vegantag p {
+    color:white;
+    font-size:xx-small;
+    font-weight: bold;
+}
+
+.glutentag {
+    background-color: #babf1b;;
+    border-radius: 10px;
+    position: relative;
+    inline-size: min-content;
+    padding: 0px 5px 0px 5px;
+}
+
+.glutentag p {
+    color: white;
+    font-size: xx-small;
+    font-weight: bold;
+}
+
+.tagposition {
+    /* position: absolute; */
+    padding: 5px;
+    margin-left: 5px;
+    margin-top: -10px;
+}
+

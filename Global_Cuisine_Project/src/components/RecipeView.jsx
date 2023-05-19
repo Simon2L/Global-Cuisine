@@ -3,16 +3,18 @@ import './RecipeView.css'
 import recipeImage from '../assets/brooke.jpg'
 import { useLocation, useParams } from 'react-router-dom'
 import { useState,useEffect } from 'react';
-import parse from 'html-react-parser'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom'
+import ImageCheck from './ImageCheck';
+import {ClipLoader} from 'react-spinners'
+import comingSoon from './coming-soon.png'
 
 const Similars = () => {
 const params = useParams();
     const [similars, setSimilars] = useState([]);
     const getSimilars = async (id) => {
-    const apiKey = 'e2c73c94740044a697df0291dcb3ff7f';
+    const apiKey = 'f27d562bd85b4cd5a482eb0b9108beeb';
     try {
         const url = `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}`;
         const response = await fetch(url);
@@ -51,14 +53,14 @@ const Wines = ({props}) => {
         return (
         props ?
         <div className='wine-container'>
-        <h2>Wine recommendation:</h2>
+        <h2>Wine suggestions:</h2>
         <h4>{props.pairingText} </h4>                      
                     <ul className='list'>
                             {props.productMatches.map((wine) =>                                
-                                <div key={wine.id} className='wineCard'>                                    
+                                <li key={wine.id} className='wineCard'>                                    
                                         <img src={wine.imageUrl} alt="wine"></img>
                                         <a href={wine.link} target='_blank' className='wineLink'>{wine.title}</a>                                                             
-                                </div>    
+                                </li>    
                         )}                        
               </ul>
                </div> : <></>
@@ -71,7 +73,7 @@ export default function RecipeView() {
     const [recipe,setRecipe] =useState();
     const [wineList, setWineList] = useState();
     const getRecipe = async (id) => {
-    const apiKey = 'e2c73c94740044a697df0291dcb3ff7f';
+    const apiKey = 'f27d562bd85b4cd5a482eb0b9108beeb';
     try {
         const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}&includeNutrition=true`;
         const response = await fetch(url);
@@ -84,40 +86,51 @@ export default function RecipeView() {
       }
     }
 
-  
+   const [checked, setChecked] = useState(false);
+   
+    function handleBox() {
+        setChecked(!checked);        
+    }
+    
 
     useEffect(() => {
-        getRecipe(params.recipeId)       
+        const timer = setTimeout(
+            () => {
+                getRecipe(params.recipeId)
+            },500
+        );
+        return () => clearTimeout(timer);     
     },[])    
-    const summary = '<h3>'+recipe?.summary.split('. ',1)+'</h3>'; // splits and saves the first sentence of summary atribute of the recipe
+    const summary = <h3 dangerouslySetInnerHTML={{__html: recipe?.summary.split('. ',1)}}></h3>; // splits and saves the first sentence of summary atribute of the recipe
     
+
 
         return (
             recipe ?
             <div className="recipe-container">
+                
                 <div className='recipe-info'>
                            
                     <div className="title-container"> 
                         <h1>{recipe.title}</h1>
                         <div className='title-info'>                       
                             <div className='image-container'>                   
-                            <img src={recipe.image} alt="recipe image" 
-                            className='recipe-img' ></img>
+                            <img src={ImageCheck(recipe.image)? comingSoon : recipe.image} className='recipe-img'></img>
                             </div>
                             <div className='summary'>                            
-                                <span>{parse(summary)}</span>
+                                <span>{summary}</span>
                                 <div>
                                     <div>
                                         <h5>Time to prepare</h5>
-                                        <h4>{recipe.readyInMinutes} minutes</h4>
+                                        <p className='similar'>{recipe.readyInMinutes} minutes</p>
                                     </div> 
                                     <div>
                                         <h5>Servings</h5>
-                                        <h4>{recipe.servings} portions</h4>
+                                        <p className='similar'>{recipe.servings} portions</p>
                                     </div> 
                                     <div>
                                         <h6>Health score</h6>
-                                        <h4 className='last'>{recipe.healthScore} points</h4>
+                                        <p className='last similar'>{recipe.healthScore} points</p>
                                     </div>   
                                 </div>                            
                             </div>
@@ -143,15 +156,22 @@ export default function RecipeView() {
                         <hr className='solid' />            
                     <div>
                         <ol className='list'>
-                            {recipe.analyzedInstructions.map((instruction,index) => {
-                                return <div key={index} >
-                                    {instruction.steps.map((step) => <li key={step.number}>
-                                        <span>{step.step}</span></li>)}
+                             {recipe.analyzedInstructions.map((instruction,index) => {
+                                        return <div key={index} >
+                                    {instruction.steps.map((step,index) =>
+                                    <p key={step.number}>
+                                    <input type="checkbox" onChange={handleBox} ></input>
+                                     <label htmlFor='checkbox' className='step'>
+                                        <span>{step.number}. </span>
+                                        <span>{step.step}</span></label>
+                                        </p>)}
                                 </div>
                                 
                             } 
-                            )}                        
+                            )}                                                              
                         </ol>
+                        <h5>You can find more detailed information about this recipe 
+                            <a href={recipe.sourceUrl} target='_blank' className='wineLink'> here</a> !</h5>
                     </div>
                 </div>                
             </div>
@@ -186,7 +206,9 @@ export default function RecipeView() {
                  </div>
                  
                 </div>
-            </div> : <></>
+            </div> : <div className='loader-container'>
+                    <ClipLoader className='loader' />
+            </div>
             
         )
    

@@ -1,0 +1,69 @@
+
+#zero-state {
+    margin: 2rem auto;
+    text-align: center;
+    color: #818181;
+    margin-top: 8rem;
+    margin-bottom: 10rem;
+  }
+  
+  #zero-state a {
+    color: inherit;
+  }
+  
+  #zero-state a:hover {
+    color: #121212;
+  }
+  
+  #zero-state:before {
+    display: block;
+    margin-bottom: 0.5rem;
+    /* content: url("/Global-Cuisine/Global_Cuisine_Project/src/assets/logo-no-background.png"); */
+  }
+
+  .LoadMoreContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .textLoadedRecipes{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+/*V--back to top button--V*/
+
+  #top-btn {
+  display: none; 
+  position: fixed; 
+  bottom: 40px; 
+  right: 50px; 
+  z-index: 50; 
+  border: 2px solid rgb(131, 16, 16);
+  outline: none; 
+  background-color: #AB4545; 
+  color: white; 
+  cursor: pointer; 
+  padding: 5px; 
+  border-radius: 10px; 
+  font-size: 12px; 
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  width:80px;
+  }
+
+  #top-btn:hover {
+    background-color: #913d3d;
+    transform: translateY(-1px);
+  }
+  
+
+  @media screen and (max-width: 800px) {
+    #top-btn {
+      right: 10px;
+      width: 70px;
+    }
+  
+  }
+  
