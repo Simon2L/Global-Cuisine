@@ -1,7 +1,7 @@
 
   // fetch
   const getRecipes = async (search, option, offset) => {
-    const apiKey = "8e011ed87d6c477ab42558ec7da511cc";
+    const apiKey = import.meta.env.VITE_SEARCH;
 
     const PrintFilters = (array) => {
         let filterString = "";
