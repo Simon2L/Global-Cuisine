@@ -14,7 +14,7 @@ const Similars = () => {
 const params = useParams();
     const [similars, setSimilars] = useState([]);
     const getSimilars = async (id) => {
-    const apiKey = 'f27d562bd85b4cd5a482eb0b9108beeb';
+    const apiKey = import.meta.env.VITE_SIMILARRECIPE;
     try {
         const url = `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}`;
         const response = await fetch(url);
@@ -73,7 +73,7 @@ export default function RecipeView() {
     const [recipe,setRecipe] =useState();
     const [wineList, setWineList] = useState();
     const getRecipe = async (id) => {
-    const apiKey = 'f27d562bd85b4cd5a482eb0b9108beeb';
+    const apiKey = import.meta.env.VITE_RECIPE;
     try {
         const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}&includeNutrition=true`;
         const response = await fetch(url);
