@@ -3,7 +3,6 @@ import './RecipeView.css'
 import recipeImage from '../assets/brooke.jpg'
 import { useLocation, useParams } from 'react-router-dom'
 import { useState,useEffect } from 'react';
-import parse from 'html-react-parser'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
 import { Link } from 'react-router-dom'
@@ -15,7 +14,7 @@ const Similars = () => {
 const params = useParams();
     const [similars, setSimilars] = useState([]);
     const getSimilars = async (id) => {
-    const apiKey = 'e2c73c94740044a697df0291dcb3ff7f';
+    const apiKey = 'f27d562bd85b4cd5a482eb0b9108beeb';
     try {
         const url = `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}`;
         const response = await fetch(url);
@@ -74,7 +73,7 @@ export default function RecipeView() {
     const [recipe,setRecipe] =useState();
     const [wineList, setWineList] = useState();
     const getRecipe = async (id) => {
-    const apiKey = 'e2c73c94740044a697df0291dcb3ff7f';
+    const apiKey = 'f27d562bd85b4cd5a482eb0b9108beeb';
     try {
         const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}&includeNutrition=true`;
         const response = await fetch(url);
@@ -102,7 +101,7 @@ export default function RecipeView() {
         );
         return () => clearTimeout(timer);     
     },[])    
-    const summary = '<h3>'+recipe?.summary.split('. ',1)+'</h3>'; // splits and saves the first sentence of summary atribute of the recipe
+    const summary = <h3 dangerouslySetInnerHTML={{__html: recipe?.summary.split('. ',1)}}></h3>; // splits and saves the first sentence of summary atribute of the recipe
     
 
 
@@ -119,19 +118,19 @@ export default function RecipeView() {
                             <img src={ImageCheck(recipe.image)? comingSoon : recipe.image} className='recipe-img'></img>
                             </div>
                             <div className='summary'>                            
-                                <span>{parse(summary)}</span>
+                                <span>{summary}</span>
                                 <div>
                                     <div>
                                         <h5>Time to prepare</h5>
-                                        <h4>{recipe.readyInMinutes} minutes</h4>
+                                        <p className='similar'>{recipe.readyInMinutes} minutes</p>
                                     </div> 
                                     <div>
                                         <h5>Servings</h5>
-                                        <h4>{recipe.servings} portions</h4>
+                                        <p className='similar'>{recipe.servings} portions</p>
                                     </div> 
                                     <div>
                                         <h6>Health score</h6>
-                                        <h4 className='last'>{recipe.healthScore} points</h4>
+                                        <p className='last similar'>{recipe.healthScore} points</p>
                                     </div>   
                                 </div>                            
                             </div>
