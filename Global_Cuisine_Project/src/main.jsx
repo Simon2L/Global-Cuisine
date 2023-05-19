@@ -12,17 +12,18 @@ import RecipeView from './components/RecipeView'
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 import TheTeam from './Pages/TheTeam'
+import ScrollToTop from './components/ScrollToTop';
 
 
 //#region sätter upp Routing
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />, // en error sida om något går fel
+    element: <ScrollToTop><Root /></ScrollToTop>,
+    errorElement: <ScrollToTop><ErrorPage /></ScrollToTop>, // en error sida om något går fel
     children: [
       {
-        index: true, element: <Home /> 
+        index: true, element: <ScrollToTop><Home /></ScrollToTop>
       },
       {
         path: "searched/:search",
@@ -36,7 +37,10 @@ const router = createBrowserRouter([
         path: "recipes/:recipeId", // här visas receptet
         element: 
         <>
-          <RecipeView />
+          <ScrollToTop>
+            <RecipeView />
+          </ScrollToTop>
+          
           
         </>
       },
@@ -44,21 +48,30 @@ const router = createBrowserRouter([
        path: "about",
        element:  
        <>
-       <About />       
+       <ScrollToTop>
+         <About /> 
+       </ScrollToTop>
+            
      </>
       },
       {
         path: "contact",
         element:  
         <>
-       <Contact />
+        <ScrollToTop>
+            <Contact />
+        </ScrollToTop>
+       
       </>
        },
        {
         path: "theTeam",
         element:  
         <>
-       <TheTeam />
+        <ScrollToTop>
+          <TheTeam />
+        </ScrollToTop>
+       
       </>
        }
 ]
@@ -71,7 +84,7 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-      <RouterProvider router={router} />
+  <React.StrictMode>  
+      <RouterProvider router={router} />     
   </React.StrictMode>,
 )
