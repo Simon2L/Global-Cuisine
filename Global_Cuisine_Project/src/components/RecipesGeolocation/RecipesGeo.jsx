@@ -103,7 +103,7 @@ function GeoRecipeCard({recipe}) {
   return(
     <div className='Card'>
       <Link style={linkStyle} to={`recipes/${recipe.id}`}>
-        <img src={recipe.image}></img>
+        <img src={recipe.image} alt="Recipe"></img>
         <div className="tagpositionGeo">
           <div className="vegan">{recipe.vegan ? <Vegan /> : <p></p>}</div>
           <div className="gluten">{recipe.glutenFree ?  <p></p> : <Gluten />}</div>
