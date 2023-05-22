@@ -31,7 +31,7 @@ const Navbar = () => {
                     <Link to="/about">ABOUT</Link>
                     <Link to="/contact">CONTACT</Link>
                 </ul>
-                <button ref={menuRef} className={"hamburger" + (show ? " is-active" : "")} onClick={ () => changeHandle()}>
+                <button name="navigate " ref={menuRef} className={"hamburger" + (show ? " is-active" : "")} onClick={ () => changeHandle()}>
                     <div className="bar"></div>
                 </button>
             </nav>

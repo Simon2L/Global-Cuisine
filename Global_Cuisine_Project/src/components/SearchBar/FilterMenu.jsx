@@ -38,7 +38,7 @@ const FilterMenu = ({ updateOptions, setShowFilter, showFilter, Clear }) => {
 
   return (
     <>
-      <button className="search-form__filter" onClick={() => changeHandle()}>
+      <button name="filter" className="search-form__filter" onClick={() => changeHandle()}>
         <FaAlignLeft />
       </button>
       <aside className={"filter-menu" + (showFilter ? " is-active" : "")}>
