@@ -1,11 +1,8 @@
 
 import './RecipeView.css'
-import recipeImage from '../assets/brooke.jpg'
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useState,useEffect } from 'react';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/splide.min.css";
-import { Link } from 'react-router-dom'
 import ImageCheck from './ImageCheck';
 import {ClipLoader} from 'react-spinners'
 import comingSoon from './coming-soon.png'
@@ -156,9 +153,9 @@ export default function RecipeView() {
                         <hr className='solid' />            
                     <div>
                         <ol className='list'>
-                             {recipe.analyzedInstructions.map((instruction,index) => {
+                             {recipe.analyzedInstructions.map((instruction, index) => {
                                         return <div key={index} >
-                                    {instruction.steps.map((step,index) =>
+                                    {instruction.steps.map((step) =>
                                     <p key={step.number}>
                                     <input type="checkbox" onChange={handleBox} ></input>
                                      <label htmlFor='checkbox' className='step'>

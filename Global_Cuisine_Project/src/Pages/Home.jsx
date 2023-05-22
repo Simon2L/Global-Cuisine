@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Searchbar from '../components/Searchbar'
 import RecipesGeo from '../components/RecipesGeolocation/RecipesGeo'
 import RecipesContainer from '../components/SearchResults/RecipesContainer'
-import { useState } from 'react';
-import {useRef} from 'react';
 import './Home.css'
 import LoadMore from '../components/LoadMore';
 
