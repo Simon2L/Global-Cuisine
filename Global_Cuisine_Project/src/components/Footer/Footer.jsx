@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='sb__footer section__padding'>
             <div className='sb__footer-links'>
                 <div className='sb__footer-links_div'>
-                    <h4>For Business</h4>
+                    <b>For Business</b>
                     <a href="/theTeam">
                         <p>Employer</p>
                     </a>
@@ -18,7 +18,7 @@ const Footer = () => {
                    
                 </div>
                 <div className='sb__footer-links_div'>
-                    <h4>Help</h4>
+                    <b>Help</b>
                     
                     <a href="/contact">
                         <p>Contact us</p>
@@ -26,13 +26,13 @@ const Footer = () => {
                     
                 </div>
                 <div className='sb__footer-links_div'>
-                    <h4>Partner</h4>
+                    <b>Partner</b>
                     <a href="https://spoonacular.com/" target="_blank">
                         <p>Spoonacular</p>
                     </a>
                 </div>
                 <div className='sb__footer-links_div'>
-                    <h4>About Us</h4>
+                    <b>About Us</b>
                     <a href="/about">
                         <p>Summary</p>
                     </a>
@@ -42,7 +42,7 @@ const Footer = () => {
                     
                 </div>
                 <div className='socialmedia'>
-                    <h4>Social Platform</h4>
+                    <b>Social Platform</b>
                     <div>
                         <a href="https://www.youtube.com/watch?v=_ZXeFPpPJeI&ab_channel=ChuckDrake" aria-label="to our youtube" target="_blank"><BsYoutube></BsYoutube></a>
                         <a href="https://twitter.com/" aria-label="to our twitter" target="_blank"><BsTwitter></BsTwitter></a>
