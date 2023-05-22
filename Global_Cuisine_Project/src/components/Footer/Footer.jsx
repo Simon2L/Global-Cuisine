@@ -44,10 +44,10 @@ const Footer = () => {
                 <div className='socialmedia'>
                     <h4>Social Platform</h4>
                     <div>
-                        <a href="https://www.youtube.com/watch?v=_ZXeFPpPJeI&ab_channel=ChuckDrake" target="_blank"><BsYoutube></BsYoutube></a>
-                        <a href="https://twitter.com/" target="_blank"><BsTwitter></BsTwitter></a>
-                        <a href="https://www.instagram.com/" target="_blank"><BsInstagram></BsInstagram></a>
-                        <a href="https://github.com/Simon2L/Global-Cuisine" target="_blank" ><BsGithub></BsGithub></a>   
+                        <a href="https://www.youtube.com/watch?v=_ZXeFPpPJeI&ab_channel=ChuckDrake" aria-label="to our youtube" target="_blank"><BsYoutube></BsYoutube></a>
+                        <a href="https://twitter.com/" aria-label="to our twitter" target="_blank"><BsTwitter></BsTwitter></a>
+                        <a href="https://www.instagram.com/" aria-label="to our instagram" target="_blank"><BsInstagram></BsInstagram></a>
+                        <a href="https://github.com/Simon2L/Global-Cuisine" aria-label="to our github" target="_blank" ><BsGithub></BsGithub></a>   
                     </div>
                 </div>
             </div>

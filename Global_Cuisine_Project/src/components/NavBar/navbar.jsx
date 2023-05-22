@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="container">
             <nav className="navbar">
                 <div className="logo">
-                    <Link to="/"><img src={logotype} alt="Global Cuisine logo"></img></Link>                    
+                    <Link to="/"><img src={logotype} aria-label="to Home" alt="Global Cuisine logo"></img></Link>                    
                 </div>
                 <ul className={"menu" + (show ? " is-active" : "")}>
                     <Link to="/">HOME</Link>
