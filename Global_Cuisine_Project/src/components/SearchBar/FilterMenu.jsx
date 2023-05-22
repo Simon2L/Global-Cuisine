@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { FaAlignLeft, FaTimes, FaChevronRight } from "react-icons/fa";
+import { FaAlignLeft, FaChevronRight } from "react-icons/fa";
 import "./FilterMenu.css";
 import FilterOption from "./FilterOption";
 
@@ -24,7 +23,6 @@ const FilterMenu = ({ updateOptions, setShowFilter, showFilter, Clear }) => {
   // const mealTypes = ["breakfast", "main course", "drink"]
   // const diets = ["Vegetarian", "Vegan", "Gluten Free"]
   // const intolerances = ["Gluten", "Dairy"]
-  const [show, setShow] = useState(false);
 
   const changeHandle = () => {
     setShowFilter(!showFilter);
