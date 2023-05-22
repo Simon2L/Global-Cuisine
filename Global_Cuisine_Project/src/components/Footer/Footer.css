@@ -32,8 +32,12 @@
     color: white;
 }
 
+.footer h4{
+    color: #ffe881 !important;
+}
+
 a{
-    color: rgb(175, 175, 179);
+    color: white;
     text-decoration: none;
 }
 
