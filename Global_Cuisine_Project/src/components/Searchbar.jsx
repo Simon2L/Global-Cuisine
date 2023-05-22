@@ -6,23 +6,35 @@ import FilterMenu from "./SearchBar/FilterMenu";
 import { Form } from "react-router-dom";
 import getRecipes from "./SearchResults/functions/getRecipes";
 
+const Searchbar = ({
+  setRecipes,
+  setOptions,
+  options,
+  search,
+  setSearch,
+  setOffSet,
+  setTotalRecipes,
+}) => {
+  const optionsTemplate = {
+    // hur options ser ut innan några värden har valts
+    region: [],
+    mealtype: [],
+    diet: [],
+    intolerance: [],
+  };
+  const [showFilter, setShowFilter] = useState(false);
+  const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
 
-const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSet, setTotalRecipes}) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let recipeData = await getRecipes(search, options, 0);
+    setRecipes(recipeData.results);
+    setOffSet(24);
+    setTotalRecipes(recipeData.totalResults);
+  };
 
-   
-    const [showFilter, setShowFilter] = useState(false);
-    const [update, setUpdate] = useState(true); // ska bara uppdatera för att orsaka en rerender i slutet av updateOptions-metoden
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      let recipeData = await getRecipes(search, options, 0)
-      setRecipes(recipeData.results);
-      setOffSet(24)
-      setTotalRecipes(recipeData.totalResults)
-    };
-
-
-  const updateOptions = (value, arrName) => { // lägger till value i rätt array(dvs. region, mealtype, diet eller intolerance)
+  const updateOptions = (value, arrName) => {
+    // lägger till value i rätt array(dvs. region, mealtype, diet eller intolerance)
     const arr = options;
 
     if (arrName == "regions") {
@@ -53,9 +65,6 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
 
   const ClearFilters = () => setOptions(optionsTemplate); // återställer options
 
-
-
-
   const SelectedLabels = () => {
     // skriver ut alla valda options
     let labels = [];
@@ -77,10 +86,7 @@ const Searchbar = ({setRecipes, setOptions, options, search, setSearch, setOffSe
       count++;
     }
     return labels;
-
-    
-  }
-
+  };
 
   return (
     <>
