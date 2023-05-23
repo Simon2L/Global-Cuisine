@@ -15,7 +15,9 @@ const RecipesContainer = ({data, total}) => {
     UpdateRecipes(sortType);
   },[sortType])
 
- 
+  useEffect(() => {
+    UpdateRecipes(sortType);
+  }, [data])
 
   const UpdateRecipes = (type) => { 
     let sorted;

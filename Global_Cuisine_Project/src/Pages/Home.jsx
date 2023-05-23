@@ -54,14 +54,14 @@ const BackToTopBtn = () => {
   let myButton = document.getElementById("top-btn");
 
   window.onscroll = () => {
-    scrollFunction()
+    if(myButton !== null) scrollFunction();
   };
 
   function scrollFunction() {
     if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
       myButton.style.display = "block";
     }
-    else {
+    else{
       myButton.style.display = "none";
     }
   }
