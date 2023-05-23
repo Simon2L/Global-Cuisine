@@ -19,11 +19,7 @@ const FilterMenu = ({ updateOptions, setShowFilter, showFilter, Clear }) => {
     diet: ["Vegetarian", "Vegan", "Gluten Free"],
     intolerance: ["Gluten", "Dairy"],
   };
-  // const regions = ["French", "Italian", "Spanish", "Chinese", "Nordic", "American", "Japanese", "Greek"]
-  // const mealTypes = ["breakfast", "main course", "drink"]
-  // const diets = ["Vegetarian", "Vegan", "Gluten Free"]
-  // const intolerances = ["Gluten", "Dairy"]
-
+ 
   const changeHandle = () => {
     setShowFilter(!showFilter);
   };
